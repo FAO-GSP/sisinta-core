@@ -1,10 +1,15 @@
 ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
 require 'rails/test_help'
+# Enable spec DSL
+require 'minitest/spec'
+require 'minitest/pride'
 
-class ActiveSupport::TestCase
-  # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
-  fixtures :all
+# To add Capybara feature tests add `gem "minitest-rails-capybara"`
+# to the test group in the Gemfile and uncomment the following:
+# require "minitest/rails/capybara"
 
-  # Add more helper methods to be used by all tests here...
+class Minitest::Spec
+  # Model initialization helpers
+  include FactoryBot::Syntax::Methods
 end
