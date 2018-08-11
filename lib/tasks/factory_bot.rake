@@ -1,4 +1,5 @@
 # Custom FactoryBot tasks
+
 namespace :factory_bot do
   # Lint all the factories. This should run before the full test suite
   desc 'Verify that all FactoryBot factories are valid'
