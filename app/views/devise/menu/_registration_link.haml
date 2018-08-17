@@ -1,0 +1,11 @@
+// Show icons to create (sign up) or edit a user account for medium (md)
+// viewports, show icons with text for smaller viewports because they collapse
+// and have more space, ironically
+- if user_signed_in?
+  = link_to edit_user_registration_path, class: 'nav-item nav-link', title: t('.account') do
+    %span.fa.fa-cog.fa-fw
+    %span.d-md-none= t('.account')
+- else
+  = link_to new_user_registration_path, class: 'nav-item nav-link', title: t('.sign_up') do
+    %span.fa.fa-user-circle.fa-fw
+    %span.d-md-none= t('.sign_up')

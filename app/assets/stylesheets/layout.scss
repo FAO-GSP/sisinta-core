@@ -1,0 +1,69 @@
+// Styling for layouts, general sections, navbar, etc
+
+// From md and above, search and title must use more space
+@include media-breakpoint-up(md) {
+  .navbar {
+    .title {
+      // Distribute space between .title and .navbar-collapse
+      display: flex;
+      flex-basis: 100%;
+    }
+  }
+
+ .navbar-expand-md {
+   .navbar-collapse {
+     // Make room for icons on dropdown links
+     flex-basis: 100%;
+   }
+ }
+}
+
+// From sm and below
+@include media-breakpoint-down(sm) {
+  // Collapse navbar
+  .navbar {
+    // Hide borders of dropdowns on collapsing
+    .dropdown-menu {
+      border: none;
+    }
+
+    // Make title fluid size
+    .title {
+      width: inherit;
+    }
+  }
+}
+
+// Make some distance between navbar and content
+body {
+  padding-top: $navbar-height;
+
+  nav.navbar {
+    height: $navbar-height;
+  }
+}
+
+// Brand styling
+.navbar-brand {
+  font-size: 1.5rem;
+
+  img {
+    height: $navbar-height - 1rem;
+
+    // A small separation between brands
+    &:first-child {
+      padding-right: 0.5rem;
+      border-right: 1px solid #ffffff;
+    }
+  }
+
+  a {
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+nav.navbar {
+  background-color: $primary;
+}

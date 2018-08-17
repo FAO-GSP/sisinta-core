@@ -4,7 +4,7 @@
     %meta{ charset: 'utf-8' }
     %meta{ name: 'viewport', content: 'width=device-width, initial-scale=1, shrink-to-fit=no' }
 
-    %title App title
+    %title= app_name
 
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
 
@@ -14,6 +14,8 @@
     = csp_meta_tag
 
   %body
+    = render 'layouts/navbar'
+
     -# Fixed height container for full screen map
     #main-container.container-fluid
       = yield

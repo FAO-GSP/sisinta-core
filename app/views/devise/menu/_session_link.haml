@@ -1,0 +1,11 @@
+// Show icons for signing in or out for medium (md) viewports, show icons with
+// text for smaller viewports because they collapse and have more space,
+// ironically
+- if user_signed_in?
+  = link_to destroy_user_session_path, method: :delete, class: 'logout nav-item nav-link', title: t('.sign_out') do
+    %span.fa.fa-sign-out.fa-fw
+    %span.d-md-none= t('.sign_out')
+- else
+  = link_to new_user_session_path, class: 'nav-item nav-link', title: t('.sign_in') do
+    %span.fa.fa-sign-in.fa-fw
+    %span.d-md-none= t('.sign_in')

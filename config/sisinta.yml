@@ -1,0 +1,20 @@
+default: &default
+  brand:
+    name: 'SiSINTA'
+    url: 'http://sisinta.inta.gob.ar'
+    contact: 'sisinta@inta.gob.ar'
+  core_engine: 'sisar'
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+
+production:
+  <<: *default
+  brand:
+    name: <%= ENV['SISINTA_BRAND_NAME'] %>
+    url: <%= ENV['SISINTA_BRAND_URL'] %>
+    contact: <%= ENV['SISINTA_BRAND_CONTACT'] %>
+  core_engine: <%= ENV['SISINTA_CORE_ENGINE'] %>
