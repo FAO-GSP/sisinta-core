@@ -4,6 +4,6 @@ FactoryBot.define do
   # Minimal requirements for validation
   factory :user do
     email
-    password 'correct horse battery staple'
+    password { 'correct horse battery staple' }
   end
 end
