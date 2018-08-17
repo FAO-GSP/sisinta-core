@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  root to: 'devise/sessions#new'
+  root to: 'map#index'
+
+  get 'map/index'
 
   # User management engine with sessions, passwords, registrations and
   # confirmations
