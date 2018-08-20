@@ -1,0 +1,22 @@
+---
+es:
+  devise:
+    menu:
+      registration_link:
+        account: Cuenta
+        sign_up: Registrarse
+      session_link:
+        sign_in: Entrar
+        sign_out: Salir
+  layouts:
+    admin_link:
+      admin_panel: Administración
+    menu:
+      languages:
+        title: Inicio
+    navbar:
+      contact: Contacto
+      search: Búsqueda
+  map:
+    index:
+      title: Inicio

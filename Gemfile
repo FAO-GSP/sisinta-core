@@ -18,6 +18,10 @@ gem 'haml-rails'
 # Customization engine
 gem 'sisar', path: '../sisar'
 
+# I18n
+gem 'rails-i18n'
+gem 'devise-i18n'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -62,6 +66,9 @@ group :development do
   # background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+
+  # Find and manage missing/unused translations
+  gem 'i18n-tasks'
 end
 
 group :test do
