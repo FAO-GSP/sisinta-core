@@ -1,52 +1,52 @@
--# Global navigation bar
+-# Global navigation bar.
 %nav.navbar.navbar-dark.fixed-top.navbar-expand-md
   -# Logo, title and collapse button must be in order
-  -# Logo and branding
+  -# Logo and branding.
   .navbar-brand
     = link_to app_url do
       = brand_tag
     = link_to root_path, class: 'text-light' do
       .d-none.d-md-inline= app_name 
 
-  -# Switch between page specific title and search form
+  -# Switch between page specific title and search form.
   %span.title
     .show-search.show-on-resize.w-100.show.collapse.fade
       .navbar-text= page_title
     .show-search.hide-on-resize.w-100.collapse.fade
       =# render 'layouts/search'
 
-  -# Button for collapsing the menu on small screens
+  -# Button for collapsing the menu on small screens.
   %button.navbar-toggler.navbar-toggler-right{ type: 'button', data: { toggle: 'collapse', target: '.navbar-collapse' } }
     %span.navbar-toggler-icon
 
   .collapse.navbar-collapse
-    -# Global search
+    -# Global search.
     .navbar-nav.justify-content-end.ml-auto
       .d-md-none=# render 'layouts/search'
     .dropdown-divider
 
-    -# Navigation menu
+    -# Navigation menu.
     .navbar-nav.show-search.show-on-resize.show.collapse.fade
       = render 'layouts/menu'
     .dropdown-divider
 
-    -# Icon menu
+    -# Icon menu.
     .navbar-nav
-      -# Sign up/Account
+      -# Sign up/Account.
       = render 'devise/menu/registration_link'
 
-      -# Admin panel
+      -# Admin panel.
       = render 'layouts/admin_link'
 
-      -# Sign in/out
+      -# Sign in/out.
       = render 'devise/menu/session_link'
 
-      -# Contact
+      -# Contact.
       = mail_to contact_email, class: 'nav-item nav-link', title: t('.contact') do
         %span.fa.fa-envelope.fa-fw
         %span.d-md-none= t('.contact')
 
-      -# Show/hide search form
+      -# Show/hide search form.
       = link_to '#', class: 'd-none d-md-inline nav-item nav-link', title: t('.search'),
         data: { target: '.show-search', toggle: 'collapse' }, aria: { expanded: 'false' } do
         %span.fa.fa-search.fa-fw

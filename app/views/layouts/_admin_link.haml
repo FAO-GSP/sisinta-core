@@ -1,4 +1,4 @@
--# Icon for accessing admin panel
+-# Icon for accessing admin panel.
 - if current_user.try(:admin?)
   = link_to 'admin_root_path', class: 'nav-item nav-link', title: t('.admin_panel') do
     %span.fa.fa-user-plus.fa-fw

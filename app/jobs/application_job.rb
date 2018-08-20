@@ -1,4 +1,4 @@
-# Base job class
+# Base job class.
 
 class ApplicationJob < ActiveJob::Base
 end

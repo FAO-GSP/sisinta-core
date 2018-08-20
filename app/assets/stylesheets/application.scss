@@ -1,8 +1,9 @@
-// Modifying bootstrap requires a .scss manifest, and using imports instead of requires
+// Modifying bootstrap requires a .scss manifest, and using imports instead of
+// requires.
 
-// Bootstrap related
+// Bootstrap related.
 @import 'bootstrap/scss/bootstrap';
 
-// App defined styles
+// App defined styles.
 @import 'variables';
 @import 'layout';
