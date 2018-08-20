@@ -14,4 +14,14 @@ require 'minitest/pride'
 class Minitest::Spec
   # Model initialization helpers
   include FactoryBot::Syntax::Methods
+
+  before :each do
+    # Start a transaction (default method for ActiveRecord)
+    DatabaseCleaner.start
+  end
+
+  after :each do
+    # Rollback the transaction
+    DatabaseCleaner.clean
+  end
 end
