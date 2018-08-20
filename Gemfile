@@ -15,6 +15,9 @@ gem 'puma', '~> 3.11'
 
 # UI
 gem 'haml-rails'
+# Customization engine
+gem 'sisar', path: '../sisar'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets

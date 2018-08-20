@@ -14,7 +14,13 @@ module ApplicationHelper
   end
 
   def brand_tag
-    image_tag "#{Rails.configuration.x['core_engine']}/app.svg", alt: app_name
+    # brand_logo must be defined on the customization engine
+    image_tag brand_logo, alt: app_name
+  end
+
+  # Reverse title and app order for useful tab names in browsers
+  def application_title
+    [page_title, app_name].reject(&:nil?).join(' | ')
   end
 
   # Each page that wants a title should provide it
