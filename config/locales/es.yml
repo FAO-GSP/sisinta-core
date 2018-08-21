@@ -1,9 +1,6 @@
 ---
 es:
   devise:
-    sessions:
-      new:
-        submit: Iniciar sesión
     menu:
       registration_link:
         account: Cuenta
@@ -11,6 +8,9 @@ es:
       session_link:
         sign_in: Entrar
         sign_out: Salir
+    sessions:
+      new:
+        submit: Iniciar sesión
   layouts:
     admin_link:
       admin_panel: Administración
@@ -20,6 +20,8 @@ es:
     navbar:
       contact: Contacto
       search: Búsqueda
+    search:
+      search_by: Fecha o Grupo
   map:
     index:
       title: Inicio
