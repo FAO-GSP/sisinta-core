@@ -12,4 +12,10 @@ class UserTest < ActiveSupport::TestCase
       build(:user, password: 'some password').must_be :valid?
     end
   end
+
+  describe 'admin' do
+    it 'defaults to false' do
+      User.new.wont_be :admin?
+    end
+  end
 end
