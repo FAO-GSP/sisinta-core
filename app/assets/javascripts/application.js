@@ -9,8 +9,15 @@
 //
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
-//
+///
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
+//
+// Jquery and popper.js are required for bootstrap tooltips, dropdowns and
+// popovers, among other components
+//= require jquery/dist/jquery
+//= require popper.js/dist/umd/popper
+//= require bootstrap/dist/js/bootstrap
+//
 //= require_tree .

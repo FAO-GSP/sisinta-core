@@ -27,4 +27,9 @@ module ApplicationHelper
   def page_title
     content_for :page_title
   end
+
+  # Profile attributes to query with global search
+  def global_search_query
+    :date_or_order_cont
+  end
 end
