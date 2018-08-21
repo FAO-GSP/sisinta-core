@@ -1,10 +1,10 @@
 require 'application_system_test_case'
 
 class MapTest < ApplicationSystemTestCase
-  test 'has map' do
+  test 'has required markup' do
     visit map_index_path
 
-    assert page.has_css?('#container-map')
-    assert page.has_css?('#map')
+    assert_selector '#container-map'
+    assert_selector '#map'
   end
 end

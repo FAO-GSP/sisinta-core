@@ -1,6 +1,9 @@
 ---
 es:
   devise:
+    sessions:
+      new:
+        submit: Iniciar sesión
     menu:
       registration_link:
         account: Cuenta
@@ -13,7 +16,7 @@ es:
       admin_panel: Administración
     menu:
       languages:
-        title: Inicio
+        title: Idioma
     navbar:
       contact: Contacto
       search: Búsqueda

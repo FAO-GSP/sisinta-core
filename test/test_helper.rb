@@ -25,3 +25,8 @@ class Minitest::Spec
     DatabaseCleaner.clean
   end
 end
+
+class ActionDispatch::IntegrationTest
+  # Model initialization helpers
+  include FactoryBot::Syntax::Methods
+end
