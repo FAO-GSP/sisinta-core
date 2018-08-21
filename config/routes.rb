@@ -7,5 +7,8 @@ Rails.application.routes.draw do
   # confirmations
   devise_for :users
 
+  # Administration Panel
+  ActiveAdmin.routes(self)
+
   resources :profiles, only: [:index, :show]
 end
