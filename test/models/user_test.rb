@@ -11,6 +11,11 @@ class UserTest < ActiveSupport::TestCase
       build(:user, password: nil).wont_be :valid?
       build(:user, password: 'some password').must_be :valid?
     end
+
+    it 'requires a name' do
+      build(:user, name: nil).wont_be :valid?
+      build(:user, name: 'Juan Salvo').must_be :valid?
+    end
   end
 
   describe 'admin' do
