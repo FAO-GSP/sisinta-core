@@ -10,7 +10,7 @@ class ProfileTest < ActiveSupport::TestCase
     end
   end
 
-  describe 'public' do
+  describe '#public' do
     it 'defaults to true' do
       Profile.new.must_be :public?
     end

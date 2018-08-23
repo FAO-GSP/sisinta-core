@@ -1,9 +1,11 @@
 require 'test_helper'
 
 class MapControllerTest < ActionDispatch::IntegrationTest
-  test 'it gets index' do
-    get map_index_url
+  describe '#index' do
+    it 'gets a response' do
+      get map_index_url
 
-    assert_response :success
+      must_respond_with :success
+    end
   end
 end

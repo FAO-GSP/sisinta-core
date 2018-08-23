@@ -18,7 +18,7 @@ class UserTest < ActiveSupport::TestCase
     end
   end
 
-  describe 'admin' do
+  describe '#admin' do
     it 'defaults to false' do
       User.new.wont_be :admin?
     end

@@ -1,15 +1,21 @@
 require 'test_helper'
 
 class ProfilesControllerTest < ActionDispatch::IntegrationTest
-  test 'should get index' do
-    get profiles_path
+  let(:profile) { create :profile }
 
-    assert_response :success
+  describe '#index' do
+    it 'gets a response' do
+      get profiles_path
+
+      must_respond_with :success
+    end
   end
 
-  test 'should get show' do
-    get profile_path create(:profile).to_param
+  describe '#show' do
+    it 'gets a response' do
+      get profile_path profile.to_param
 
-    assert_response :success
+      must_respond_with :success
+    end
   end
 end
