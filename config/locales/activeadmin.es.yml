@@ -1,0 +1,20 @@
+# This is needed until activeadmin releases a new gem version
+---
+es:
+  activerecord:
+    models:
+      comment: "Comentario"
+      active_admin/comment:
+        one: "Comentario"
+        other: "Comentarios"
+    attributes:
+      active_admin/comment:
+        namespace: "Espacio de nombres"
+        body: "Cuerpo"
+        resource_type: "Tipo de recurso"
+        author_type: "Tipo de autor"
+        created_at: "Fecha de creación"
+        updated_at: "Fecha de actualización"
+  active_admin:
+    scopes:
+      all: "Todos"

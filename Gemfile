@@ -23,10 +23,13 @@ gem 'sisar', path: '../sisar'
 gem 'ransack'
 # Model Decorators
 gem 'draper'
+# Pagination
+gem 'kaminari'
 
 # I18n
 gem 'rails-i18n'
 gem 'devise-i18n'
+gem 'kaminari-i18n'
 
 # Administration
 gem 'activeadmin'
