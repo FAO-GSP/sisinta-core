@@ -1,5 +1,9 @@
 ---
 es:
+  admin:
+    dashboard:
+      admin_users: Administradores
+      how_to_translate: Cómo traducir
   devise:
     menu:
       registration_link:

@@ -21,6 +21,8 @@ gem 'haml-rails'
 gem 'sisar', path: '../sisar'
 # Basic search features
 gem 'ransack'
+# Model Decorators
+gem 'draper'
 
 # I18n
 gem 'rails-i18n'
