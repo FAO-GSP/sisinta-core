@@ -19,4 +19,8 @@
 
     -# Fixed height container for full screen map.
     #main-container.container-fluid
+      #notifications
+        - flash.each do |name, msg|
+          = "#{name}: #{msg}"
+
       = yield
