@@ -1,0 +1,26 @@
+# This is needed until both activeadmin and devise-i18n release a new gem
+# version
+---
+en:
+  activerecord:
+    models:
+      comment:
+        one: Comment
+        other: Comments
+      user:
+        one: User
+        other: Users
+      active_admin/comment:
+        one: Comment
+        other: Comments
+    attributes:
+      active_admin/comment:
+        namespace: Namespace
+        body: Body
+        resource_type: Resource type
+        author_type: Author type
+        created_at: Created at
+        updated_at: Updated at
+  active_admin:
+    scopes:
+      all: All

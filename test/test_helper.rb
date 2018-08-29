@@ -33,3 +33,12 @@ class ActionDispatch::IntegrationTest
   # Model initialization helpers
   include FactoryBot::Syntax::Methods
 end
+
+module ActionDispatch::Integration
+  class Session
+    # Sets up current locale as default for url_helpers mimicking ApplicationController
+    def default_url_options
+      { locale: I18n.locale }
+    end
+  end
+end
