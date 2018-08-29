@@ -39,5 +39,14 @@ class LayoutTest < ApplicationSystemTestCase
 
       page.wont_have_link href: admin_root_path
     end
+
+    it 'is accessible only for admins' do
+      login user
+
+      visit admin_root_path
+
+      page.must_have_content I18n.t('active_admin.access_denied.message')
+      current_path.must_equal root_path
+    end
   end
 end
