@@ -4,5 +4,4 @@
   = link_to t('.languages.title'), '#', class: 'nav-item nav-link dropdown-toggle', data: { toggle: 'dropdown' }
   .dropdown-menu
     - I18n.available_locales.each do |locale|
-      -# url_for reuses current path.
-      = link_to locale, url_for(locale: locale), class: 'dropdown-item'
+      = link_to_locale locale

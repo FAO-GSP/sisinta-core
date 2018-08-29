@@ -163,6 +163,7 @@ GEM
       parser (>= 2.2.3.0)
       rainbow (>= 2.2.2, < 4.0)
       terminal-table (>= 1.5.1)
+    i18n_data (0.8.0)
     inherited_resources (1.9.0)
       actionpack (>= 4.2, < 5.3)
       has_scope (~> 0.6)
@@ -342,6 +343,7 @@ DEPENDENCIES
   factory_bot_rails
   haml-rails
   i18n-tasks
+  i18n_data
   jbuilder (~> 2.5)
   kaminari
   kaminari-i18n

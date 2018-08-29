@@ -32,4 +32,19 @@ module ApplicationHelper
   def global_search_query
     :date_or_order_cont
   end
+
+  # Creates a link which switches to a specific locale
+  def link_to_locale(locale)
+    # url_for reuses current path.
+    link_to "#{localized_locale_name(locale)} (#{locale})",
+      url_for(locale: locale), class: 'dropdown-item'
+  end
+
+  # Returns a locale name translated to the original language
+  def localized_locale_name(locale)
+    upcased_locale = locale.to_s.upcase
+
+    # Normalizes string of languages names
+    I18nData.languages(upcased_locale)[upcased_locale].split(';').map(&:strip).first
+  end
 end
