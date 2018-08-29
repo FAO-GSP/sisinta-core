@@ -1,3 +1,7 @@
+# User administration menu
+#
+# i18n-tasks-use t('activerecord.attributes.user.admin')
+# i18n-tasks-use t('activerecord.attributes.user.name')
 ActiveAdmin.register User do
   permit_params :email, :password, :password_confirmation
 
@@ -5,6 +9,8 @@ ActiveAdmin.register User do
     selectable_column
     id_column
     column :email
+    column :name
+    column :admin
     column :current_sign_in_at
     column :sign_in_count
     column :created_at
@@ -12,6 +18,8 @@ ActiveAdmin.register User do
   end
 
   filter :email
+  filter :name
+  filter :admin
   filter :current_sign_in_at
   filter :sign_in_count
   filter :created_at
@@ -19,10 +27,11 @@ ActiveAdmin.register User do
   form do |f|
     f.inputs do
       f.input :email
+      f.input :name
+      f.input :admin
       f.input :password
       f.input :password_confirmation
     end
     f.actions
   end
-
 end

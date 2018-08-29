@@ -1,9 +1,15 @@
-# This is needed until activeadmin releases a new gem version
+# This is needed until both activeadmin and devise-i18n release a new gem
+# version
 ---
 es:
   activerecord:
     models:
-      comment: "Comentario"
+      comment:
+        one: "Comentario"
+        other: "Comentarios"
+      user:
+        one: "Usuario"
+        other: "Usuarios"
       active_admin/comment:
         one: "Comentario"
         other: "Comentarios"

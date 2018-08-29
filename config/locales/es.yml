@@ -1,5 +1,22 @@
 ---
 es:
+  activerecord:
+    attributes:
+      profile:
+        created_at: Fecha de creación
+        date: Fecha
+        identifier: Identificador
+        order: Orden
+        public: Público
+        updated_at: Fecha de actualización
+        user: Creador
+      user:
+        admin: Administrador
+        name: Nombre
+    models:
+      profile:
+        one: Perfil
+        other: Perfiles
   admin:
     dashboard:
       admin_users: Administradores

@@ -4,4 +4,5 @@ class Profile < ApplicationRecord
   belongs_to :user
 
   validates :user, presence: true
+  validates :identifier, uniqueness: { scope: :user_id, allow_nil: true }
 end
