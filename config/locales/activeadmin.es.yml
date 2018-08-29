@@ -5,22 +5,22 @@ es:
   activerecord:
     models:
       comment:
-        one: "Comentario"
-        other: "Comentarios"
+        one: Comentario
+        other: Comentarios
       user:
-        one: "Usuario"
-        other: "Usuarios"
+        one: Usuario
+        other: Usuarios
       active_admin/comment:
-        one: "Comentario"
-        other: "Comentarios"
+        one: Comentario
+        other: Comentarios
     attributes:
       active_admin/comment:
-        namespace: "Espacio de nombres"
-        body: "Cuerpo"
-        resource_type: "Tipo de recurso"
-        author_type: "Tipo de autor"
-        created_at: "Fecha de creación"
-        updated_at: "Fecha de actualización"
+        namespace: Espacio de nombres
+        body: Cuerpo
+        resource_type: Tipo de recurso
+        author_type: Tipo de autor
+        created_at: Fecha de creación
+        updated_at: Fecha de actualización
   active_admin:
     scopes:
-      all: "Todos"
+      all: Todos

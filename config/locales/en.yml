@@ -1,0 +1,48 @@
+---
+en:
+  activerecord:
+    attributes:
+      profile:
+        created_at: Created at
+        date: Date
+        identifier: Identifier
+        order: Order
+        public: Public
+        updated_at: Updated at
+        user: Uploader
+      user:
+        admin: Admin
+        name: Name
+    models:
+      profile:
+        one: Profile
+        other: Profiles
+  admin:
+    dashboard:
+      admin_users: Admin Users
+      how_to_translate: How to translate
+  devise:
+    menu:
+      registration_link:
+        account: Account
+        sign_up: Sign up
+      session_link:
+        sign_in: Sign in
+        sign_out: Sign out
+    sessions:
+      new:
+        submit: Log in
+  layouts:
+    admin_link:
+      admin_panel: Admin Panel
+    menu:
+      languages:
+        title: Language
+    navbar:
+      contact: Contact
+      search: Search
+    search:
+      search_by: Date or Order
+  map:
+    index:
+      title: Welcome
