@@ -36,5 +36,19 @@ ActiveAdmin.setup do |config|
   config.namespace :admin do |admin|
     # Allowed download options
     admin.download_links = [:csv, :json]
+
+    admin.build_menu :utility_navigation do |menu|
+      # Adds a language selection menu
+      menu.add label: proc { I18n.t('layouts.menu.languages.title') }, id: 'languages' do |item|
+        I18n.available_locales.each do |locale|
+          item.add label: ApplicationHelper.localized_locale_name(locale),
+            url: proc { url_for(locale: locale) }
+        end
+      end
+
+      # Keep the defaults
+      admin.add_current_user_to_menu menu
+      admin.add_logout_button_to_menu menu
+    end
   end
 end
