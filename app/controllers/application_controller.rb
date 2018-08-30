@@ -19,7 +19,8 @@ class ApplicationController < ActionController::Base
 
   # Sets up the locale for this request
   def setup_locale
-    # It is safe to assign because it is restricted to available locales by routes
+    # It is safe to assign because it is restricted to available locales and a
+    # default is set by routes
     I18n.locale = params[:locale]
   end
 
