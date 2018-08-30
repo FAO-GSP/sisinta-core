@@ -47,4 +47,5 @@ module ApplicationHelper
     # Normalizes string of languages names
     I18nData.languages(upcased_locale)[upcased_locale].split(';').map(&:strip).first
   end
+  module_function :localized_locale_name
 end

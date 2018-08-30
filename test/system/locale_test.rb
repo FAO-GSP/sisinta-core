@@ -14,9 +14,6 @@ class LocaleTest < ApplicationSystemTestCase
   end
 
   describe 'selecting a locale' do
-    # Access to `localized_locale_name` helper
-    include ApplicationHelper
-
     it 'can select locale by url' do
       visit root_path(locale: :en)
 
@@ -28,17 +25,17 @@ class LocaleTest < ApplicationSystemTestCase
 
       I18n.available_locales.each do |locale|
         page.wont_have_content locale
-        page.wont_have_content localized_locale_name(locale)
+        page.wont_have_content ApplicationHelper.localized_locale_name(locale)
       end
 
       click_link I18n.t('layouts.menu.languages.title')
 
       I18n.available_locales.each do |locale|
         page.must_have_content locale
-        page.must_have_content localized_locale_name(locale)
+        page.must_have_content ApplicationHelper.localized_locale_name(locale)
       end
 
-      click_link localized_locale_name(:en)
+      click_link ApplicationHelper.localized_locale_name(:en)
 
       page.must_have_content I18n.t('layouts.menu.languages.title', locale: :en)
     end
