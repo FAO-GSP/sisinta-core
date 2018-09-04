@@ -38,6 +38,10 @@ Rails.application.configure do
   # Default host for Devise
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
+  # Mailcatcher smtp server (check mails at localhost:1080). Don't put it in Gemfile
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = { address: 'localhost', port: 1025 }
+
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
