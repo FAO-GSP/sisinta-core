@@ -2,6 +2,7 @@
 
 class ApplicationController < ActionController::Base
   before_action :setup_locale, :setup_global_search
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
   # ActiveAdmin check for a logged-in user with admin rights
   def authenticate_admin!
@@ -33,5 +34,12 @@ class ApplicationController < ActionController::Base
   def access_denied
     flash[:alert] = I18n.t 'active_admin.access_denied.message'
     redirect_to root_path
+  end
+
+  # Extend default devise params
+  def configure_permitted_parameters
+    # Add `name` to registration actions
+    devise_parameter_sanitizer.permit :sign_up, keys: [:name]
+    devise_parameter_sanitizer.permit :account_update, keys: [:name]
   end
 end
