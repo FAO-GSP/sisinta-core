@@ -5,8 +5,8 @@ ActiveAdmin.setup do |config|
   # FIXME Get favicon from Customization Gem
   # config.favicon = 'favicon.ico'
 
-  # Generates a link to root_path from the title
-  config.site_title_link = :root
+  # Generates a link to localized_root_path from the title
+  config.site_title_link = :localized_root
 
   # Check for a logged-in user with admin rights
   config.authentication_method = :authenticate_admin!

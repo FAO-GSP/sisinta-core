@@ -4,7 +4,7 @@ class LayoutTest < ApplicationSystemTestCase
   let(:user) { create :user, :confirmed }
   let(:admin) { create :admin, :confirmed }
 
-  before { visit root_path }
+  before { visit localized_root_path }
 
   describe 'search' do
     it 'can be toggled' do
@@ -46,7 +46,7 @@ class LayoutTest < ApplicationSystemTestCase
       visit admin_root_path
 
       page.must_have_content I18n.t('active_admin.access_denied.message')
-      current_path.must_equal root_path
+      current_path.must_equal localized_root_path
     end
   end
 end

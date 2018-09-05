@@ -1,7 +1,13 @@
 require 'application_system_test_case'
 
 class LocaleTest < ApplicationSystemTestCase
-  describe 'default' do
+  describe 'root_path' do
+    it 'redirects to localized_root_path' do
+      visit root_path
+
+      current_path.must_equal localized_root_path
+    end
+
     it 'defaults to spanish' do
       visit root_path
 
@@ -15,13 +21,13 @@ class LocaleTest < ApplicationSystemTestCase
 
   describe 'selecting a locale' do
     it 'can select locale by url' do
-      visit root_path(locale: :en)
+      visit localized_root_path(locale: :en)
 
       page.must_have_content I18n.t('layouts.menu.languages.title', locale: :en)
     end
 
     it 'can select locale by menu items' do
-      visit root_path
+      visit localized_root_path
 
       I18n.available_locales.each do |locale|
         page.wont_have_content locale

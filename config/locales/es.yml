@@ -29,9 +29,6 @@ es:
       session_link:
         sign_in: Entrar
         sign_out: Salir
-    sessions:
-      new:
-        submit: Iniciar sesión
   layouts:
     admin_link:
       admin_panel: Administración

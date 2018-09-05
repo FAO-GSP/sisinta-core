@@ -14,7 +14,20 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
       fill_in 'user_email', with: user.email
       fill_in 'user_password', with: user.password
 
-      click_button I18n.t('devise.sessions.new.submit')
+      click_button I18n.t('devise.sessions.new.sign_in')
+    end
+  end
+
+  def sign_up(user)
+    visit new_user_registration_path
+
+    within 'form#new_user' do
+      fill_in 'user_email', with: subject.email
+      fill_in 'user_name', with: subject.name
+      fill_in 'user_password', with: subject.password
+      fill_in 'user_password_confirmation', with: subject.password
+
+      click_button I18n.t('devise.registrations.new.sign_up')
     end
   end
 end

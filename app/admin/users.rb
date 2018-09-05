@@ -1,4 +1,4 @@
-# User administration menu
+# User administration menu.
 #
 # i18n-tasks-use t('activerecord.attributes.user.admin')
 # i18n-tasks-use t('activerecord.attributes.user.name')

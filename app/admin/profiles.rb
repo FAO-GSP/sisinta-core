@@ -1,6 +1,6 @@
-# Profile administration menu
+# Profile administration menu.
 #
-# Dynamic translation strings used
+# Dynamic translation strings used.
 # i18n-tasks-use t('activerecord.models.profile')
 # i18n-tasks-use t('activerecord.attributes.profile.created_at')
 # i18n-tasks-use t('activerecord.attributes.profile.date')
