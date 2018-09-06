@@ -14,6 +14,11 @@ gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 
+# Models
+# GIS tools
+gem 'rgeo'
+gem 'activerecord-postgis-adapter'
+
 # UI
 # Templating engine
 gem 'haml-rails'
