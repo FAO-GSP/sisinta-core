@@ -7,7 +7,7 @@ RGeo::ActiveRecord::SpatialFactoryStore.instance.tap do |config|
   # is called EPSG:3857 and is used in a projected factory to produce data
   # compatible with web mapping systems.
   #
-  # Latitudes are restricted to the range (-85.05112877980659, 85.05112877980659),
+  # Latitudes are restricted to the range (-85.0511287, 85.0511287),
   # which results in a square projected domain.
   config.default = RGeo::Geographic.simple_mercator_factory
 end

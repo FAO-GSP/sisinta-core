@@ -16,6 +16,32 @@ describe Location do
 
       build(:location, profile: existing.profile).wont_be :valid?
     end
+
+    it 'requires latitude within certain range' do
+      valid = %w{85.0511287 50 0 -50 -85.0511287}
+      invalid = %w{90 85.05112870001 -85.05112870001 -90}
+
+      valid.each do |value|
+        build(:location, latitude: value, longitude: 0).must_be :valid?, value
+      end
+
+      invalid.each do |value|
+        build(:location, latitude: value, longitude: 0).wont_be :valid?, value
+      end
+    end
+
+    it 'requires longitude within certain range' do
+      valid = %w{180 50 0 -50 -180}
+      invalid = %w{180.0001 -180.0001}
+
+      valid.each do |value|
+        build(:location, longitude: value, latitude: 0).must_be :valid?, value
+      end
+
+      invalid.each do |value|
+        build(:location, longitude: value, latitude: 0).wont_be :valid?, value
+      end
+    end
   end
 
   describe '#coordinates' do

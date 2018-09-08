@@ -2,9 +2,15 @@
 class Location < ApplicationRecord
   belongs_to :profile
 
-  attr_accessor :latitude, :longitude
+  attribute :latitude, :decimal
+  attribute :longitude, :decimal
 
   validates :profile, presence: true, uniqueness: true
+
+  # Latitudes are restricted to the range (-85.0511287, 85.0511287)
+  # because it results in a square projected domain.
+  validates :latitude, inclusion: { within: -85.0511287..85.0511287, allow_nil: true }
+  validates :longitude, inclusion: { within: -180..180, allow_nil: true }
 
   after_initialize :load_latitude_and_longitude
   before_save :update_coordinates
