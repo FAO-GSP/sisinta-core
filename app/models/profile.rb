@@ -2,7 +2,10 @@
 # similar point of interest.
 class Profile < ApplicationRecord
   belongs_to :user
+  has_one :location
 
   validates :user, presence: true
   validates :identifier, uniqueness: { scope: :user_id, allow_nil: true }
+
+  accepts_nested_attributes_for :location
 end

@@ -1,6 +1,8 @@
 require 'test_helper'
 
-class ProfileTest < ActiveSupport::TestCase
+describe Profile do
+  subject { create :profile }
+
   describe 'validations' do
     let(:user) { create :user }
 
@@ -27,6 +29,17 @@ class ProfileTest < ActiveSupport::TestCase
   describe '#public' do
     it 'defaults to true' do
       Profile.new.must_be :public?
+      subject.must_be :public?
+    end
+  end
+
+  describe '#location' do
+    it 'can create a location' do
+      subject.location.must_be :nil?
+
+      subject.update location_attributes: attributes_for(:location, :geolocated)
+
+      subject.reload.location.wont_be :nil?
     end
   end
 end

@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class UserTest < ActiveSupport::TestCase
+describe User do
   describe 'validations' do
     it 'requires an email' do
       build(:user, email: nil).wont_be :valid?
