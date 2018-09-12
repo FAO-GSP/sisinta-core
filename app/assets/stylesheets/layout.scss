@@ -33,6 +33,17 @@
     }
   }
 
+  // Hide row selector
+  .pagination {
+    &.row-count-selector {
+      display: none;
+    }
+
+    &.page-selector {
+      margin-right: ($grid-gutter-width / 2);
+    }
+  }
+
   // Hide table header in index pages
   .index-header {
     display: none;
@@ -79,4 +90,12 @@ nav.navbar {
   min-height: 3rem;
   // Leave the same margin with navbar than map controls
   margin-top: 10px;
+}
+
+.pagination {
+  // Space between row and page selectors
+  &.row-count-selector {
+    margin-left: ($grid-gutter-width / 2);
+    margin-right: ($grid-gutter-width / 2);
+  }
 }

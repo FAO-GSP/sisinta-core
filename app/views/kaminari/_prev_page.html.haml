@@ -1,0 +1,7 @@
+%li.page-item{ class: current_page.first? ? 'disabled' : '' }
+  = link_to t('kaminari.pagination.previous.icon'), url,
+    rel: 'prev',
+    remote: remote,
+    class: 'page-link',
+    title: t('kaminari.pagination.previous.text'),
+    disabled: current_page.first?

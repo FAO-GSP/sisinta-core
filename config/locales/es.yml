@@ -30,6 +30,22 @@ es:
       session_link:
         sign_in: Entrar
         sign_out: Salir
+  kaminari:
+    pagination:
+      first:
+        icon: "«"
+        text: Primera
+      last:
+        icon: "»"
+        text: Última
+      next:
+        icon: "›"
+        text: Siguiente
+      previous:
+        icon: "‹"
+        text: Anterior
+      truncate:
+        icon: "…"
   layouts:
     admin_link:
       admin_panel: Administración

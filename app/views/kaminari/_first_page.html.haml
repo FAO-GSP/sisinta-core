@@ -1,0 +1,7 @@
+-# TODO Provide proper screen reader support with aria attributes and the .sr-only utility.
+%li.page-item{ class: current_page.first? ? 'disabled' : '' }
+  = link_to t('kaminari.pagination.first.icon'), url,
+    remote: remote,
+    class: 'page-link',
+    title: t('kaminari.pagination.first.text'),
+    disabled: current_page.first?
