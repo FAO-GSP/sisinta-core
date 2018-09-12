@@ -1,5 +1,6 @@
 # User administration menu.
 #
+# Dynamic translation strings used.
 # i18n-tasks-use t('activerecord.attributes.user.admin')
 # i18n-tasks-use t('activerecord.attributes.user.name')
 ActiveAdmin.register User do

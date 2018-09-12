@@ -24,6 +24,11 @@ describe Profile do
       build(:profile, identifier: nil).must_be :valid?
       build(:profile, user: user, identifier: nil).must_be :valid?
     end
+
+    it 'requires a source' do
+      build(:profile, source: nil).wont_be :valid?
+      build(:profile, source: 'the organization').must_be :valid?
+    end
   end
 
   describe '#public' do

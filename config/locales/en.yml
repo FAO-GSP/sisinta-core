@@ -8,6 +8,7 @@ en:
         identifier: Identifier
         order: Order
         public: Public
+        source: Source
         updated_at: Updated at
         user: Uploader
       user:

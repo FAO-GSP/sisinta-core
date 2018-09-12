@@ -7,8 +7,9 @@
 # i18n-tasks-use t('activerecord.attributes.profile.identifier')
 # i18n-tasks-use t('activerecord.attributes.profile.order')
 # i18n-tasks-use t('activerecord.attributes.profile.public')
+# i18n-tasks-use t('activerecord.attributes.profile.source')
 # i18n-tasks-use t('activerecord.attributes.profile.updated_at')
 # i18n-tasks-use t('activerecord.attributes.profile.user')
 ActiveAdmin.register Profile do
-  permit_params :user_id, :date, :public, :order, :identifier
+  permit_params :user_id, :date, :public, :order, :identifier, :source
 end
