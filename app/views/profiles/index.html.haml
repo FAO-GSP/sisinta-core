@@ -1,2 +1,17 @@
-%h1 Profiles#index
-%p Find me in app/views/profiles/index.html.haml
+.row.button-bar
+  .col
+    = paginate @profiles
+
+.row.index-header
+  -# i18n-tasks-use t('activerecord.attributes.profile.date')
+  .col-1= Profile.human_attribute_name(:date)
+  -# i18n-tasks-use t('activerecord.attributes.profile.source')
+  .col= Profile.human_attribute_name(:source)
+  -# i18n-tasks-use t('activerecord.attributes.profile.identifier')
+  .col-2.text-right= Profile.human_attribute_name(:identifier)
+
+= render @profiles.decorate
+
+.row.button-bar
+  .col-4.offset-8.text-right
+    = page_entries_info @profiles

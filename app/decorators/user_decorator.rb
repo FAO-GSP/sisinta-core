@@ -1,5 +1,5 @@
 # User presentation methods
-class UserDecorator < Draper::Decorator
+class UserDecorator < ApplicationDecorator
   def name
     object.name.titleize
   end

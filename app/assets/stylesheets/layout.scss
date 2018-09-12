@@ -32,6 +32,11 @@
       width: inherit;
     }
   }
+
+  // Hide table header in index pages
+  .index-header {
+    display: none;
+  }
 }
 
 // Make some distance between navbar and content.
@@ -66,4 +71,12 @@ body {
 
 nav.navbar {
   background-color: $primary;
+}
+
+// Top and bottom grid rows, with action buttons and the like
+.button-bar {
+  // Sets up space between page content and nabvar
+  min-height: 3rem;
+  // Leave the same margin with navbar than map controls
+  margin-top: 10px;
 }

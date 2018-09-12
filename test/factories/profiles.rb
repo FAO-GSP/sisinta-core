@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :profile do
-    user
+    association :user, :confirmed
     source { generate :unique_string }
 
     # Every attribute and association initialized
