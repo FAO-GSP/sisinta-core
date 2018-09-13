@@ -2,6 +2,13 @@
 es:
   activerecord:
     attributes:
+      license:
+        acronym: Acrónimo
+        default: Default
+        name: Nombre
+        profiles: Perfiles
+        statement: Declaración
+        url: URL
       profile:
         created_at: Fecha de creación
         date: Fecha
@@ -11,6 +18,9 @@ es:
         source: Fuente
         updated_at: Fecha de actualización
         user: Creador
+      profile_type:
+        default: Default
+        value: Valor
       user:
         admin: Administrador
         name: Nombre
@@ -25,13 +35,21 @@ es:
             default:
               there_must_be_a_default_profile_type: Debe haber un Tipo de Perfil por default
     models:
+      license:
+        one: Licencia
+        other: Licencias
       profile:
         one: Perfil
         other: Perfiles
+      profile_type:
+        one: Tipo de Perfil
+        other: Tipos de Perfil
   admin:
     dashboard:
       admin_users: Administradores
       how_to_translate: Cómo traducir
+    menu:
+      lookup_tables: Tablas de Valores
   devise:
     menu:
       registration_link:
