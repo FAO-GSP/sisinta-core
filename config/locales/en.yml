@@ -52,6 +52,9 @@ en:
     menu:
       languages:
         title: Language
+      profiles:
+        title: Profiles
+        index: Listing
     navbar:
       contact: Contact
       search: Search
