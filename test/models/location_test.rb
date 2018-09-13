@@ -73,4 +73,20 @@ describe Location do
       location.longitude.must_equal location.coordinates.longitude
     end
   end
+
+  describe '.factory' do
+    subject { Location.factory }
+
+    it 'is geographic' do
+      subject.must_be_instance_of RGeo::Geographic::Factory
+    end
+
+    it 'has a projection factory' do
+      subject.projection_factory.must_be :present?
+    end
+
+    it 'uses EPSG:4326' do
+      subject.srid.must_equal 4326
+    end
+  end
 end

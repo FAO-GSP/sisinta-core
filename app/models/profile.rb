@@ -2,7 +2,7 @@
 # similar point of interest.
 class Profile < ApplicationRecord
   belongs_to :user
-  has_one :location
+  has_one :location, dependent: :destroy
 
   validates :user, presence: true
   validates :source, presence: true

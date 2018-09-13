@@ -46,5 +46,13 @@ describe Profile do
 
       subject.reload.location.wont_be :nil?
     end
+
+    it "destroys it" do
+      location = create :location, profile: subject
+
+      subject.destroy
+
+      location.wont_be :persisted?
+    end
   end
 end
