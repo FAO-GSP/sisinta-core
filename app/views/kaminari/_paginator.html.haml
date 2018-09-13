@@ -1,5 +1,5 @@
-= paginator.render do
-  %nav.row.justify-content-end
+%nav.row.justify-content-end
+  = paginator.render do
     %ul.page-selector.pagination.pagination-sm
       = first_page_tag
       = prev_page_tag
@@ -10,3 +10,7 @@
           = gap_tag
       = next_page_tag
       = last_page_tag
+
+  -# Always visible buttons for choosing page size
+  %ul.page-size-selector.pagination.pagination-sm
+    = page_size_selector

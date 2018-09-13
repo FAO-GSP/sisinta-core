@@ -94,7 +94,7 @@ nav.navbar {
 
 .pagination {
   // Space between row and page selectors
-  &.row-count-selector {
+  &.page-size-selector {
     margin-left: ($grid-gutter-width / 2);
     margin-right: ($grid-gutter-width / 2);
   }
