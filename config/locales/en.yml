@@ -20,6 +20,10 @@ en:
           attributes:
             default:
               there_must_be_a_default_license: There must be a default license
+        profile_type:
+          attributes:
+            default:
+              there_must_be_a_default_profile_type: There must be a default profile_type
     models:
       profile:
         one: Profile

@@ -4,8 +4,24 @@ class ProfileType < ApplicationRecord
     dependent: :restrict_with_error
 
   validates :value, uniqueness: true, presence: true
+  validate :always_a_default
+
+  before_save :ensure_only_one_default
 
   def self.default
-    ProfileType.first
+    ProfileType.where(default: true).first
+  end
+
+  private
+
+  # Prevents leaving the app without a default ProfileType
+  def always_a_default
+    # i18n-tasks-use t('activerecord.errors.models.profile_type.attributes.default.there_must_be_a_default_profile_type')
+    errors.add(:default, :there_must_be_a_default_profile_type) if ProfileType.where(default: true).empty? && !default?
+  end
+
+  # If this is the new default, update the previous one
+  def ensure_only_one_default
+    ProfileType.update_all(default: false) if default? && default_changed?
   end
 end

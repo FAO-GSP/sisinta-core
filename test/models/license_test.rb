@@ -54,20 +54,20 @@ describe License do
   end
 
   describe '#default' do
-    let(:exising_default) { create :license, default: true }
+    let(:existing_default) { create :license, default: true }
 
     it 'returns the default' do
-      exising_default.must_be :persisted?
+      existing_default.must_be :persisted?
 
-      License.default.must_equal exising_default
+      License.default.must_equal existing_default
     end
 
     it 'replaces exising defaults with a new one' do
-      exising_default.must_be :persisted?
+      existing_default.must_be :persisted?
 
       new_default = create :license, default: true
 
-      exising_default.reload.wont_be :default?
+      existing_default.reload.wont_be :default?
       License.default.must_equal new_default
     end
   end

@@ -14,14 +14,36 @@ describe ProfileType do
       build(:profile_type, value: nil).wont_be :valid?
       build(:profile_type, value: 'something').must_be :valid?
     end
+
+    it 'requires a default value' do
+      build(:profile_type, default: nil).wont_be :valid?
+      build(:profile_type, default: true).must_be :valid?
+    end
+
+    it 'requires a default' do
+      ProfileType.where(default: true).must_be :empty?
+
+      build(:profile_type, default: false).wont_be :valid?
+      build(:profile_type, default: true).must_be :valid?
+    end
   end
 
   describe '#default' do
-    it 'defaults to first type' do
-      create :profile_type, value: 'first'
-      create :profile_type, value: 'second'
+    let(:existing_default) { create :profile_type, default: true }
 
-      ProfileType.default.value.must_equal 'first'
+    it 'returns the default' do
+      existing_default.must_be :persisted?
+
+      ProfileType.default.must_equal existing_default
+    end
+
+    it 'replaces exising defaults with a new one' do
+      existing_default.must_be :persisted?
+
+      new_default = create :profile_type, default: true
+
+      existing_default.reload.wont_be :default?
+      ProfileType.default.must_equal new_default
     end
   end
 
