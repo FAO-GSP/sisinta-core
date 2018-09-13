@@ -37,21 +37,22 @@ en:
         sign_in: Sign in
         sign_out: Sign out
   kaminari:
-    pagination:
-      first:
-        icon: "«"
-        text: First
-      last:
-        icon: "»"
-        text: Last
-      next:
-        icon: "›"
-        text: Next
-      previous:
-        icon: "‹"
-        text: Previous
-      truncate:
-        icon: "…"
+    sisinta:
+      pagination:
+        first:
+          icon: "«"
+          text: First
+        last:
+          icon: "»"
+          text: Last
+        next:
+          icon: "›"
+          text: Next
+        previous:
+          icon: "‹"
+          text: Previous
+        truncate:
+          icon: "…"
   layouts:
     admin_link:
       admin_panel: Admin Panel
