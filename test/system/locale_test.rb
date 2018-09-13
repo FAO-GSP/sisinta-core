@@ -30,14 +30,12 @@ class LocaleTest < ApplicationSystemTestCase
       visit localized_root_path
 
       I18n.available_locales.each do |locale|
-        page.wont_have_content locale
         page.wont_have_content ApplicationHelper.localized_locale_name(locale)
       end
 
       click_link I18n.t('layouts.menu.languages.title')
 
       I18n.available_locales.each do |locale|
-        page.must_have_content locale
         page.must_have_content ApplicationHelper.localized_locale_name(locale)
       end
 

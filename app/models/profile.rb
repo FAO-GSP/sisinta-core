@@ -3,6 +3,7 @@
 class Profile < ApplicationRecord
   belongs_to :user
   belongs_to :type, inverse_of: :profiles, class_name: 'ProfileType'
+  belongs_to :license
   has_one :location, dependent: :destroy
 
   validates :user, presence: true
@@ -18,5 +19,6 @@ class Profile < ApplicationRecord
   # Initialize with default value objects
   def set_default_value_objects
     self.type ||= ProfileType.default
+    self.license ||= License.default
   end
 end

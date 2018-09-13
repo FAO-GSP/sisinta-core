@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_13_030900) do
+ActiveRecord::Schema.define(version: 2018_09_13_053801) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,14 @@ ActiveRecord::Schema.define(version: 2018_09_13_030900) do
     t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
     t.index ["namespace"], name: "index_active_admin_comments_on_namespace"
     t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
+  end
+
+  create_table "licenses", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "url", null: false
+    t.string "acronym", null: false
+    t.string "statement", null: false
+    t.boolean "default", default: false, null: false
   end
 
   create_table "locations", force: :cascade do |t|
@@ -53,6 +61,8 @@ ActiveRecord::Schema.define(version: 2018_09_13_030900) do
     t.datetime "updated_at", null: false
     t.string "source", null: false
     t.bigint "type_id"
+    t.bigint "license_id"
+    t.index ["license_id"], name: "index_profiles_on_license_id"
     t.index ["type_id"], name: "index_profiles_on_type_id"
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
@@ -82,6 +92,7 @@ ActiveRecord::Schema.define(version: 2018_09_13_030900) do
   end
 
   add_foreign_key "locations", "profiles"
+  add_foreign_key "profiles", "licenses"
   add_foreign_key "profiles", "profile_types", column: "type_id"
   add_foreign_key "profiles", "users"
 end

@@ -14,6 +14,12 @@ es:
       user:
         admin: Administrador
         name: Nombre
+    errors:
+      models:
+        license:
+          attributes:
+            default:
+              there_must_be_a_default_license: Debe haber una licencia por default
     models:
       profile:
         one: Perfil
@@ -53,8 +59,8 @@ es:
       languages:
         title: Idioma
       profiles:
-        title: Perfiles
         index: Listado
+        title: Perfiles
     navbar:
       contact: Contacto
       search: Búsqueda
