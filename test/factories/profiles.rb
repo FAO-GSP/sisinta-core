@@ -1,6 +1,8 @@
 FactoryBot.define do
   factory :profile do
     association :user, :confirmed
+    # Only create one ProfileType by default
+    type { ProfileType.default || create(:profile_type) }
     source { generate :unique_string }
 
     # Every attribute and association initialized

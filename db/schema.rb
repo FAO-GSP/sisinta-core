@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_12_090553) do
+ActiveRecord::Schema.define(version: 2018_09_13_030900) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,10 @@ ActiveRecord::Schema.define(version: 2018_09_12_090553) do
     t.index ["profile_id"], name: "index_locations_on_profile_id"
   end
 
+  create_table "profile_types", force: :cascade do |t|
+    t.string "value", null: false
+  end
+
   create_table "profiles", force: :cascade do |t|
     t.date "date"
     t.bigint "user_id", null: false
@@ -48,6 +52,8 @@ ActiveRecord::Schema.define(version: 2018_09_12_090553) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "source", null: false
+    t.bigint "type_id"
+    t.index ["type_id"], name: "index_profiles_on_type_id"
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
@@ -76,5 +82,6 @@ ActiveRecord::Schema.define(version: 2018_09_12_090553) do
   end
 
   add_foreign_key "locations", "profiles"
+  add_foreign_key "profiles", "profile_types", column: "type_id"
   add_foreign_key "profiles", "users"
 end

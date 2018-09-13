@@ -2,6 +2,7 @@ require 'test_helper'
 
 describe Profile do
   subject { create :profile }
+  let(:type) { create :profile_type }
 
   describe 'validations' do
     let(:user) { create :user }
@@ -29,6 +30,11 @@ describe Profile do
       build(:profile, source: nil).wont_be :valid?
       build(:profile, source: 'the organization').must_be :valid?
     end
+
+    it 'requires a type' do
+      build(:profile, type: nil).wont_be :valid?
+      build(:profile, type: type).must_be :valid?
+    end
   end
 
   describe '#public' do
@@ -53,6 +59,15 @@ describe Profile do
       subject.destroy
 
       location.wont_be :persisted?
+    end
+  end
+
+  describe '#type' do
+    it 'default to first type created' do
+      type.must_be :persisted?
+
+      Profile.new.type.must_equal type
+      build(:profile).type.must_equal type
     end
   end
 end

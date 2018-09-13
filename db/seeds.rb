@@ -2,3 +2,4 @@
 # its default values.
 
 load 'db/seeds/admin.rb'
+load 'db/seeds/profile_types.rb'
