@@ -52,25 +52,25 @@ class ProfileDecoratorTest < Draper::TestCase
   describe 'coordinates' do
     let(:profile) { create(:location, :geolocated).profile }
 
-    it 'delegates to location' do
+    it 'delegates to Location' do
       subject.coordinates.must_equal subject.location.coordinates
     end
   end
 
   describe 'user_name' do
-    it 'delegates to user' do
+    it 'delegates to User' do
       subject.user_name.must_equal subject.user.name
     end
   end
 
   describe 'license_link' do
-    it 'delegates to license' do
+    it 'delegates to License' do
       subject.license_link.must_equal subject.license.link
     end
   end
 
   describe 'license_statement' do
-    it 'delegates to license' do
+    it 'delegates to License' do
       subject.license_statement.must_equal subject.license.statement
     end
   end

@@ -3,6 +3,7 @@ class ProfileDecorator < ApplicationDecorator
   decorates_association :location
   decorates_association :user
   decorates_association :license
+  decorates_association :type
 
   delegate :coordinates, to: :location
   delegate :name, to: :user, prefix: true
