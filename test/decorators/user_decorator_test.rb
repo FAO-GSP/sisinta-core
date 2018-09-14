@@ -1,10 +1,11 @@
 require 'test_helper'
 
 class UserDecoratorTest < Draper::TestCase
-  let(:user) { create :user, name: 'juan salvo', email: 'UpStringEmail@example.com' }
   subject { user.decorate }
 
   describe 'name and email' do
+    let(:user) { create :user, name: 'juan salvo', email: 'UpStringEmail@example.com' }
+
     it 'titleizes the name' do
       subject.name.must_equal 'Juan Salvo'
     end
