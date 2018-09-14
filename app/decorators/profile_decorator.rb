@@ -15,4 +15,9 @@ class ProfileDecorator < ApplicationDecorator
   def identifier
     object.identifier.present? ? object.identifier : last_resort_identifier
   end
+
+  # Looks up the country name by ISO3166 code
+  def country
+    ISO3166::Country.find_country_by_alpha3(object.country_code).name
+  end
 end

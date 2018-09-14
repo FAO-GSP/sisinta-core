@@ -37,6 +37,7 @@ gem 'rails-i18n'
 gem 'devise-i18n'
 gem 'kaminari-i18n'
 gem 'i18n_data'
+gem 'countries'
 
 # Administration
 gem 'activeadmin'
