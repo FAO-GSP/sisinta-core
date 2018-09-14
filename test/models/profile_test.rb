@@ -3,6 +3,7 @@ require 'test_helper'
 describe Profile do
   subject { create :profile }
   let(:type) { create :profile_type }
+  let(:license) { create :license}
 
   describe 'validations' do
     let(:user) { create :user }
@@ -34,6 +35,11 @@ describe Profile do
     it 'requires a type' do
       build(:profile, type: nil).wont_be :valid?
       build(:profile, type: type).must_be :valid?
+    end
+
+    it 'requires a license' do
+      build(:profile, license: nil).wont_be :valid?
+      build(:profile, license: license).must_be :valid?
     end
 
     it 'requires a country code' do
