@@ -1,5 +1,9 @@
 # Profile presentation methods
 class ProfileDecorator < ApplicationDecorator
+  decorates_association :location
+
+  delegate :coordinates, to: :location
+
   # Localized date
   def date
     h.l(object.date) if object.date.present?

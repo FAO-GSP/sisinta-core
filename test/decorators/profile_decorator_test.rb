@@ -47,4 +47,12 @@ class ProfileDecoratorTest < Draper::TestCase
       subject.contact.must_equal profile.user.email
     end
   end
+
+  describe 'coordinates' do
+    let(:profile) { create(:location, :geolocated).profile }
+
+    it 'delegates to location' do
+      subject.coordinates.must_equal subject.location.coordinates
+    end
+  end
 end
