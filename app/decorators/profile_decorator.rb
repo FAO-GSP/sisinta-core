@@ -1,8 +1,10 @@
 # Profile presentation methods
 class ProfileDecorator < ApplicationDecorator
   decorates_association :location
+  decorates_association :user
 
   delegate :coordinates, to: :location
+  delegate :name, to: :user, prefix: true
 
   # Localized date
   def date

@@ -2,6 +2,7 @@ require 'test_helper'
 
 class ProfileDecoratorTest < Draper::TestCase
   subject { profile.decorate }
+  let(:profile) { build_stubbed :profile }
 
   describe 'identifier' do
     let(:profile) { build_stubbed :profile, identifier: nil }
@@ -53,6 +54,12 @@ class ProfileDecoratorTest < Draper::TestCase
 
     it 'delegates to location' do
       subject.coordinates.must_equal subject.location.coordinates
+    end
+  end
+
+  describe 'user_name' do
+    it 'delegates to user' do
+      subject.user_name.must_equal subject.user.name
     end
   end
 end
