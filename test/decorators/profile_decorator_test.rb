@@ -33,4 +33,18 @@ class ProfileDecoratorTest < Draper::TestCase
       subject.country.must_equal 'Argentina'
     end
   end
+
+  describe 'contact' do
+    let(:profile) { build_stubbed :profile, contact: 'someone@somewhere.com' }
+
+    it 'returns the contact when it is present' do
+      subject.contact.must_equal profile.contact
+    end
+
+    it 'returns the user email when it is not present' do
+      profile.contact = nil
+
+      subject.contact.must_equal profile.user.email
+    end
+  end
 end

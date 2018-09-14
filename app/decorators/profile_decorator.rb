@@ -20,4 +20,9 @@ class ProfileDecorator < ApplicationDecorator
   def country
     ISO3166::Country.find_country_by_alpha3(object.country_code).name
   end
+
+  # Always provide some kind of contact information
+  def contact
+    object.contact || user.email
+  end
 end
