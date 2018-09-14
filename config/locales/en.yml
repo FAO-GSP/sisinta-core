@@ -3,24 +3,30 @@ en:
   activerecord:
     attributes:
       license:
-        acronym: Acrónimo
+        acronym: Acronym
         default: Default
-        name: Nombre
-        profiles: Perfiles
-        statement: Declaración
+        name: Name
+        profiles: Profiles
+        statement: Statement
         url: URL
       profile:
+        contact: Contact
+        coordinates: Coordinates
+        country: Country
+        country_code: Country Code
         created_at: Created at
         date: Date
         identifier: Identifier
+        license: License
         order: Order
         public: Public
         source: Source
+        type: Type
         updated_at: Updated at
         user: Uploader
       profile_type:
         default: Default
-        value: Valor
+        value: Value
       user:
         admin: Admin
         name: Name
@@ -36,20 +42,21 @@ en:
               there_must_be_a_default_profile_type: There must be a default profile_type
     models:
       license:
-        one: Licencia
-        other: Licencias
+        one: License
+        other: Licenses
       profile:
         one: Profile
         other: Profiles
       profile_type:
-        one: Tipo de Perfil
-        other: Tipos de Perfil
+        one: Profile Type
+        other: Profile Types
   admin:
     dashboard:
       admin_users: Admin Users
       how_to_translate: How to translate
     menu:
-      lookup_tables: Tablas de Valores
+      lookup_tables: Lookup Tables
+  back: Back
   devise:
     menu:
       registration_link:
@@ -92,3 +99,6 @@ en:
   map:
     index:
       title: Welcome
+  profiles:
+    show:
+      attribution: Attribution

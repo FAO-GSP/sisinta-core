@@ -10,12 +10,18 @@ es:
         statement: Declaración
         url: URL
       profile:
+        contact: Contacto
+        coordinates: Coordenadas
+        country: País
+        country_code: Código de País
         created_at: Fecha de creación
         date: Fecha
         identifier: Identificador
+        license: Licencia
         order: Orden
         public: Público
         source: Fuente
+        type: Tipo
         updated_at: Fecha de actualización
         user: Creador
       profile_type:
@@ -50,6 +56,7 @@ es:
       how_to_translate: Cómo traducir
     menu:
       lookup_tables: Tablas de Valores
+  back: Back
   devise:
     menu:
       registration_link:
@@ -92,3 +99,6 @@ es:
   map:
     index:
       title: Inicio
+  profiles:
+    show:
+      attribution: Attribution
