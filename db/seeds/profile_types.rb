@@ -3,8 +3,8 @@
 # Id is set because these are lookup tables of value objects, mostly static
 # data
 profile_types = [
-  { id: 1, value: 'perfil de suelo' },
-  { id: 2, value: 'auger' }
+  { id: 1, value: 'perfil de suelo', default: true },
+  { id: 2, value: 'auger', default: false }
 ]
 
 profile_types.each do |profile_type|
