@@ -5,6 +5,9 @@ ruby '2.5.1'
 
 gem 'rails', '~> 5.2.1'
 
+# App customization engine
+gem 'sisar', path: '../sisar'
+
 # Authentication
 gem 'devise'
 
@@ -22,8 +25,6 @@ gem 'activerecord-postgis-adapter'
 # UI
 # Templating engine
 gem 'haml-rails'
-# Customization engine
-gem 'sisar', path: '../sisar'
 # Basic search features
 gem 'ransack'
 # Model Decorators

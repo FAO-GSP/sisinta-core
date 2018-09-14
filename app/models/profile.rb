@@ -8,6 +8,8 @@ class Profile < ApplicationRecord
 
   validates :user, presence: true
   validates :source, presence: true
+  validates :country_code, presence: true,
+    inclusion: { in: Rails.configuration.engine.default_country_codes }
   validates :identifier, uniqueness: { scope: :user_id, allow_nil: true }
 
   accepts_nested_attributes_for :location

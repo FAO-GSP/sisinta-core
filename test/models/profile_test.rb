@@ -35,6 +35,19 @@ describe Profile do
       build(:profile, type: nil).wont_be :valid?
       build(:profile, type: type).must_be :valid?
     end
+
+    it 'requires a country code' do
+      build(:profile, country_code: nil).wont_be :valid?
+      build(:profile, country_code: 'ARG').must_be :valid?
+    end
+
+    it 'requires a country code from a list of valid codes' do
+      build(:profile, country_code: 'not').wont_be :valid?
+
+      Rails.configuration.engine.default_country_codes.each do |code|
+        build(:profile, country_code: code).must_be :valid?
+      end
+    end
   end
 
   describe '#public' do

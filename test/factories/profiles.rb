@@ -6,6 +6,7 @@ FactoryBot.define do
     # Only create one License by default
     license { License.default || create(:license) }
     source { generate :unique_string }
+    country_code { Rails.configuration.engine.default_country_codes.sample }
 
     # Every attribute and association initialized
     trait :complete do

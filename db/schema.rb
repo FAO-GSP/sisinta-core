@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_13_065733) do
+ActiveRecord::Schema.define(version: 2018_09_14_055503) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 2018_09_13_065733) do
     t.string "source", null: false
     t.bigint "type_id"
     t.bigint "license_id"
+    t.string "country_code", null: false
     t.index ["license_id"], name: "index_profiles_on_license_id"
     t.index ["type_id"], name: "index_profiles_on_type_id"
     t.index ["user_id"], name: "index_profiles_on_user_id"
