@@ -62,4 +62,16 @@ class ProfileDecoratorTest < Draper::TestCase
       subject.user_name.must_equal subject.user.name
     end
   end
+
+  describe 'license_link' do
+    it 'delegates to license' do
+      subject.license_link.must_equal subject.license.link
+    end
+  end
+
+  describe 'license_statement' do
+    it 'delegates to license' do
+      subject.license_statement.must_equal subject.license.statement
+    end
+  end
 end

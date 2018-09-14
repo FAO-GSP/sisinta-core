@@ -2,9 +2,11 @@
 class ProfileDecorator < ApplicationDecorator
   decorates_association :location
   decorates_association :user
+  decorates_association :license
 
   delegate :coordinates, to: :location
   delegate :name, to: :user, prefix: true
+  delegate :link, :statement, to: :license, prefix: true
 
   # Localized date
   def date
