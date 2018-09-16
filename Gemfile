@@ -38,6 +38,7 @@ gem 'devise-i18n'
 gem 'kaminari-i18n'
 gem 'i18n_data'
 gem 'countries'
+gem 'mobility'
 
 # Administration
 gem 'activeadmin'
