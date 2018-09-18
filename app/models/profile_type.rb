@@ -1,5 +1,8 @@
 # ProfileTypes possible values
 class ProfileType < ApplicationRecord
+  extend Mobility
+  translates :value
+
   has_many :profiles, inverse_of: :type, foreign_key: :type_id,
     dependent: :restrict_with_error
 

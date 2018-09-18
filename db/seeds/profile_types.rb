@@ -10,6 +10,6 @@ profile_types = [
 profile_types.each do |profile_type|
   # If any value was changed by application users, do not touch it
   unless ProfileType.exists?(profile_type[:id])
-    ProfileType.find_or_create_by(profile_type).update_column(:id, profile_type[:id])
+    ProfileType.create!(profile_type).update_column(:id, profile_type[:id])
   end
 end
