@@ -3,21 +3,17 @@ Mobility.configure do |config|
   config.accessor_method = :translates
   config.query_method = :i18n
 
-  # Default to I18n.default_locale
+  # Defaults to I18n.default_locale
   config.default_options[:fallbacks] = true
+
+  # Creates an attribute accessor for each locale in I18n.available_locales
+  config.default_options[:locale_accessors] = true
 
   # Dirty tracking is disabled by default. Uncomment this line to enable it.
   # If you enable this, you should also enable +locale_accessors+ by default
   # (see below).
   #
   # config.default_options[:dirty] = true
-
-  # Uncomment to enable locale_accessors by default on models. A true value
-  # will use the locales defined either in
-  # Rails.application.config.i18n.available_locales or I18n.available_locales.
-  # If you want something else, pass an array of locales instead.
-  #
-  # config.default_options[:locale_accessors] = true
 
   # Uncomment to enable fallthrough accessors by default on models. This will
   # allow you to call any method with a suffix like _en or _pt_br, and Mobility

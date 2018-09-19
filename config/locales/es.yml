@@ -26,6 +26,7 @@ es:
         user: Creador
       profile_type:
         default: Default
+        translated_value: Valor (%{language})
         value: Valor
       user:
         admin: Administrador

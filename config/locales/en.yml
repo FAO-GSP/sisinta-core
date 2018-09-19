@@ -26,6 +26,7 @@ en:
         user: Uploader
       profile_type:
         default: Default
+        translated_value: Value (%{language})
         value: Value
       user:
         admin: Admin
