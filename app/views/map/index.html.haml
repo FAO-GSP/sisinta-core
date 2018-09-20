@@ -3,10 +3,6 @@
 - content_for :page_title do
   = t '.title'
 
-- content_for :page_head_tags do
-  -# Fully reload this page when visiting with turbolinks
-  %meta{ name: 'turbolinks-visit-control', content: 'reload' }
-
 -# Map container with css defined height (needed for full screen map)
 #map-container.d-flex.flex-column
   #map{ data: { geojson: profiles_path(format: :geojson),

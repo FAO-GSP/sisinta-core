@@ -1,7 +1,6 @@
 # Prepare Leaflet map on page load.
 #
-# TODO Enable turbolinks. See https://github.com/turbolinks/turbolinks#installing-javascript-behavior
-jQuery ->
+$(document).on 'turbolinks:load', ->
   map_container = $('#map')
 
   # If there is a map in this page.
