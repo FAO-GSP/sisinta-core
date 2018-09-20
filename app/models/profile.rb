@@ -18,6 +18,8 @@ class Profile < ApplicationRecord
 
   after_initialize :set_default_value_objects
 
+  scope :public_ones, ->{ where(public: true) }
+
   private
 
   # Initialize with default value objects

@@ -1,4 +1,4 @@
-# Be sure to restart your server when you modify this file.
+# Mime types for use in respond_to blocks.
 
-# Add new mime types for use in respond_to blocks:
-# Mime::Type.register "text/richtext", :rtf
+# As GeoJson is a subtype of json and is generated with `to_json`, use an alias
+Mime::Type.register_alias 'application/json', :geojson
