@@ -13,7 +13,7 @@
     .show-search.show-on-resize.w-100.show.collapse.fade
       .navbar-text= page_title
     .show-search.hide-on-resize.w-100.collapse.fade
-      = render 'layouts/search'
+      = render 'layouts/search', id: 'visible_profile_search'
 
   -# Button for collapsing the menu on small screens.
   %button.navbar-toggler.navbar-toggler-right{ type: 'button', data: { toggle: 'collapse', target: '.navbar-collapse' } }
@@ -22,7 +22,7 @@
   .collapse.navbar-collapse
     -# Global search.
     .navbar-nav.justify-content-end.ml-auto
-      .d-md-none= render 'layouts/search'
+      .d-md-none= render 'layouts/search', id: 'hidden_profile_search'
     .dropdown-divider
 
     -# Navigation menu.
