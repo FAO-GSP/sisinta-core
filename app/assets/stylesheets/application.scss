@@ -4,6 +4,9 @@
 // Bootstrap related.
 @import 'bootstrap/scss/bootstrap';
 
+// Map related
+@import 'leaflet/dist/leaflet';
+
 // App defined styles.
 @import 'variables';
 @import 'layout';

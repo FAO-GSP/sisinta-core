@@ -20,4 +20,9 @@
 //= require popper.js/dist/umd/popper
 //= require bootstrap/dist/js/bootstrap
 //
+// Map related assets
+//= require leaflet/dist/leaflet-src
+//= require leaflet.markercluster/dist/leaflet.markercluster-src
+//= require leaflet.gridlayer.googlemutant/Leaflet.GoogleMutant.js
+//
 //= require_tree .
