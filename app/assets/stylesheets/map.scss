@@ -1,0 +1,53 @@
+// Map specific styles.
+
+// Every container element in the map's hierarchy must have a defined height so
+// Leaflet can adjust itself.
+html { height: 100%; }
+body { height: 100%; }
+#main-container { height: 100%; }
+#map-container { height: 100%; }
+
+#map-container {
+  // Negative margins so the map fills the entire viewport, matching
+  // container-fluid's padding.
+  margin-left: ($grid-gutter-width / -2);
+  margin-right: ($grid-gutter-width / -2);
+}
+
+#map {
+  // Occupy available space.
+  flex-grow: 1;
+
+  // Redefin box-sizing applied by Bootstrap. See
+  // https://getbootstrap.com/docs/4.0/getting-started/introduction/#box-sizing
+  box-sizing: content-box;
+}
+
+// Infobox with title and subtitle over the map.
+.leaflet-control.info {
+  // Mimic other Leaflet controls style.
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  background-clip: padding-box;
+  border-radius: 5px;
+  // But use a semitransparent background because it's a huge box.
+  background-color: rgba(255, 255, 255, 0.7);
+  // Horizontal lining up with the other controllers.
+  clear: none;
+
+  .title { margin: 0; }
+  .text { margin: 0; }
+}
+
+@include media-breakpoint-down(sm) {
+  .leaflet-control.info {
+    // Smaller title, compensate with boldness.
+    .title {
+      font-weight: $font-weight-bold;
+      font-size: small;
+    }
+
+    .text {
+      font-size: x-small;
+    }
+  }
+}

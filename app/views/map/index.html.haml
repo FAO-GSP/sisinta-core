@@ -1,7 +1,19 @@
 -# Landing page.
+
 - content_for :page_title do
   = t '.title'
 
-#container-map
-  #map
-    The map, with bootstrap Cards for popups
+- content_for :page_head_tags do
+  -# Fully reload this page when visiting with turbolinks
+  %meta{ name: 'turbolinks-visit-control', content: 'reload' }
+
+-# Map container with css defined height (needed for full screen map)
+#map-container.d-flex.flex-column
+  #map{ data: { geojson: profiles_path(format: :geojson),
+                info_title: t('.info_title'),
+                info_text: t('.info_text', profiles: @map.profiles_count, public_profiles: @map.public_profiles_count),
+                profile_layer_title: Profile.model_name.human(count: 2),
+                center: @map.center,
+                zoom: @map.zoom } }
+
+= google_maps_js_tag

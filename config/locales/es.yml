@@ -99,6 +99,7 @@ es:
       search_by: Fecha o Grupo
   map:
     index:
+      info_text: "%{profiles} perfiles (%{public_profiles} públicos)."
       title: Inicio
   profiles:
     show:

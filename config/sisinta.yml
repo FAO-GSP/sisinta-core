@@ -3,6 +3,7 @@ default: &default
     name: 'SiSINTA'
     url: 'http://sisinta.inta.gob.ar'
     contact: 'sisinta at inta.gob.ar'
+  google_api_key: <%= ENV['GOOGLE_API_KEY'] %>
 
 development:
   <<: *default
