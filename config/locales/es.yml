@@ -102,5 +102,7 @@ es:
       info_text: "%{profiles} perfiles (%{public_profiles} públicos)."
       title: Inicio
   profiles:
+    index:
+      title: Perfiles
     show:
       attribution: Attribution

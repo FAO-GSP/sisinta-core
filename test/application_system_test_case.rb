@@ -30,4 +30,9 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
       click_button I18n.t('devise.registrations.new.sign_up')
     end
   end
+
+  # When a specific path is not needed and we only care about the layout
+  def any_path(options = {})
+    profiles_path options
+  end
 end

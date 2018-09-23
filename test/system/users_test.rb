@@ -2,7 +2,6 @@ require 'application_system_test_case'
 
 class UsersTest < ApplicationSystemTestCase
   subject { create :user, :confirmed }
-  let(:any_path) { profiles_path }
 
   describe 'sessions' do
     it 'can login' do
