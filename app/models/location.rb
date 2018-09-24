@@ -22,6 +22,7 @@ class Location < ApplicationRecord
   private
 
   # Updates the geolocation column with provided [longitude, latitude] values
+  # FIXME This prevents setting coordinates to nil
   def update_coordinates
     if longitude.present? && latitude.present?
       self.coordinates = Location.factory.point longitude, latitude

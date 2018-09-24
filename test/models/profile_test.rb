@@ -89,4 +89,18 @@ describe Profile do
       build(:profile).type.must_equal type
     end
   end
+
+  describe '.geolocated' do
+    it 'only returns objects with location and coordinates' do
+      # not geolocated profiles
+      create :profile, location: nil
+      create :profile, location_attributes: attributes_for(:location)
+
+      geolocated = create :profile, location_attributes: attributes_for(:location, :geolocated)
+
+      Profile.count.must_equal 3
+      Profile.geolocated.count.must_equal 1
+      Profile.geolocated.include?(geolocated).must_equal true
+    end
+  end
 end

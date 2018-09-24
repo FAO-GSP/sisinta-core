@@ -10,7 +10,7 @@ SisintaMap.prepare_popup = (feature, layer) ->
 SisintaMap.popup_markup = (feature) ->
   [
     "<a target='_blank' title='feature' href='#{feature.url}'>",
-      "#{feature.identifier || feature.id}",
+      feature.identifier,
     '</a>'
   ].join('')
 

@@ -4,7 +4,7 @@ class ProfileDecoratorTest < Draper::TestCase
   subject { profile.decorate }
   let(:profile) { build_stubbed :profile }
 
-  describe 'identifier' do
+  describe '#identifier' do
     let(:profile) { build_stubbed :profile, identifier: nil }
 
     it 'has a default identifier' do
@@ -12,7 +12,7 @@ class ProfileDecoratorTest < Draper::TestCase
     end
   end
 
-  describe 'date' do
+  describe '#date' do
     let(:profile) { build_stubbed :profile, date: Date.today }
 
     it 'localizes the date' do
@@ -27,7 +27,7 @@ class ProfileDecoratorTest < Draper::TestCase
     end
   end
 
-  describe 'country' do
+  describe '#country' do
     let(:profile) { build_stubbed :profile, country_code: 'ARG' }
 
     it 'returns a country name' do
@@ -35,7 +35,7 @@ class ProfileDecoratorTest < Draper::TestCase
     end
   end
 
-  describe 'contact' do
+  describe '#contact' do
     let(:profile) { build_stubbed :profile, contact: 'someone@somewhere.com' }
 
     it 'returns the contact when it is present' do
@@ -49,7 +49,7 @@ class ProfileDecoratorTest < Draper::TestCase
     end
   end
 
-  describe 'coordinates' do
+  describe '#coordinates' do
     let(:profile) { create(:location, :geolocated).profile }
 
     it 'delegates to Location' do
@@ -57,19 +57,19 @@ class ProfileDecoratorTest < Draper::TestCase
     end
   end
 
-  describe 'user_name' do
+  describe '#user_name' do
     it 'delegates to User' do
       subject.user_name.must_equal subject.user.name
     end
   end
 
-  describe 'license_link' do
+  describe '#license_link' do
     it 'delegates to License' do
       subject.license_link.must_equal subject.license.link
     end
   end
 
-  describe 'license_statement' do
+  describe '#license_statement' do
     it 'delegates to License' do
       subject.license_statement.must_equal subject.license.statement
     end

@@ -19,6 +19,9 @@ class Profile < ApplicationRecord
   after_initialize :set_default_value_objects
 
   scope :public_ones, ->{ where(public: true) }
+  scope :geolocated, ->{ joins(:location).where('locations.coordinates is not ?', nil) }
+
+  delegate :coordinates, to: :location, allow_nil: true
 
   private
 
