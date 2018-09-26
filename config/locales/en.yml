@@ -99,7 +99,13 @@ en:
       search_by: Date or Order
   map:
     index:
+      info_text: "%{profiles} profiles (%{public_profiles} of which are public)."
       title: Welcome
   profiles:
+    index:
+      title: Profiles
     show:
-      attribution: Attribution
+      attribution: Data Attribution
+      description: Profile Description
+      map: Map
+      properties: Properties

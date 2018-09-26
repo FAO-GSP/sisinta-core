@@ -4,7 +4,13 @@
 // Bootstrap related.
 @import 'bootstrap/scss/bootstrap';
 
+// Map related
+@import 'leaflet/dist/leaflet';
+@import 'leaflet.markercluster/dist/MarkerCluster';
+@import 'leaflet.markercluster/dist/MarkerCluster.Default';
+
 // App defined styles.
 @import 'variables';
 @import 'layout';
 @import 'profiles';
+@import 'map';

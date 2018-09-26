@@ -6,6 +6,13 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
 
   driven_by :selenium, using: :chrome, screen_size: [1400, 1400]
 
+  # Stub external urls for every test case
+  def run
+    MapHelper.stub :google_maps_api_url, 'http://stub' do
+      super
+    end
+  end
+
   # Logs in a user using the web interface
   def login(user)
     visit new_user_session_path
@@ -29,5 +36,10 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
 
       click_button I18n.t('devise.registrations.new.sign_up')
     end
+  end
+
+  # When a specific path is not needed and we only care about the layout
+  def any_path(options = {})
+    profiles_path options
   end
 end

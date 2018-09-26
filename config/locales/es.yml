@@ -99,7 +99,13 @@ es:
       search_by: Fecha o Grupo
   map:
     index:
+      info_text: "%{profiles} perfiles (%{public_profiles} públicos)."
       title: Inicio
   profiles:
+    index:
+      title: Perfiles
     show:
-      attribution: Attribution
+      attribution: Atribución de los Datos
+      description: Descripción del Perfil
+      map: Mapa
+      properties: Propiedades

@@ -21,13 +21,13 @@ class LocaleTest < ApplicationSystemTestCase
 
   describe 'selecting a locale' do
     it 'can select locale by url' do
-      visit localized_root_path(locale: :en)
+      visit any_path(locale: :en)
 
       page.must_have_content I18n.t('layouts.menu.languages.title', locale: :en)
     end
 
     it 'can select locale by menu items' do
-      visit localized_root_path
+      visit any_path
 
       I18n.available_locales.each do |locale|
         page.wont_have_content ApplicationHelper.localized_locale_name(locale)

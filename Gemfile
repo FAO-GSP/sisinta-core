@@ -20,6 +20,7 @@ gem 'puma', '~> 3.11'
 # Models
 # GIS tools
 gem 'rgeo'
+gem 'rgeo-geojson'
 gem 'activerecord-postgis-adapter'
 
 # UI

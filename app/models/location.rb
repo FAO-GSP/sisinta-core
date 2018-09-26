@@ -19,9 +19,14 @@ class Location < ApplicationRecord
     RGeo::ActiveRecord::SpatialFactoryStore.instance.default
   end
 
+  def geolocated?
+    coordinates.present?
+  end
+
   private
 
   # Updates the geolocation column with provided [longitude, latitude] values
+  # FIXME This prevents setting coordinates to nil
   def update_coordinates
     if longitude.present? && latitude.present?
       self.coordinates = Location.factory.point longitude, latitude

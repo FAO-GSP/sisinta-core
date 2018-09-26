@@ -74,6 +74,13 @@ describe Location do
     end
   end
 
+  describe '#geolocated?' do
+    it 'is geolocated only if it has coordinates' do
+      build(:location, :geolocated).must_be :geolocated?
+      build(:location).wont_be :geolocated?
+    end
+  end
+
   describe '.factory' do
     subject { Location.factory }
 

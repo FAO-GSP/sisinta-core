@@ -10,10 +10,6 @@ require 'minitest/rails'
 # Needed for system tests
 require 'capybara/minitest/spec'
 
-# To add Capybara feature tests add `gem "minitest-rails-capybara"`
-# to the test group in the Gemfile and uncomment the following:
-# require "minitest/rails/capybara"
-
 class ActiveSupport::TestCase
   # Model initialization helpers
   include FactoryBot::Syntax::Methods
