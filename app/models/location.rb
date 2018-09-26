@@ -19,6 +19,10 @@ class Location < ApplicationRecord
     RGeo::ActiveRecord::SpatialFactoryStore.instance.default
   end
 
+  def geolocated?
+    coordinates.present?
+  end
+
   private
 
   # Updates the geolocation column with provided [longitude, latitude] values

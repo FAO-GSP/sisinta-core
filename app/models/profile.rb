@@ -21,7 +21,7 @@ class Profile < ApplicationRecord
   scope :public_ones, ->{ where(public: true) }
   scope :geolocated, ->{ joins(:location).where('locations.coordinates is not ?', nil) }
 
-  delegate :coordinates, to: :location, allow_nil: true
+  delegate :coordinates, :geolocated?, to: :location, allow_nil: true
 
   private
 
