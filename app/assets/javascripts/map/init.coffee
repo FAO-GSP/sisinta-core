@@ -1,5 +1,5 @@
 # Prepare Leaflet map on page load.
-#
+
 $(document).on 'turbolinks:load', ->
   map_container = $('#map')
 
@@ -60,10 +60,11 @@ $(document).on 'turbolinks:load', ->
     L.control.layers(tile_layers, data_layers).addTo(map)
 
     # Add info box.
-    L.control.info({
-      title: map_container.data('infoTitle')
-      text: map_container.data('infoText')
-    }).addTo(map)
+    if map_container.data('infoTitle')
+      L.control.info({
+        title: map_container.data('infoTitle')
+        text: map_container.data('infoText')
+      }).addTo(map)
 
     # Retrieve our dataset and add it to the layer.
     $.getJSON map_container.data('geojson'), (data) ->
