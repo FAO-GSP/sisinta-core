@@ -14,7 +14,7 @@ unless User.admins.any?
       email: email,
       password: password,
       password_confirmation: password,
-      admin: true,
+      role: :admin,
       confirmed_at: Date.today
     )
   rescue ActiveRecord::RecordInvalid => e

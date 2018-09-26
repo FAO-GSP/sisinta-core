@@ -20,9 +20,34 @@ describe User do
     end
   end
 
-  describe '#admin' do
-    it 'defaults to false' do
-      User.new.wont_be :admin?
+  describe '#role' do
+    subject { build :user }
+
+    it 'defaults to :guest if not persisted' do
+      subject.wont_be :persisted?
+
+      subject.wont_be :admin?
+      subject.wont_be :registered?
+
+      subject.must_be :guest?
+    end
+
+    it 'defaults to :registered on creation' do
+      subject.must_be :guest?
+
+      subject.save
+
+      subject.must_be :persisted?
+      subject.must_be :registered?
+    end
+
+    it "can't go back to guest" do
+      subject.registered!
+
+      subject.must_be :persisted?
+      subject.guest!
+
+      subject.reload.must_be :registered?
     end
   end
 

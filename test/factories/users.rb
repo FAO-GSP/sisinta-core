@@ -8,7 +8,7 @@ FactoryBot.define do
     password { 'correct horse battery staple' }
 
     factory :admin do
-      admin { true }
+      role { :admin }
     end
 
     # Users need to be confirmed to log-in
