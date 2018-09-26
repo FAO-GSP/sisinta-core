@@ -18,6 +18,7 @@ gem 'cancancan'
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
+gem 'actionpack-page_caching'
 
 # Models
 # GIS tools
