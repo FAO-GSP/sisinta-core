@@ -50,9 +50,10 @@ class ProfileDecoratorTest < Draper::TestCase
   end
 
   describe '#coordinates' do
-    let(:profile) { create(:location, :geolocated).profile }
+    let(:profile) { create(:location, :geolocated).profile.reload }
 
     it 'delegates to Location' do
+      subject.coordinates.wont_be :nil?
       subject.coordinates.must_equal subject.location.coordinates
     end
   end

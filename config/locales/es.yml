@@ -105,4 +105,7 @@ es:
     index:
       title: Perfiles
     show:
-      attribution: Attribution
+      attribution: Atribución de los Datos
+      description: Descripción del Perfil
+      map: Mapa
+      properties: Propiedades

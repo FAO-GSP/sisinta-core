@@ -2,6 +2,9 @@
 
 - content_for :page_title do
   = t '.title'
+-# Fixed height container only for full screen map.
+- content_for :main_container_style do
+  = 'height: 100%'
 
 -# Map container with css defined height (needed for full screen map)
 #map-container.d-flex.flex-column

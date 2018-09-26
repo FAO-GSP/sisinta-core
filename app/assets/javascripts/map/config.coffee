@@ -1,13 +1,13 @@
-# SisinaMap exports. See
-# https://robots.thoughtbot.com/module-pattern-in-javascript-and-coffeescript
-window.SisintaMap = {}
+# Namespaced exports
+Map = {}
+Sisinta.map = Map
 
 # Bind a popup box for each feature.
-SisintaMap.prepare_popup = (feature, layer) ->
-  layer.bindPopup SisintaMap.popup_markup(feature.properties)
+Map.prepare_popup = (feature, layer) ->
+  layer.bindPopup Map.popup_markup(feature.properties)
 
 # Generate the markup for each popup.
-SisintaMap.popup_markup = (feature) ->
+Map.popup_markup = (feature) ->
   [
     "<a target='_blank' title='feature' href='#{feature.url}'>",
       feature.identifier,
@@ -15,7 +15,7 @@ SisintaMap.popup_markup = (feature) ->
   ].join('')
 
 # Generate a colored circle marker for each feature.
-SisintaMap.prepare_marker = (point, latlng) ->
+Map.prepare_marker = (point, latlng) ->
   # https://clrs.cc
   accessible = '#0d6cac'
   restricted = '#f58231'
@@ -30,7 +30,7 @@ SisintaMap.prepare_marker = (point, latlng) ->
   return L.circleMarker(latlng, style)
 
 # Filter features by visibility.
-SisintaMap.filters =
+Map.filters =
   public_features: (feature, layer) ->
     return feature.properties.public
   private_features: (feature, layer) ->

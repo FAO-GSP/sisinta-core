@@ -1,55 +1,80 @@
+- content_for :page_title do
+  = @profile.identifier
+
+-# Default site navigation
 .row.button-bar
   .col
     .btn-toolbar
       .btn-group.btn-group-sm
         = link_to t('back'), profiles_path, class: 'btn btn-primary'
 
-.row.attributes
-  %dl.col
-    %dt= @profile.identifier
-    %hr
-    %dd
-      %dl.row
-        %dt.col-sm-4= Profile.human_attribute_name(:type)
-        %dd.col-sm-8= @profile.type
+-# Profile show navigation
+.row
+  .col
+    %nav
+      .nav.nav-tabs
+        = link_to t('.properties'), '#profile-properties',
+          class: 'nav-item nav-link active', data: { toggle: 'tab' }
+        - if @profile.geolocated?
+          = link_to t('.map'), '#profile-map',
+            class: 'nav-item nav-link', data: { toggle: 'tab' }
 
-        - if @profile.date.present?
-          %dt.col-sm-4= Profile.human_attribute_name(:date)
-          %dd.col-sm-8= @profile.date
+#profile-show.tab-content
+  #profile-properties.tab-pane.fade.show.active
+    .row.attributes
+      %dl.col
+        %dt= t '.description'
+        %hr
+        %dd
+          %dl.row
+            %dt.col-sm-4= Profile.human_attribute_name(:type)
+            %dd.col-sm-8= @profile.type
 
-        -# i18n-tasks-use t('activerecord.attributes.profile.country')
-        %dt.col-sm-4= Profile.human_attribute_name(:country)
-        %dd.col-sm-8= @profile.country
+            - if @profile.date.present?
+              %dt.col-sm-4= Profile.human_attribute_name(:date)
+              %dd.col-sm-8= @profile.date
 
-        - if @profile.location.present?
-          -# i18n-tasks-use t('activerecord.attributes.profile.coordinates')
-          %dt.col-sm-4= Profile.human_attribute_name(:coordinates)
-          %dd.col-sm-8= @profile.coordinates
+            -# i18n-tasks-use t('activerecord.attributes.profile.country')
+            %dt.col-sm-4= Profile.human_attribute_name(:country)
+            %dd.col-sm-8= @profile.country
 
-        - if @profile.order.present?
-          %dt.col-sm-4= Profile.human_attribute_name(:order)
-          %dd.col-sm-8= @profile.order
+            - if @profile.geolocated?
+              -# i18n-tasks-use t('activerecord.attributes.profile.coordinates')
+              %dt.col-sm-4= Profile.human_attribute_name(:coordinates)
+              %dd.col-sm-8= @profile.coordinates
 
-.row.attributes
-  %dl.col
-    %dt= t '.attribution'
-    %hr
-    %dd
-      %dl.row
-        %dt.col-sm-4= Profile.human_attribute_name(:user)
-        %dd.col-sm-8= @profile.user_name
+            - if @profile.order.present?
+              %dt.col-sm-4= Profile.human_attribute_name(:order)
+              %dd.col-sm-8= @profile.order
 
-        %dt.col-sm-4= Profile.human_attribute_name(:contact)
-        %dd.col-sm-8= @profile.contact
+    .row.attributes
+      %dl.col
+        %dt= t '.attribution'
+        %hr
+        %dd
+          %dl.row
+            %dt.col-sm-4= Profile.human_attribute_name(:user)
+            %dd.col-sm-8= @profile.user_name
 
-        - if @profile.source.present?
-          %dt.col-sm-4= Profile.human_attribute_name(:source)
-          %dd.col-sm-8= @profile.source
+            %dt.col-sm-4= Profile.human_attribute_name(:contact)
+            %dd.col-sm-8= @profile.contact
 
-        %dt.col-sm-4= Profile.human_attribute_name(:license)
-        %dd.col-sm-8= @profile.license_link
+            - if @profile.source.present?
+              %dt.col-sm-4= Profile.human_attribute_name(:source)
+              %dd.col-sm-8= @profile.source
 
-        -# Goes on the same dt that license_link
-        %dt.col-sm-4
-        %dd.col-sm-8.small
-          %em= @profile.license_statement
+            %dt.col-sm-4= Profile.human_attribute_name(:license)
+            %dd.col-sm-8= @profile.license_link
+
+            -# Goes on the same dt that license_link
+            %dt.col-sm-4
+            %dd.col-sm-8.small
+              %em= @profile.license_statement
+
+  - if @profile.geolocated?
+    #profile-map.tab-pane.fade
+      #map.profile-show{ data: { geojson: profile_path(@profile, format: :geojson),
+                                 profile_layer_title: Profile.model_name.human(count: 2),
+                                 center: @profile.coordinates_array, zoom: 6 } }
+
+= google_maps_js_tag

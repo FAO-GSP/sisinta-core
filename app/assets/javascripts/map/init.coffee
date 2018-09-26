@@ -15,6 +15,9 @@ $(document).on 'turbolinks:load', ->
       zoomControl: false
     })
 
+    # Make the initialized map globally accessible
+    Sisinta.map.instance = map
+
     # Configure tile layers.
     osm = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 18
@@ -33,15 +36,15 @@ $(document).on 'turbolinks:load', ->
 
     # Configure data layers.
     public_features = L.geoJson(null, {
-      filter: SisintaMap.filters.public_features
-      pointToLayer: SisintaMap.prepare_marker
-      onEachFeature: SisintaMap.prepare_popup
+      filter: Sisinta.map.filters.public_features
+      pointToLayer: Sisinta.map.prepare_marker
+      onEachFeature: Sisinta.map.prepare_popup
     })
 
     private_features = L.geoJson(null, {
-      filter: SisintaMap.filters.private_features
-      pointToLayer: SisintaMap.prepare_marker
-      onEachFeature: SisintaMap.prepare_popup
+      filter: Sisinta.map.filters.private_features
+      pointToLayer: Sisinta.map.prepare_marker
+      onEachFeature: Sisinta.map.prepare_popup
     })
 
     clusters = L.markerClusterGroup()

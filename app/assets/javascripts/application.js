@@ -26,4 +26,9 @@
 //= require leaflet.gridlayer.googlemutant/Leaflet.GoogleMutant.js
 //
 // App defined styles.
-//= require_tree .
+//= require layout
+//= require cable
+//= require map/info_control
+//= require map/config
+//= require map/init
+//= require profiles
