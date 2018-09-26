@@ -8,6 +8,18 @@ class GeojsonDecoratorTest < Draper::TestCase
     GeojsonDecorator.decorate_collection([]).must_be_instance_of GeojsonCollectionDecorator
   end
 
+  describe '#as_json' do
+    it 'returns a serializable hash' do
+      subject.as_json.must_be_instance_of Hash
+    end
+
+    it 'returns a collection which only includes this feature' do
+      subject.as_json['type'].must_equal 'FeatureCollection'
+      subject.as_json['features'].size.must_equal 1
+      subject.as_json['features'].first['id'].must_equal profile.id
+    end
+  end
+
   describe '#identifier' do
     let(:profile) { build_stubbed :profile, identifier: nil }
 
@@ -47,6 +59,14 @@ class GeojsonDecoratorTest < Draper::TestCase
 
     it 'includes an id' do
       feature.feature_id.must_equal profile.id
+    end
+  end
+
+  describe '#features' do
+    it 'returns itself wrapped as an Array of GeoJSON Features' do
+      subject.features.must_be_instance_of Array
+      subject.features.size.must_equal 1
+      subject.features.first.must_be_instance_of RGeo::GeoJSON::Feature
     end
   end
 end

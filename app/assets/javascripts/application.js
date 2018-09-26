@@ -25,4 +25,5 @@
 //= require leaflet.markercluster/dist/leaflet.markercluster-src
 //= require leaflet.gridlayer.googlemutant/Leaflet.GoogleMutant.js
 //
+// App defined styles.
 //= require_tree .

@@ -15,6 +15,16 @@ class ProfilesController < ApplicationController
   end
 
   def show
-    @profile = Profile.find(params[:id]).decorate
+    @profile = Profile.find(params[:id])
+
+    respond_to do |format|
+      format.html do
+        @profile = @profile.decorate
+      end
+
+      format.geojson do
+        render json: GeojsonDecorator.decorate(@profile)
+      end
+    end
   end
 end
