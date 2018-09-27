@@ -11,6 +11,10 @@ FactoryBot.define do
       role { :admin }
     end
 
+    factory :authorized do
+      role { :authorized }
+    end
+
     # Users need to be confirmed to log-in
     trait :confirmed do
       confirmed_at { Date.yesterday }

@@ -6,6 +6,7 @@ class User < ApplicationRecord
     :trackable, :validatable, :confirmable
 
   # :guest by default on initialization, :registered on creation
+  # Each role should have a corresponding set of rules on Ability
   enum role: [:guest, :registered, :authorized, :admin]
 
   has_many :profiles, dependent: :restrict_with_error

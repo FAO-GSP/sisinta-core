@@ -10,6 +10,8 @@ gem 'sisar', path: '../sisar'
 
 # Authentication
 gem 'devise'
+# Authorization
+gem 'cancancan'
 
 # Server
 # Use postgresql as the database for Active Record
