@@ -1,4 +1,6 @@
 class ProfilesController < ApplicationController
+  include GeojsonCache
+
   def index
     respond_to do |format|
       format.html do
