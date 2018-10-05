@@ -34,4 +34,9 @@ class ProfileDecorator < ApplicationDecorator
   def contact
     object.contact || user.email
   end
+
+  # How to display this model in ActiveAdmin
+  def display_name
+    identifier
+  end
 end

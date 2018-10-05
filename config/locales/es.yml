@@ -2,6 +2,23 @@
 es:
   activerecord:
     attributes:
+      layer:
+        identifier: Identificador
+        top: Superior
+        bottom: Inferior
+        designation: Nomenclatura
+        bulk_density: Densidad
+        ca_co3: CaCO3
+        coarse_fragments: Gravas
+        ecec: Capacidad de intercambio catiónico
+        conductivity: Conductividad
+        organic_carbon: Carbono orgánico
+        ph_h2o: pH (H2O)
+        ph_kcl: pH (KCl)
+        clay: Arcilla
+        silt: Limo
+        sand: Arena
+        water_retention: Agua útil
       license:
         acronym: Acrónimo
         default: Default
@@ -42,6 +59,9 @@ es:
             default:
               there_must_be_a_default_profile_type: Debe haber un Tipo de Perfil por default
     models:
+      layer:
+        one: Horizonte
+        other: Horizontes
       license:
         one: Licencia
         other: Licencias
@@ -57,6 +77,8 @@ es:
       how_to_translate: Cómo traducir
     menu:
       lookup_tables: Tablas de Valores
+    sidebar:
+      related: Relacionados
   back: Volver
   devise:
     menu:

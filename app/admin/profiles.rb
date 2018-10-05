@@ -17,10 +17,20 @@ ActiveAdmin.register Profile do
   permit_params :user_id, :date, :public, :order, :identifier, :source,
     :contact, :type_id, :license_id, :country_code
 
+  # Don't load every association on index
+  remove_filter :user, :location, :layers
+
   decorate_with ProfileDecorator
+
+  sidebar I18n.t('admin.sidebar.related'), only: [:show, :edit] do
+    ul do
+      li link_to "#{Layer.model_name.human(count: 2)} (#{resource.layers.count})", admin_profile_layers_path(resource)
+    end
+  end
 
   index do
     selectable_column
+
     column :id
     column :identifier
     column :user
@@ -29,6 +39,7 @@ ActiveAdmin.register Profile do
     end
     column :source
     column :country_code
+
     actions
   end
 end

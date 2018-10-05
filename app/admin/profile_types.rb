@@ -5,6 +5,7 @@
 # i18n-tasks-use t('activerecord.attributes.profile_type.value')
 # i18n-tasks-use t('activerecord.attributes.profile_type.translated_value')
 ActiveAdmin.register ProfileType do
+  # FIXME It's only loaded on startup, with default locale
   menu parent: I18n.t('admin.menu.lookup_tables')
 
   permit_params :default, :value_es, :value_en
@@ -40,6 +41,7 @@ ActiveAdmin.register ProfileType do
 
   form do |f|
     f.semantic_errors
+
     f.inputs do
       profile_type.translated_attribute_names.each do |attribute|
         I18n.available_locales.each do |locale|

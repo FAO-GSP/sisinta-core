@@ -16,6 +16,12 @@ class ProfileType < ApplicationRecord
     ProfileType.where(default: true).first
   end
 
+  # How to display this model in ActiveAdmin. Here and not in a decorator
+  # because it's loaded without one in filters.
+  def display_name
+    value
+  end
+
   private
 
   # Prevents leaving the app without a default ProfileType
