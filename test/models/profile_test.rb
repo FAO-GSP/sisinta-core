@@ -13,14 +13,14 @@ describe Profile do
       build(:profile, user: user).must_be :valid?
     end
 
-    it 'identifier must be unique for each user' do
+    it 'has a unique identifier scoped per user' do
       existing = create(:profile, user: user, identifier: 'something')
 
       build(:profile, identifier: existing.identifier).must_be :valid?
       build(:profile, user: user, identifier: existing.identifier).wont_be :valid?
     end
 
-    it 'identifier can always be nil' do
+    it 'can have a nil identifier' do
       create(:profile, user: user, identifier: nil)
 
       build(:profile, identifier: nil).must_be :valid?
@@ -72,12 +72,30 @@ describe Profile do
       subject.reload.location.wont_be :nil?
     end
 
-    it "destroys it" do
-      location = create :location, profile: subject
+    it 'destroys it' do
+      location_id = create(:location, profile: subject).id
 
       subject.destroy
 
-      location.wont_be :persisted?
+      Location.where(id: location_id).must_be :empty?
+    end
+  end
+
+  describe '#layers' do
+    it 'can create layers' do
+      subject.layers.must_be :empty?
+
+      subject.update layers_attributes: [attributes_for(:layer)]
+
+      subject.reload.layers.wont_be :empty?
+    end
+
+    it 'destroys it' do
+      layer_id = create(:layer, profile: subject).id
+
+      subject.destroy
+
+      Layer.where(id: layer_id).must_be :empty?
     end
   end
 
