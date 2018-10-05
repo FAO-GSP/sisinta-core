@@ -1,6 +1,7 @@
 # Profile location data, notably [latitude, longitude] coordinates
 class Location < ApplicationRecord
-  belongs_to :profile
+  # Touch it's profile for cache busting
+  belongs_to :profile, touch: true
 
   attribute :latitude, :decimal
   attribute :longitude, :decimal

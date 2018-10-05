@@ -48,6 +48,7 @@ class GeojsonDecoratorTest < Draper::TestCase
 
   describe '#as_feature' do
     let(:feature) { subject.as_feature }
+    let(:mocked_cache) { Minitest::Mock.new }
 
     it 'returns a GeoJSON Feature' do
       feature.must_be_instance_of RGeo::GeoJSON::Feature
@@ -59,6 +60,16 @@ class GeojsonDecoratorTest < Draper::TestCase
 
     it 'includes an id' do
       feature.feature_id.must_equal profile.id
+    end
+
+    it 'caches the feature' do
+      mocked_cache.expect :fetch, nil, [Array]
+
+      Rails.stub :cache, mocked_cache do
+        subject.as_feature
+      end
+
+      mocked_cache.verify
     end
   end
 
