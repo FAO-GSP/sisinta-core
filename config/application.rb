@@ -8,6 +8,9 @@ Bundler.require(*Rails.groups)
 
 module Sisinta
   class Application < Rails::Application
+    # Automatically Compress HTTP responses
+    config.middleware.use Rack::Deflater
+
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
 
