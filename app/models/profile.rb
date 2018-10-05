@@ -5,6 +5,7 @@ class Profile < ApplicationRecord
   belongs_to :type, inverse_of: :profiles, class_name: 'ProfileType'
   belongs_to :license
   has_one :location, dependent: :destroy
+  has_many :layers, dependent: :destroy
 
   validates :user, presence: true
   validates :source, presence: true
@@ -14,7 +15,7 @@ class Profile < ApplicationRecord
   validates :type, presence: true
   validates :license, presence: true
 
-  accepts_nested_attributes_for :location
+  accepts_nested_attributes_for :location, :layers
 
   after_initialize :set_default_value_objects
 

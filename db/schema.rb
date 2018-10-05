@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_26_172650) do
+ActiveRecord::Schema.define(version: 2018_10_05_060154) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,29 @@ ActiveRecord::Schema.define(version: 2018_09_26_172650) do
     t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
     t.index ["namespace"], name: "index_active_admin_comments_on_namespace"
     t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
+  end
+
+  create_table "layers", force: :cascade do |t|
+    t.bigint "profile_id"
+    t.string "identifier", null: false
+    t.integer "top", null: false
+    t.integer "bottom", null: false
+    t.string "designation"
+    t.decimal "bulk_density"
+    t.decimal "ca_co3"
+    t.decimal "coarse_fragments"
+    t.decimal "ecec"
+    t.decimal "conductivity"
+    t.decimal "organic_carbon"
+    t.decimal "ph_h2o"
+    t.decimal "ph_kcl"
+    t.decimal "clay"
+    t.decimal "silt"
+    t.decimal "sand"
+    t.decimal "water_retention"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_layers_on_profile_id"
   end
 
   create_table "licenses", force: :cascade do |t|
@@ -94,6 +117,7 @@ ActiveRecord::Schema.define(version: 2018_09_26_172650) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "layers", "profiles"
   add_foreign_key "locations", "profiles"
   add_foreign_key "profiles", "licenses"
   add_foreign_key "profiles", "profile_types", column: "type_id"
