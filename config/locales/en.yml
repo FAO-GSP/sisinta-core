@@ -3,21 +3,21 @@ en:
   activerecord:
     attributes:
       layer:
-        identifier: Identifier
-        top: Top
         bottom: Bottom
-        designation: Designation
         bulk_density: Bulk density
         ca_co3: CaCO3
+        clay: Clay
         coarse_fragments: Coarse fragments
-        ecec: ECEC
         conductivity: Conductivity
+        designation: Designation
+        ecec: ECEC
+        identifier: Identifier
         organic_carbon: Organic carbon
         ph_h2o: pH (H2O)
         ph_kcl: pH (KCl)
-        clay: Clay
-        silt: Silt
         sand: Sand
+        silt: Silt
+        top: Top
         water_retention: Water retention
       license:
         acronym: Acronym
@@ -126,8 +126,27 @@ en:
   profiles:
     index:
       title: Profiles
-    show:
+    profile_layers:
+      bottom: Bottom
+      bulk_density: BD
+      ca_co3: CaCO3
+      clay: Clay
+      coarse_fragments: CF
+      conductivity: Cond
+      designation: Des
+      ecec: ECEC
+      identifier: ID
+      organic_carbon: OC
+      ph_h2o: pH (H2O)
+      ph_kcl: pH (KCl)
+      sand: Sand
+      silt: Silt
+      top: Top
+      water_retention: Water
+    profile_properties:
       attribution: Data Attribution
       description: Profile Description
+    show:
+      layers: Layers
       map: Map
       properties: Properties

@@ -4,6 +4,7 @@ class ProfileDecorator < ApplicationDecorator
   decorates_association :user
   decorates_association :license
   decorates_association :type
+  decorates_association :layers, scope: :from_top_to_bottom
 
   delegate :coordinates, :coordinates_array, to: :location
   delegate :name, to: :user, prefix: true

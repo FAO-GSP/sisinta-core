@@ -7,7 +7,7 @@ FactoryBot.define do
 
     # Every attribute and association initialized
     trait :complete do
-      designation { rand * 100 }
+      designation { generate :unique_string }
       bulk_density { rand * 100 }
       ca_co3 { rand * 100 }
       coarse_fragments { rand * 100 }

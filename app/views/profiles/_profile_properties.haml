@@ -1,0 +1,50 @@
+#profile-properties.tab-pane.fade.show.active
+  .row.attributes
+    %dl.col
+      %dt= t '.description'
+      %hr
+      %dd
+        %dl.row
+          %dt.col-sm-4= Profile.human_attribute_name(:type)
+          %dd.col-sm-8= profile.type
+
+          - if profile.date.present?
+            %dt.col-sm-4= Profile.human_attribute_name(:date)
+            %dd.col-sm-8= profile.date
+
+          -# i18n-tasks-use t('activerecord.attributes.profile.country')
+          %dt.col-sm-4= Profile.human_attribute_name(:country)
+          %dd.col-sm-8= profile.country
+
+          - if profile.geolocated?
+            -# i18n-tasks-use t('activerecord.attributes.profile.coordinates')
+            %dt.col-sm-4= Profile.human_attribute_name(:coordinates)
+            %dd.col-sm-8= profile.coordinates
+
+          - if profile.order.present?
+            %dt.col-sm-4= Profile.human_attribute_name(:order)
+            %dd.col-sm-8= profile.order
+
+  .row.attributes
+    %dl.col
+      %dt= t '.attribution'
+      %hr
+      %dd
+        %dl.row
+          %dt.col-sm-4= Profile.human_attribute_name(:user)
+          %dd.col-sm-8= profile.user_name
+
+          %dt.col-sm-4= Profile.human_attribute_name(:contact)
+          %dd.col-sm-8= profile.contact
+
+          - if profile.source.present?
+            %dt.col-sm-4= Profile.human_attribute_name(:source)
+            %dd.col-sm-8= profile.source
+
+          %dt.col-sm-4= Profile.human_attribute_name(:license)
+          %dd.col-sm-8= profile.license_link
+
+          -# Goes on the same dt that license_link
+          %dt.col-sm-4
+          %dd.col-sm-8.small
+            %em= profile.license_statement

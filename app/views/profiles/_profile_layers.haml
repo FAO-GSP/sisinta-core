@@ -1,0 +1,57 @@
+- if profile.layers.any?
+  #profile-layers.tab-pane.fade
+    .table-responsive
+      %table.table.table-sm.table-hover
+        %thead
+          %tr
+            = th_with_tooltip Layer.human_attribute_name(:identifier) do
+              = t '.identifier'
+            = th_with_tooltip Layer.human_attribute_name(:top) do
+              = t '.top'
+            = th_with_tooltip Layer.human_attribute_name(:bottom) do
+              = t '.bottom'
+            = th_with_tooltip Layer.human_attribute_name(:designation) do
+              = t '.designation'
+            = th_with_tooltip Layer.human_attribute_name(:bulk_density) do
+              = t '.bulk_density'
+            = th_with_tooltip Layer.human_attribute_name(:ca_co3) do
+              = t '.ca_co3'
+            = th_with_tooltip Layer.human_attribute_name(:coarse_fragments) do
+              = t '.coarse_fragments'
+            = th_with_tooltip Layer.human_attribute_name(:ecec) do
+              = t '.ecec'
+            = th_with_tooltip Layer.human_attribute_name(:conductivity) do
+              = t '.conductivity'
+            = th_with_tooltip Layer.human_attribute_name(:organic_carbon) do
+              = t '.organic_carbon'
+            = th_with_tooltip Layer.human_attribute_name(:ph_h2o) do
+              = t '.ph_h2o'
+            = th_with_tooltip Layer.human_attribute_name(:ph_kcl) do
+              = t '.ph_kcl'
+            = th_with_tooltip Layer.human_attribute_name(:clay) do
+              = t '.clay'
+            = th_with_tooltip Layer.human_attribute_name(:silt) do
+              = t '.silt'
+            = th_with_tooltip Layer.human_attribute_name(:sand) do
+              = t '.sand'
+            = th_with_tooltip Layer.human_attribute_name(:water_retention) do
+              = t '.water_retention'
+        %tbody
+          - profile.layers.each do |layer|
+            %tr
+              %th{ scope: 'row' }= layer.identifier
+              %td= layer.top
+              %td= layer.bottom
+              %td= layer.designation
+              %td= layer.bulk_density
+              %td= layer.ca_co3
+              %td= layer.coarse_fragments
+              %td= layer.ecec
+              %td= layer.conductivity
+              %td= layer.organic_carbon
+              %td= layer.ph_h2o
+              %td= layer.ph_kcl
+              %td= layer.clay
+              %td= layer.silt
+              %td= layer.sand
+              %td= layer.water_retention

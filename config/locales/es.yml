@@ -3,21 +3,21 @@ es:
   activerecord:
     attributes:
       layer:
-        identifier: Identificador
-        top: Superior
         bottom: Inferior
-        designation: Nomenclatura
         bulk_density: Densidad
         ca_co3: CaCO3
+        clay: Arcilla
         coarse_fragments: Gravas
-        ecec: Capacidad de intercambio catiónico
         conductivity: Conductividad
+        designation: Nomenclatura
+        ecec: Capacidad de intercambio catiónico
+        identifier: Identificador
         organic_carbon: Carbono orgánico
         ph_h2o: pH (H2O)
         ph_kcl: pH (KCl)
-        clay: Arcilla
-        silt: Limo
         sand: Arena
+        silt: Limo
+        top: Superior
         water_retention: Agua útil
       license:
         acronym: Acrónimo
@@ -126,8 +126,27 @@ es:
   profiles:
     index:
       title: Perfiles
-    show:
+    profile_layers:
+      bottom: Inf
+      bulk_density: Dens
+      ca_co3: CaCO3
+      clay: Arcilla
+      coarse_fragments: Gravas
+      conductivity: Cond
+      designation: Nom
+      ecec: ECEC
+      identifier: ID
+      organic_carbon: Carb
+      ph_h2o: pH (H2O)
+      ph_kcl: pH (KCl)
+      sand: Arena
+      silt: Limo
+      top: Sup
+      water_retention: Agua
+    profile_properties:
       attribution: Atribución de los Datos
       description: Descripción del Perfil
+    show:
+      layers: Horizontes
       map: Mapa
       properties: Propiedades
