@@ -146,6 +146,7 @@ es:
     profile_properties:
       attribution: Atribución de los Datos
       description: Descripción del Perfil
+      uploaded_by: Cargado por
     show:
       layers: Horizontes
       map: Mapa

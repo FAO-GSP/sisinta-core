@@ -146,6 +146,7 @@ en:
     profile_properties:
       attribution: Data Attribution
       description: Profile Description
+      uploaded_by: Uploaded by
     show:
       layers: Layers
       map: Map

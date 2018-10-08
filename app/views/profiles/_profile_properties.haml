@@ -31,15 +31,14 @@
       %hr
       %dd
         %dl.row
-          %dt.col-sm-4= Profile.human_attribute_name(:user)
+          %dt.col-sm-4= t '.uploaded_by'
           %dd.col-sm-8= profile.user_name
+
+          %dt.col-sm-4= Profile.human_attribute_name(:source)
+          %dd.col-sm-8= profile.source
 
           %dt.col-sm-4= Profile.human_attribute_name(:contact)
           %dd.col-sm-8= profile.contact
-
-          - if profile.source.present?
-            %dt.col-sm-4= Profile.human_attribute_name(:source)
-            %dd.col-sm-8= profile.source
 
           %dt.col-sm-4= Profile.human_attribute_name(:license)
           %dd.col-sm-8= profile.license_link
