@@ -33,6 +33,7 @@ Rails.application.configure do
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
 
+  # Don't use fragment caching in mailer views
   config.action_mailer.perform_caching = false
 
   # Default host for Devise
