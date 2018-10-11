@@ -1,4 +1,4 @@
-- if @profile.geolocated?
+- if profile.geolocated?
   #profile-map.tab-pane.fade
     #map{ data: { geojson: profile_path(profile, format: :geojson),
                   profile_layer_title: Profile.model_name.human(count: 2),

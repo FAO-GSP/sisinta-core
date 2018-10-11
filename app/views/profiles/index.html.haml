@@ -3,7 +3,7 @@
 
 .row.button-bar
   .col
-    = paginate @profiles, theme: 'sisinta'
+    = paginate profiles, theme: 'sisinta'
 
 .row.index-header
   -# i18n-tasks-use t('activerecord.attributes.profile.date')
@@ -15,8 +15,8 @@
   -# i18n-tasks-use t('activerecord.attributes.profile.identifier')
   .col-2.text-right= Profile.human_attribute_name(:identifier)
 
-= render @profiles
+= render profiles
 
 .row.button-bar
   .col-4.offset-8.text-right
-    = page_entries_info @profiles
+    = page_entries_info profiles

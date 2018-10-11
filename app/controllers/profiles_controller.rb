@@ -1,12 +1,13 @@
 class ProfilesController < ApplicationController
   include GeojsonCache
 
+  decorates_assigned :profile, :profiles
+
   def index
     respond_to do |format|
       format.html do
         # Return paginated and decorated objects to view.
         @profiles = Profile.order(date: :desc).page(params[:page]).per(params[:page_size])
-        @profiles = @profiles.decorate
       end
 
       format.geojson do
@@ -20,10 +21,7 @@ class ProfilesController < ApplicationController
     @profile = Profile.find(params[:id])
 
     respond_to do |format|
-      format.html do
-        @profile = @profile.decorate
-      end
-
+      format.html
       format.geojson do
         render json: GeojsonDecorator.decorate(@profile)
       end
