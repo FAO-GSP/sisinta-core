@@ -21,12 +21,16 @@ gem 'puma', '~> 3.11'
 gem 'actionpack-page_caching'
 
 # Models
+gem 'jbuilder', '~> 2.5'
 # GIS tools
 gem 'rgeo'
 gem 'rgeo-geojson'
 gem 'activerecord-postgis-adapter'
 
 # UI
+gem 'turbolinks', '~> 5'
+# CoffeeScript for .coffee assets and views
+gem 'coffee-rails', '~> 4.2'
 # Templating engine
 gem 'haml-rails'
 # Basic search features
@@ -35,6 +39,10 @@ gem 'ransack'
 gem 'draper'
 # Pagination
 gem 'kaminari'
+# SCSS for stylesheets
+gem 'sass-rails', '~> 5.0'
+# Uglifier as compressor for JavaScript assets
+gem 'uglifier', '>= 1.3.0'
 
 # I18n
 gem 'rails-i18n'
@@ -47,20 +55,14 @@ gem 'mobility'
 # Administration
 gem 'activeadmin'
 
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
-# See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'mini_racer', platforms: :ruby
+# Data
+gem 'kiba'
+gem 'kiba-common'
+gem 'countries'
+# icu, libicu and libicu-dev required
+# https://github.com/cowboyd/therubyracer/issues/446#issuecomment-397159092
+gem 'charlock_holmes'
 
-# Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.2'
-# Turbolinks makes navigating your web application faster. Read more:
-# https://github.com/turbolinks/turbolinks
-gem 'turbolinks', '~> 5'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 
