@@ -54,6 +54,13 @@ describe Profile do
         build(:profile, country_code: code).must_be :valid?
       end
     end
+
+    it 'has a unique uuid' do
+      existing = create(:profile, uuid: 'something')
+
+      build(:profile, uuid: 'something else').must_be :valid?
+      build(:profile, uuid: existing.uuid).wont_be :valid?
+    end
   end
 
   describe '#public' do
@@ -119,6 +126,28 @@ describe Profile do
       Profile.count.must_equal 3
       Profile.geolocated.count.must_equal 1
       Profile.geolocated.include?(geolocated).must_equal true
+    end
+  end
+
+  describe '.generate_uuid' do
+    let(:params) do
+      {
+        country_code: 'a',
+        identifier: 'b',
+        source: 'c',
+        latitude: 'd',
+        longitude: 'e'
+      }
+    end
+
+    it 'generates identical UUIDs for repeated values' do
+      Profile.generate_uuid(params).must_equal Profile.generate_uuid(params.dup)
+    end
+
+    it 'generates different UUIDs for different input values' do
+      different_params = params.merge({ country_code: 'other' })
+
+      Profile.generate_uuid(params).wont_equal Profile.generate_uuid(different_params)
     end
   end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_05_060154) do
+ActiveRecord::Schema.define(version: 2018_10_28_051516) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -88,9 +88,11 @@ ActiveRecord::Schema.define(version: 2018_10_05_060154) do
     t.bigint "license_id"
     t.string "country_code", null: false
     t.string "contact"
+    t.string "uuid"
     t.index ["license_id"], name: "index_profiles_on_license_id"
     t.index ["type_id"], name: "index_profiles_on_type_id"
     t.index ["user_id"], name: "index_profiles_on_user_id"
+    t.index ["uuid"], name: "index_profiles_on_uuid", unique: true
   end
 
   create_table "users", force: :cascade do |t|

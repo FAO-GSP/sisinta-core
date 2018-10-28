@@ -14,6 +14,7 @@ class Profile < ApplicationRecord
   validates :identifier, uniqueness: { scope: :user_id, allow_nil: true }
   validates :type, presence: true
   validates :license, presence: true
+  validates :uuid, uniqueness: { allow_nil: true }
 
   accepts_nested_attributes_for :location, :layers
 
@@ -23,6 +24,13 @@ class Profile < ApplicationRecord
   scope :geolocated, ->{ joins(:location).where('locations.coordinates is not ?', nil) }
 
   delegate :coordinates, :geolocated?, to: :location, allow_nil: true
+
+  # Generates a UUID from (probably) unique values for this profile.
+  def self.generate_uuid(country_code:, identifier:, source:, latitude:, longitude:)
+    key = [country_code, identifier, source, latitude, longitude]
+
+    Digest::MD5.hexdigest key.join
+  end
 
   private
 

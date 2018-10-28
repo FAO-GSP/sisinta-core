@@ -7,14 +7,5 @@ FactoryBot.define do
     license { License.default || create(:license) }
     source { generate :unique_string }
     country_code { Rails.configuration.engine.default_country_codes.sample }
-
-    # Every attribute and association initialized
-    trait :complete do
-      date { Date.yesterday }
-      public { false }
-      identifier { generate :unique_string }
-      order { generate :unique_string }
-      contact { generate :unique_string }
-    end
   end
 end
