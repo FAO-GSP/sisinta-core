@@ -88,6 +88,8 @@ en:
       session_link:
         sign_in: Sign in
         sign_out: Sign out
+  imports:
+    error: "%{message} for [%{row}] CSV data"
   kaminari:
     sisinta:
       pagination:

@@ -11,7 +11,6 @@ namespace :etl do
       Etl::UserCsv::Job.new.import! ENV['USER_CSV_FILE'], user: user
     rescue ArgumentError => e
       Rails.logger.error e.message
-      Rails.logger.error "Missing 'USER_CSV_FILE' param for importing profiles"
     rescue ActiveRecord::RecordNotFound => e
       Rails.logger.error e.message
       Rails.logger.error "User not found for email: 'USER_CSV_EMAIL'"

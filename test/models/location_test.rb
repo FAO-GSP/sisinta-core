@@ -96,4 +96,12 @@ describe Location do
       subject.srid.must_equal 4326
     end
   end
+
+  describe '.generate_coordinates' do
+    subject { Location.generate_coordinates(latitude: 0, longitude: 0) }
+
+    it 'generates a point from latitude and longitude' do
+      subject.must_be_kind_of RGeo::Feature::Point
+    end
+  end
 end

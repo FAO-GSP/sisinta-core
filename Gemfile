@@ -58,7 +58,7 @@ gem 'activeadmin'
 # Data
 gem 'kiba'
 gem 'kiba-common'
-gem 'countries'
+gem 'awesome_print'
 # icu, libicu and libicu-dev required
 # https://github.com/cowboyd/therubyracer/issues/446#issuecomment-397159092
 gem 'charlock_holmes'

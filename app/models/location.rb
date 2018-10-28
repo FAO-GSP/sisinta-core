@@ -20,17 +20,25 @@ class Location < ApplicationRecord
     RGeo::ActiveRecord::SpatialFactoryStore.instance.default
   end
 
+  # For correct coordinates creation outside this model (i.e. from Profile).
+  def self.generate_coordinates(longitude:, latitude:)
+    factory.point longitude, latitude
+  end
+
   def geolocated?
     coordinates.present?
   end
 
   private
 
-  # Updates the geolocation column with provided [longitude, latitude] values
+  # Updates the geolocation column with provided [longitude, latitude] values.
   # FIXME This prevents setting coordinates to nil
   def update_coordinates
     if longitude.present? && latitude.present?
-      self.coordinates = Location.factory.point longitude, latitude
+      self.coordinates = Location.generate_coordinates(
+        longitude: longitude,
+        latitude: latitude
+      )
     end
   end
 
