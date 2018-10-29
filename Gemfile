@@ -6,7 +6,7 @@ ruby '2.5.1'
 gem 'rails', '~> 5.2.1'
 
 # App customization engine
-gem 'sisar', path: '../sisar'
+gem 'sislac', github: 'fao-gsp/sislac-extensions'
 
 # Authentication
 gem 'devise'
