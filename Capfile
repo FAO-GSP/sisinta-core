@@ -9,9 +9,7 @@ require 'capistrano/scm/git'
 install_plugin Capistrano::SCM::Git
 
 # Assets and migration tasks
-# require 'capistrano/rails'
-require 'capistrano/bundler'
-require 'capistrano/rails/migrations'
+require 'capistrano/rails'
 require 'capistrano/rails/collection'
 
 # Verify rbenv is working
