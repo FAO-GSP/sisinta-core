@@ -21,6 +21,7 @@ gem 'puma', '~> 3.11'
 gem 'actionpack-page_caching'
 gem 'delayed_job_active_record'
 gem 'daemons'
+gem 'dalli'
 
 # Models
 gem 'jbuilder', '~> 2.5'
