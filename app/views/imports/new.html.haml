@@ -148,14 +148,17 @@
           class: 'form-control'
       .form-group.row
         %label.col-sm-3{ for: :import_country_code }= t '.country_code'
+        -# i18n-tasks-use t('helpers.placeholder.import.country_code')
         .col-sm-9= f.text_field :country_code,
           class: 'form-control', placeholder: true
       .form-group.row
         %label.col-sm-3{ for: :import_source }= t '.desc.source'
+        -# i18n-tasks-use t('helpers.placeholder.import.source')
         .col-sm-9= f.text_field :source,
           class: 'form-control', placeholder: true
       .form-group.row
         %label.col-sm-3{ for: :import_contact }= t '.desc.contact'
+        -# i18n-tasks-use t('helpers.placeholder.import.contact')
         .col-sm-9= f.text_field :contact,
           class: 'form-control', placeholder: true
       .form-group.row
