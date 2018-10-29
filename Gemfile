@@ -19,6 +19,8 @@ gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 gem 'actionpack-page_caching'
+gem 'delayed_job_active_record'
+gem 'daemons'
 
 # Models
 gem 'jbuilder', '~> 2.5'
@@ -97,6 +99,17 @@ group :development do
 
   # Find and manage missing/unused translations
   gem 'i18n-tasks'
+
+  # Deployment
+  gem 'capistrano', require: false
+  gem 'capistrano-rails', require: false
+  gem 'capistrano-rbenv'
+  gem 'capistrano-config_provider',
+    git: 'https://github.com/mauriciopasquier/capistrano-config_provider.git',
+    require: false
+  # Useful tasks in db, log and tmp namespaces
+  gem 'capistrano-rails-collection'
+  gem 'capistrano3-delayed-job'
 end
 
 group :test do
