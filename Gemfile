@@ -111,6 +111,7 @@ group :development do
   # Useful tasks in db, log and tmp namespaces
   gem 'capistrano-rails-collection'
   gem 'capistrano3-delayed-job'
+  gem 'capistrano3-puma'
 end
 
 group :test do
