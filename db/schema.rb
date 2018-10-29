@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_28_051516) do
+ActiveRecord::Schema.define(version: 2018_10_28_234338) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,14 +42,16 @@ ActiveRecord::Schema.define(version: 2018_10_28_051516) do
     t.decimal "ecec"
     t.decimal "conductivity"
     t.decimal "organic_carbon"
-    t.decimal "ph_h2o"
-    t.decimal "ph_kcl"
+    t.decimal "ph_h2o_1"
+    t.decimal "ph_kcl_1"
     t.decimal "clay"
     t.decimal "silt"
     t.decimal "sand"
     t.decimal "water_retention"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.decimal "ph_h2o_2_5"
+    t.decimal "ph_kcl_2_5"
     t.index ["profile_id"], name: "index_layers_on_profile_id"
   end
 

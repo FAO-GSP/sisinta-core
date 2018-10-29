@@ -13,8 +13,10 @@ es:
         ecec: Capacidad de intercambio catiónico
         identifier: Identificador
         organic_carbon: Carbono orgánico
-        ph_h2o: pH (H2O)
-        ph_kcl: pH (KCl)
+        ph_h2o_1: pH (H2O 1:1)
+        ph_h2o_2_5: pH (H2O 1:2.5)
+        ph_kcl_1: pH (KCl 1:1)
+        ph_kcl_2_5: pH (KCl 1:2.5)
         sand: Arena
         silt: Limo
         top: Superior
@@ -139,8 +141,10 @@ es:
       ecec: ECEC
       identifier: ID
       organic_carbon: Carb
-      ph_h2o: pH (H2O)
-      ph_kcl: pH (KCl)
+      ph_h2o_1: pH (H2O 1:1)
+      ph_h2o_2_5: pH (H2O 1:2.5)
+      ph_kcl_1: pH (KCl 1:1)
+      ph_kcl_2_5: pH (KCl 1:2.5)
       sand: Arena
       silt: Limo
       top: Sup

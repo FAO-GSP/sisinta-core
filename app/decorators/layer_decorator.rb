@@ -30,12 +30,20 @@ class LayerDecorator < ApplicationDecorator
     object.organic_carbon.try(:round, 2)
   end
 
-  def ph_h2o
-    object.ph_h2o.try(:round, 2)
+  def ph_h2o_1
+    object.ph_h2o_1.try(:round, 2)
   end
 
-  def ph_kcl
-    object.ph_kcl.try(:round, 2)
+  def ph_h2o_2_5
+    object.ph_h2o_2_5.try(:round, 2)
+  end
+
+  def ph_kcl_1
+    object.ph_kcl_1.try(:round, 2)
+  end
+
+  def ph_kcl_2_5
+    object.ph_kcl_2_5.try(:round, 2)
   end
 
   def clay
