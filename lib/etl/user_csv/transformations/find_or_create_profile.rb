@@ -24,7 +24,7 @@ module Etl
         profile.country_code = row[:country_code] if row[:country_code].present?
 
         # Can be nil.
-        profile.identifier = row[:identifier]
+        profile.identifier = row[:profile_identifier]
         profile.date = row[:date]
         profile.order = row[:order]
 
@@ -38,7 +38,7 @@ module Etl
 
         # Preserve the generated Profile id within data row for further
         # processing.
-        row[:system_identifier] = profile.to_param
+        row[:system_profile_id] = profile.to_param
 
         row
       rescue ActiveRecord::RecordInvalid => e
@@ -52,7 +52,7 @@ module Etl
         Profile.generate_uuid(
           country_code: (row[:country_code] || attributes[:country_code]),
           source: (row[:source] || attributes[:source]),
-          identifier: row[:identifier],
+          identifier: row[:profile_identifier],
           longitude: row[:longitude],
           latitude: row[:latitude]
         )

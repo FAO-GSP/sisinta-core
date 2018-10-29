@@ -2,6 +2,7 @@
 require 'kiba-common/sources/csv'
 require 'etl/common/processors/transcoder'
 require 'etl/user_csv/transformations/find_or_create_profile'
+require 'etl/user_csv/transformations/find_or_create_layer'
 
 module Etl
   module UserCsv
@@ -19,8 +20,10 @@ module Etl
               headers: true, header_converters: :symbol, col_sep: ',', encoding: 'utf-8'
             }
 
-          # Adds a `system_identifier` to the row
+          # Adds a `system_profile_id` to the row.
           transform FindOrCreateProfile, profile_attributes
+          # Uses the `system_profile_id` to continue the processing.
+          transform FindOrCreateLayer
 
           post_process do
             transcoder.destination.close
