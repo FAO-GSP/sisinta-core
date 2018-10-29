@@ -30,7 +30,7 @@ module ApplicationHelper
 
   # Profile attributes to query with global search
   def global_search_query
-    :date_or_order_cont
+    :identifier_or_source_or_country_code_cont
   end
 
   # Creates a link which switches to a specific locale

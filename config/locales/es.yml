@@ -179,7 +179,7 @@ es:
       contact: Contacto
       search: Búsqueda
     search:
-      search_by: Fecha o Grupo
+      search_by: ID, Fuente o Código de País
   map:
     index:
       info_text: "%{profiles} perfiles (%{public_profiles} públicos)."
