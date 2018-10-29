@@ -2,7 +2,7 @@
 class ProfileType < ApplicationRecord
   extend Mobility
   # TODO Investigate why this line breaks db creation from zero
-  translates :value
+  # translates :value
 
   has_many :profiles, inverse_of: :type, foreign_key: :type_id,
     dependent: :restrict_with_error
