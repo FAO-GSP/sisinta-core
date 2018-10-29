@@ -24,5 +24,12 @@ Rails.application.routes.draw do
 
     # Profiles views
     resources :profiles, only: [:index, :show]
+
+    # Importing data from users
+    resources :imports, only: [:new, :create] do
+      collection do
+        get 'template'
+      end
+    end
   end
 end

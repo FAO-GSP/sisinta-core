@@ -13,10 +13,10 @@ en:
         ecec: ECEC
         identifier: Identifier
         organic_carbon: Organic carbon
-        ph_h2o_1: pH (H2O 1:1)
-        ph_h2o_2_5: pH (H2O 1:2.5)
-        ph_kcl_1: pH (KCl 1:1)
-        ph_kcl_2_5: pH (KCl 1:2.5)
+        ph_h2o_1: pH H2O (1:1)
+        ph_h2o_2_5: pH H2O (1:2.5)
+        ph_kcl_1: pH KCl (1:1)
+        ph_kcl_2_5: pH KCl (1:2.5)
         sand: Sand
         silt: Silt
         top: Top
@@ -90,8 +90,64 @@ en:
       session_link:
         sign_in: Sign in
         sign_out: Sign out
+  helpers:
+    placeholder:
+      import:
+        contact: e.g. contact@instituteofsoilsciente.gov.ex
+        country_code: Country code
+        source: e.g. Institute of Soil Science
   imports:
     error: "%{message} for [%{row}] CSV data"
+    new:
+      country_code: Country code
+      csv_spreadsheet: Data spreadsheet (in CSV format)
+      desc:
+        bottom: Bottom limit for this layer
+        bulk_density: Bulk density
+        ca_co3: Ca CO3
+        clay: Clay total
+        coarse_fragments: Coarse fragments
+        conductivity: Conductivity
+        contact: Data contact email
+        country_code: Country code for this Profile
+        date: Data collection date
+        designation: Layer designation
+        ecec: Effective cation exchange capacity
+        latitude: Profile latitude coordinate
+        layer_identifier: An arbitrary Layer ID, unique inside the same Profile
+        license: License code (%{licenses})
+        longitude: Profile longitude coordinate
+        order: Soil order
+        organic_carbon: Organic carbon
+        ph_h2o_1: pH H2O (1:1)
+        ph_h2o_2_5: pH H2O (1:2.5)
+        ph_kcl_1: pH KCl (1:1)
+        ph_kcl_2_5: pH KCl (1:2.5)
+        profile_identifier: An arbitrary Profile ID, used to group different rows
+        sand: Sand total
+        silt: Silt total
+        source: Data source or origin
+        top: Top limit for this layer
+        type: Type of point (%{types})
+        water_retention: Water retention
+      download: Download template
+      global_data:
+        description: It is possible to add the following attributes en masse to every imported profile. If any of these attributes are present in the file, the latter takes priority.
+        title: Global attributes
+      help_html: It is possible to %{import} profiles to the application through a specially defined %{template}, honoring the following designation and units in its columns.
+      import: import
+      import_submit: Import profiles
+      layer_attributes: Layer attributes
+      license: License
+      profile_attributes: Profile attributes
+      template: template
+      title: Import Profiles and Layers
+      type: Point type
+      unit:
+        alphanumeric: Alphanumeric
+        date: AAAA-MM-DD format
+        iso_3166_alpha_3: ISO 3166-1 3 letter code
+        signed_decimal: Signed decimal
   kaminari:
     sisinta:
       pagination:
@@ -116,6 +172,7 @@ en:
       languages:
         title: Language
       profiles:
+        import: Import
         index: Listing
         title: Profiles
     navbar:

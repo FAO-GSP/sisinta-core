@@ -1,0 +1,173 @@
+- content_for :page_title do
+  = t '.title'
+
+.row.button-bar
+  .col
+    .btn-toolbar
+      .btn-group.btn-group-sm
+        = link_to template_imports_path(format: :csv), class: 'btn btn-primary' do
+          = t '.download'
+
+.row
+  .col
+    %p= t '.help_html',
+        import: link_to(t('.import'), '#new_import'),
+        template: link_to(t('.template'), template_imports_path(format: :csv))
+
+.row.nomenclature
+  %dl.col
+    %dt= t '.profile_attributes'
+    %hr
+    %dd
+      %dl.row
+        %dt.col-sm-3 profile_identifier
+        %dd.col-sm-3.unit= t '.unit.alphanumeric'
+        %dd.col-sm-6= t '.desc.profile_identifier'
+
+        %dt.col-sm-3 latitude
+        %dd.col-sm-3.unit= t '.unit.signed_decimal'
+        %dd.col-sm-6= t '.desc.latitude'
+
+        %dt.col-sm-3 longitude
+        %dd.col-sm-3.unit= t '.unit.signed_decimal'
+        %dd.col-sm-6= t '.desc.longitude'
+
+        %dt.col-sm-3 country_code
+        %dd.col-sm-3.unit= t '.unit.iso_3166_alpha_3'
+        %dd.col-sm-6= t '.desc.country_code'
+
+        %dt.col-sm-3 date
+        %dd.col-sm-3.unit= t '.unit.date'
+        %dd.col-sm-6= t '.desc.date'
+
+        %dt.col-sm-3 source
+        %dd.col-sm-3.unit= t '.unit.alphanumeric'
+        %dd.col-sm-6= t '.desc.source'
+
+        %dt.col-sm-3 contact
+        %dd.col-sm-3.unit= t '.unit.alphanumeric'
+        %dd.col-sm-6= t '.desc.contact'
+
+        %dt.col-sm-3 order
+        %dd.col-sm-3.unit= t '.unit.alphanumeric'
+        %dd.col-sm-6= t '.desc.order'
+
+        %dt.col-sm-3 type
+        %dd.col-sm-3.unit= t '.unit.alphanumeric'
+        %dd.col-sm-6= t '.desc.type', types: ProfileType.i18n.pluck(:value).join(', ')
+
+        %dt.col-sm-3 license
+        %dd.col-sm-3.unit= t '.unit.alphanumeric'
+        %dd.col-sm-6= t '.desc.license', licenses: License.pluck(:acronym).join(', ')
+
+    %dt= t '.layer_attributes'
+    %hr
+    %dd
+      %dl.row
+        %dt.col-sm-3 layer_identifier
+        %dd.col-sm-3.unit= t '.unit.alphanumeric'
+        %dd.col-sm-6= t '.desc.layer_identifier'
+
+        %dt.col-sm-3 designation
+        %dd.col-sm-3.unit= t '.unit.alphanumeric'
+        %dd.col-sm-6= t '.desc.designation'
+
+        %dt.col-sm-3 top
+        %dd.col-sm-3.unit cm
+        %dd.col-sm-6= t '.desc.top'
+
+        %dt.col-sm-3 bottom
+        %dd.col-sm-3.unit cm
+        %dd.col-sm-6= t '.desc.bottom'
+
+        %dt.col-sm-3 bulk_density
+        %dd.col-sm-3.unit
+        %dd.col-sm-6= t '.desc.bulk_density'
+
+        %dt.col-sm-3 ca_co3
+        %dd.col-sm-3.unit %
+        %dd.col-sm-6= t '.desc.ca_co3'
+
+        %dt.col-sm-3 coarse_fragments
+        %dd.col-sm-3.unit %
+        %dd.col-sm-6= t '.desc.coarse_fragments'
+
+        %dt.col-sm-3 ecec
+        %dd.col-sm-3.unit meq/100g
+        %dd.col-sm-6= t '.desc.ecec'
+
+        %dt.col-sm-3 conductivity
+        %dd.col-sm-3.unit mmhos/cm
+        %dd.col-sm-6= t '.desc.conductivity'
+
+        %dt.col-sm-3 organic_carbon
+        %dd.col-sm-3.unit %
+        %dd.col-sm-6= t '.desc.organic_carbon'
+
+        %dt.col-sm-3 ph_h2o_1
+        %dd.col-sm-3.unit
+        %dd.col-sm-6= t '.desc.ph_h2o_1'
+
+        %dt.col-sm-3 ph_h2o_2_5
+        %dd.col-sm-3.unit
+        %dd.col-sm-6= t '.desc.ph_h2o_2_5'
+
+        %dt.col-sm-3 ph_kcl_1
+        %dd.col-sm-3.unit
+        %dd.col-sm-6= t '.desc.ph_kcl_1'
+
+        %dt.col-sm-3 ph_kcl_2_5
+        %dd.col-sm-3.unit
+        %dd.col-sm-6= t '.desc.ph_kcl_2_5'
+
+        %dt.col-sm-3 clay
+        %dd.col-sm-3.unit %
+        %dd.col-sm-6= t '.desc.clay'
+
+        %dt.col-sm-3 silt
+        %dd.col-sm-3.unit %
+        %dd.col-sm-6= t '.desc.silt'
+
+        %dt.col-sm-3 sand
+        %dd.col-sm-3.unit %
+        %dd.col-sm-6= t '.desc.sand'
+
+        %dt.col-sm-3 water_retention
+        %dd.col-sm-3.unit %
+        %dd.col-sm-6= t '.desc.water_retention'
+
+.row.import_global_data
+  .col
+    %h3= t '.global_data.title'
+    %p= t '.global_data.description'
+
+    = form_for @import, as: :import, url: imports_path, multipart: true do |f|
+      .form-group.row
+        %label.col-sm-3{ for: :import_type }= t '.type'
+        .col-sm-9= f.collection_select :type_id, ProfileType.all, :id, :value,
+          class: 'form-control'
+      .form-group.row
+        %label.col-sm-3{ for: :import_country_code }= t '.country_code'
+        .col-sm-9= f.text_field :country_code,
+          class: 'form-control', placeholder: true
+      .form-group.row
+        %label.col-sm-3{ for: :import_source }= t '.desc.source'
+        .col-sm-9= f.text_field :source,
+          class: 'form-control', placeholder: true
+      .form-group.row
+        %label.col-sm-3{ for: :import_contact }= t '.desc.contact'
+        .col-sm-9= f.text_field :contact,
+          class: 'form-control', placeholder: true
+      .form-group.row
+        %label.col-sm-3{ for: :import_license }= t '.license'
+        .col-sm-9= f.collection_select :license_id, License.all.decorate, :id, :full_name,
+          class: 'form-control'
+      .form-group.row
+        -# FIXME I18n uploader
+        %label.col-sm-3{ for: :import_file }= t '.csv_spreadsheet'
+        .col-sm-9= f.file_field :file,
+          class: 'form-control',
+          required: true, accept: '.csv'
+      .form-group.row
+        .col
+          = f.submit t('.import_submit'), class: 'btn btn-primary'

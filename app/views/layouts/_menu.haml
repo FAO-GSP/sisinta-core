@@ -4,6 +4,9 @@
   = link_to t('.profiles.title'), '#', class: 'nav-item nav-link dropdown-toggle', data: { toggle: 'dropdown' }
   .dropdown-menu
     = link_to t('.profiles.index'), profiles_path, class: 'dropdown-item'
+    - if can? :create, Profile
+      .dropdown-divider
+      = link_to t('.profiles.import'), new_import_path, class: 'dropdown-item'
 
 .dropdown
   = link_to t('.languages.title'), '#', class: 'nav-item nav-link dropdown-toggle', data: { toggle: 'dropdown' }

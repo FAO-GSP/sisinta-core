@@ -21,7 +21,8 @@ module Etl
         profile.source = row[:source] if row[:source].present?
         profile.contact = row[:contact] if row[:contact].present?
         profile.license = License.find_by(acronym: row[:license]) if row[:license].present?
-        profile.country_code = row[:country_code] if row[:country_code].present?
+        # TODO Normalize country codes with https://github.com/wbotelhos/normalizy
+        profile.country_code = row[:country_code].upcase if row[:country_code].present?
 
         # Can be nil.
         profile.identifier = row[:profile_identifier]

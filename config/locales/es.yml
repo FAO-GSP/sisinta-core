@@ -13,10 +13,10 @@ es:
         ecec: Capacidad de intercambio catiónico
         identifier: Identificador
         organic_carbon: Carbono orgánico
-        ph_h2o_1: pH (H2O 1:1)
-        ph_h2o_2_5: pH (H2O 1:2.5)
-        ph_kcl_1: pH (KCl 1:1)
-        ph_kcl_2_5: pH (KCl 1:2.5)
+        ph_h2o_1: pH H2O (1:1)
+        ph_h2o_2_5: pH H2O (1:2.5)
+        ph_kcl_1: pH KCl (1:1)
+        ph_kcl_2_5: pH KCl (1:2.5)
         sand: Arena
         silt: Limo
         top: Superior
@@ -90,8 +90,64 @@ es:
       session_link:
         sign_in: Entrar
         sign_out: Salir
+  helpers:
+    placeholder:
+      import:
+        contact: e.g. contacto@institutodesuelos.gov.ex
+        country_code: Código de país
+        source: e.g. Instituto de Suelos
   imports:
     error: "%{message} para los datos [%{row}] del CSV"
+    new:
+      country_code: Código de país
+      csv_spreadsheet: Planilla de datos (formato CSV)
+      desc:
+        bottom: El límite inferior de esta capa
+        bulk_density: Densidad aparente
+        ca_co3: Ca CO3
+        clay: Arcilla total
+        coarse_fragments: Gravas
+        conductivity: Conductividad
+        contact: Email de contacto sobre los datos
+        country_code: El código del país donde está ubicado este Perfil
+        date: La fecha de recolección de los datos
+        designation: Nomenclatura del Horizonte
+        ecec: Capacidad de intercambio catiónico efectiva
+        latitude: La latitud de las coordenadas del Perfil
+        layer_identifier: Un ID arbitrario de Horizonte, único dentro de un mismo Perfil
+        license: Código de licencia (%{licenses})
+        longitude: La longitud de las coordenadas del Perfil
+        order: Orden de suelo
+        organic_carbon: Carbono orgánico
+        ph_h2o_1: pH H2O (1:1)
+        ph_h2o_2_5: pH H2O (1:2.5)
+        ph_kcl_1: pH KCl (1:1)
+        ph_kcl_2_5: pH KCl (1:2.5)
+        profile_identifier: Un ID arbitrario del Perfil, con el que agrupar las filas
+        sand: Arena total
+        silt: Limo total
+        source: Fuente u origen de los datos
+        top: El límite superior de esta capa
+        type: Tipo de punto (%{types})
+        water_retention: Agua útil
+      download: Descargar plantilla
+      global_data:
+        description: Puedes agregar los siguientes datos en masa para todos los perfiles a importar. Si el mismo dato se lee desde el archivo, éste último toma prioridad.
+        title: Datos globales
+      help_html: Es posible %{import} perfiles en el sitio cargándolos a través de una %{template} especialmente definida, respetando la siguiente nomenclatura y unidades de las columnas.
+      import: importar
+      import_submit: Importar perfiles
+      layer_attributes: Atributos del Horizonte
+      license: Licencia
+      profile_attributes: Atributos del Perfil
+      template: plantilla
+      title: Importar Perfiles y Horizontes
+      type: Tipo de punto
+      unit:
+        alphanumeric: Alfanumérico
+        date: Formato AAAA-MM-DD
+        iso_3166_alpha_3: Código ISO 3166-1 de 3 letras
+        signed_decimal: Decimal signado
   kaminari:
     sisinta:
       pagination:
@@ -116,6 +172,7 @@ es:
       languages:
         title: Idioma
       profiles:
+        import: Importar
         index: Listado
         title: Perfiles
     navbar:
