@@ -1,7 +1,7 @@
 # Application routes
 Rails.application.routes.draw do
   # Map in default locale as landing page.
-  root to: redirect("/#{I18n.default_locale}", status: 301)
+  root to: redirect(I18n.default_locale.to_s, status: 301)
 
   # Route the whole app with an optional locale. If it's missing the controller
   # should try to get it from current user o use the default in case it's
