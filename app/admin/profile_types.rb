@@ -32,10 +32,11 @@ ActiveAdmin.register ProfileType do
 
       profile_type.translated_attribute_names.each do |attribute|
         I18n.available_locales.collect do |locale|
-          row ProfileType.human_attribute_name(:translated_value, language: locale.upcase), [attribute, locale].join('_')
+          row(ProfileType.human_attribute_name(:translated_value, language: locale.upcase)) { |type| type.send([attribute, locale].join('_').to_sym) }
         end
       end
     end
+
     active_admin_comments
   end
 

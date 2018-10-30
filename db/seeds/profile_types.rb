@@ -1,4 +1,5 @@
 # Possible values for Profile type
+# TODO Add translated initial values
 #
 # Id is set because these are lookup tables of value objects, mostly static
 # data
