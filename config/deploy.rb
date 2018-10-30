@@ -14,6 +14,9 @@ set :keep_releases, 5
 # rbenv
 set :rbenv_type, :user
 
+# puma
+set :puma_init_active_record, true
+
 # rails
 set :linked_dirs, %w{
   log
