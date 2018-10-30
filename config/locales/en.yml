@@ -50,6 +50,7 @@ en:
       user:
         admin: Admin
         name: Name
+        role: Role
     errors:
       models:
         license:

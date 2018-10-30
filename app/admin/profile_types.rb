@@ -15,8 +15,8 @@ ActiveAdmin.register ProfileType do
 
   index do
     id_column
-    column :default
 
+    column :default
     column :value do |profile_type|
       I18n.available_locales.collect do |locale|
         status_tag profile_type.translations.dig(locale, :value).present?, label: locale
