@@ -13,7 +13,6 @@ module Etl
         # Load the Layer
         layer = profile.layers.find_or_initialize_by identifier(row)
 
-        layer.identifier = row[:layer_identifier]
         layer.top = row[:top]
         layer.bottom = row[:bottom]
         layer.designation = row[:designation]
