@@ -10,12 +10,15 @@ describe Layer do
       build(:layer, identifier: nil).wont_be :valid?
     end
 
-    it 'requires top' do
-      build(:layer, top: nil).wont_be :valid?
+    # Regression test. Some data comes without bounds if it is only one layer.
+    it 'does not requires top' do
+      build(:layer, top: nil).must_be :valid?
     end
 
-    it 'requires bottom' do
-      build(:layer, bottom: nil).wont_be :valid?
+    # Regression test. Some data comes without lower bounds for the deepest
+    # layer.
+    it 'does not require bottom' do
+      build(:layer, bottom: nil).must_be :valid?
     end
 
     it 'requires a profile' do

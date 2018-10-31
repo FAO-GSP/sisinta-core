@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_29_232700) do
+ActiveRecord::Schema.define(version: 2018_10_31_095729) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,8 +48,8 @@ ActiveRecord::Schema.define(version: 2018_10_29_232700) do
   create_table "layers", force: :cascade do |t|
     t.bigint "profile_id"
     t.string "identifier", null: false
-    t.integer "top", null: false
-    t.integer "bottom", null: false
+    t.integer "top"
+    t.integer "bottom"
     t.string "designation"
     t.decimal "bulk_density"
     t.decimal "ca_co3"

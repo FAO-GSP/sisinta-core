@@ -1,5 +1,5 @@
 # Finds or creates a Layer associated with a Profile, uniquely identified by
-# its layer_identifier or the combination of top and bottom.
+# its layer_identifier or a combination of its bounds (top and bottom).
 
 module Etl
   module UserCsv
@@ -30,7 +30,7 @@ module Etl
         layer.clay = row[:clay]
         layer.silt = row[:silt]
         layer.sand = row[:sand]
-        layer.water_retention = row[:wrvo]
+        layer.water_retention = row[:water_retention]
 
         layer.save!
         profile.save!
@@ -42,12 +42,12 @@ module Etl
         raise CsvImportError.new e.message, row
       end
 
-      # A unique (probably) identifier for this layer
+      # A unique (probably) identifier for this layer.
       def identifier(row)
         if row[:layer_identifier].present?
           { identifier: row[:layer_identifier] }
         else
-          { identifier: [row[:top], row[:bottom]].join('-') }
+          { identifier: [row[:top], row[:bottom]].join }
         end
       end
     end
