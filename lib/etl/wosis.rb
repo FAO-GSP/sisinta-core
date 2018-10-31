@@ -110,7 +110,7 @@ module Etl
       {
         source: 'WoSIS July 2016 Snapshot',
         contact: 'niels.batjes@wur.nl',
-        license: 'CC-BY-NC-ND'
+        license: License.find_by(acronym: 'CC-BY-NC-ND')
       }
     end
 

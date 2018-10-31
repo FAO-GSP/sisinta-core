@@ -37,8 +37,8 @@ namespace :etl do
       source = ENV['SOURCE_WOSIS_PROFILES_FILE']
       destination = ENV['WOSIS_PROFILES_FILE']
 
-      raise ArgumentError.new('Missing SOURCE_WOSIS_PROFILES_FILE param') if file.blank?
-      raise ArgumentError.new('Missing WOSIS_PROFILES_FILE param') if file.blank?
+      raise ArgumentError.new('Missing SOURCE_WOSIS_PROFILES_FILE param') if source.blank?
+      raise ArgumentError.new('Missing WOSIS_PROFILES_FILE param') if destination.blank?
 
       Etl::Wosis.select_profiles! source: source, destination: destination
     rescue ArgumentError => e
@@ -50,8 +50,8 @@ namespace :etl do
       source = ENV['SOURCE_WOSIS_LAYERS_FILE']
       destination = ENV['WOSIS_LAYERS_FILE']
 
-      raise ArgumentError.new('Missing SOURCE_WOSIS_LAYERS_FILE param') if file.blank?
-      raise ArgumentError.new('Missing WOSIS_LAYERS_FILE param') if file.blank?
+      raise ArgumentError.new('Missing SOURCE_WOSIS_LAYERS_FILE param') if source.blank?
+      raise ArgumentError.new('Missing WOSIS_LAYERS_FILE param') if destination.blank?
 
       Etl::Wosis.select_layers! source: source, destination: destination
     rescue ArgumentError => e
