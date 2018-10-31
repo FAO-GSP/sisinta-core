@@ -11,6 +11,7 @@ class Profile < ApplicationRecord
   validates :source, presence: true
   validates :country_code, presence: true,
     inclusion: { in: Rails.configuration.engine.default_country_codes }
+  # FIXME Change scope to source
   validates :identifier, uniqueness: { scope: :user_id, allow_nil: true }
   validates :type, presence: true
   validates :license, presence: true

@@ -7,6 +7,7 @@ Map.prepare_popup = (feature, layer) ->
   layer.bindPopup Map.popup_markup(feature.properties)
 
 # Generate the markup for each popup.
+# TODO Add source to the identifier
 Map.popup_markup = (feature) ->
   [
     "<a target='_blank' title='feature' href='#{feature.url}'>",
