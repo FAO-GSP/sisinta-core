@@ -4,15 +4,24 @@ class ProfilesController < ApplicationController
   decorates_assigned :profile, :profiles
 
   def index
+    # Filter with query if present, or return a default order.
+    # TODO Let the user request a specific ordering.
+    @profiles =
+      if params[:q].present?
+        Profile.search(params[:q]).result(distinct: true)
+      else
+        Profile.order(date: :desc)
+      end
+
     respond_to do |format|
       format.html do
         # Return paginated and decorated objects to view.
-        @profiles = Profile.order(date: :desc).page(params[:page]).per(params[:page_size])
+        @profiles = @profiles.page(params[:page]).per(params[:page_size])
       end
 
       format.geojson do
         # Return every Profile with coordinates.
-        render json: GeojsonCollectionDecorator.decorate(Profile.geolocated)
+        render json: GeojsonCollectionDecorator.decorate(@profiles.geolocated)
       end
     end
   end
