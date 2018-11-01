@@ -17,12 +17,22 @@ module Etl
         profile.assign_attributes attributes
 
         # Overwrites global data.
-        profile.type = ProfileType.i18n.find_by(value: row[:type]) if row[:type].present?
         profile.source = row[:source] if row[:source].present?
         profile.contact = row[:contact] if row[:contact].present?
-        profile.license = License.find_by(acronym: row[:license]) if row[:license].present?
         # TODO Normalize country codes with https://github.com/wbotelhos/normalizy
         profile.country_code = row[:country_code].upcase if row[:country_code].present?
+
+        # Overwrites ProfileType if its valid.
+        if row[:type].present?
+          type_from_csv = ProfileType.i18n.find_by(value: row[:type])
+          profile.type = type_from_csv || ProfileType.find(attributes[:type_id])
+        end
+
+        # Overwrites License if its valid.
+        if row[:license].present?
+          license_from_csv = License.find_by(acronym: row[:license])
+          profile.license = license_from_csv || License.find(attributes[:license_id])
+        end
 
         # Can be nil.
         profile.identifier = row[:profile_identifier]
