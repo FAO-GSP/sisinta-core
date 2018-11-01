@@ -6,8 +6,11 @@ module PaginationHelper
     sizes.collect do |size|
       # Should know if it's active
       content_tag(:li, class: class_for(size, sizes)) do
-        link_to size, url_for(page_size: size),
-          class: 'page-link'
+        # Preserve search query but not page number (most likely obsolete after
+        # changing the page_size).
+        url = url_for(request.query_parameters.slice(:q).merge(page_size: size))
+
+        link_to size, url, class: 'page-link'
       end
     end.join.html_safe
   end
