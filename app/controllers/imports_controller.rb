@@ -1,12 +1,15 @@
-# Handles everything associated with bulk imports of data, usually through CSV
+# Handles everything associated with bulk imports of data, usually through CSV.
+
 class ImportsController < ApplicationController
   include GeojsonCache
 
   skip_authorization_check only: [:new, :template]
 
-  # Landing with explanation of the process and form to post
+  # Landing with explanation of the process and form to post.
   def new
-    @import = CsvImport.new license_id: License.default.to_param
+    # Prepare defaults.
+    @import = CsvImport.new license_id: License.default.to_param,
+      type_id: ProfileType.default.to_param
   end
 
   # Downloads the template with keyed columns
@@ -21,7 +24,7 @@ class ImportsController < ApplicationController
     end
   end
 
-  # Uploads a CSV file with layer information
+  # Uploads a CSV file with layer information.
   def create
     authorize! :create, Profile
 
