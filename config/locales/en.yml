@@ -98,7 +98,7 @@ en:
         country_code: Country code
         source: e.g. Institute of Soil Science
   imports:
-    error: "%{message} for [%{row}] CSV data"
+    error_html: "%{message} for [%{row}] CSV data"
     new:
       country_code: Country code
       csv_spreadsheet: Data spreadsheet (in CSV format)

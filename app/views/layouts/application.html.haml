@@ -20,6 +20,6 @@
     #main-container.container-fluid{ style: content_for(:main_container_style) }
       #notifications
         - flash.each do |name, msg|
-          = "#{name}: #{msg}"
+          != "#{name}: #{msg}"
 
       = yield

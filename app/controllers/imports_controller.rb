@@ -28,20 +28,21 @@ class ImportsController < ApplicationController
   def create
     authorize! :create, Profile
 
-    import = CsvImport.new import_params.merge({ user: current_user })
-
-    if CsvImportService.call(import: import)
-      expire_geojson
-
-      # FIXME i18n
-      flash[:notice] = 'Perfiles importados correctamente'
-    else
-      flash[:alert] = import.errors.full_messages.to_sentence
-    end
+    @import = CsvImport.new import_params.merge({ user: current_user })
 
     respond_to do |format|
-      format.html do
-        redirect_to new_import_path
+      if CsvImportService.call(import: @import)
+        expire_geojson
+
+        # Normally redirects to #show for the newly created model.
+        format.html { redirect_to new_import_path, notice: I18n.t('.success') }
+      else
+        format.html do
+          # Prefer to specify the error as flash instead of picking it from the
+          # model in the view.
+          flash[:alert] = @import.errors.full_messages.to_sentence
+          render action: :new
+        end
       end
     end
   end

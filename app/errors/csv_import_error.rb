@@ -6,6 +6,6 @@ class CsvImportError < StandardError
   def initialize(message, row)
     @row = row
 
-    super I18n.t 'imports.error', message: message, row: row
+    super I18n.t 'imports.error_html', message: message, row: row.to_h.ai(html: true)
   end
 end

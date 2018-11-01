@@ -98,7 +98,7 @@ es:
         country_code: Código de país
         source: e.g. Instituto de Suelos
   imports:
-    error: "%{message} para los datos [%{row}] del CSV"
+    error_html: "%{message} para los datos [%{row}] del CSV"
     new:
       country_code: Código de país
       csv_spreadsheet: Planilla de datos (formato CSV)
