@@ -48,4 +48,37 @@ module ApplicationHelper
     I18nData.languages(upcased_locale)[upcased_locale].split(';').map(&:strip).first
   end
   module_function :localized_locale_name
+
+  # Render a notification from the flash with styling and dismiss functionality.
+  def render_notification(name, message)
+    # TODO Check if it is needed
+    return unless message.is_a?(String)
+
+    content_tag :div, class: notification_class(name) do
+      concat(
+        content_tag(:button, class: 'close', data: { dismiss: 'alert' }) do
+          content_tag :span, '&times;'.html_safe
+        end
+      )
+
+      concat message.html_safe
+    end
+  end
+
+  private
+
+  # Sets up html classes for the different notifications.
+  def notification_class(name)
+    notification_type =
+      case name.to_sym
+      when :notice, :success
+        :success
+      when :alert, :error
+        :danger
+      else
+        :info
+      end
+
+    "alert alert-#{notification_type} alert-dismissible fade show"
+  end
 end

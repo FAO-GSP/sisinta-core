@@ -6,6 +6,8 @@ class CsvImportError < StandardError
   def initialize(message, row)
     @row = row
 
-    super I18n.t 'imports.error_html', message: message, row: row.to_h.ai(html: true)
+    formatted_row = row.to_h.ai(html: true, plain: true, ruby19_syntax: true)
+
+    super I18n.t 'imports.error_html', message: message, row: formatted_row
   end
 end
