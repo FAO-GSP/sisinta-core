@@ -13,6 +13,7 @@ set :keep_releases, 5
 
 # rbenv
 set :rbenv_type, :user
+set :rbenv_ruby, File.read('.ruby-version').strip
 
 # puma
 set :puma_init_active_record, true
