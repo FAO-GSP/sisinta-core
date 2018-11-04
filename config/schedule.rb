@@ -1,20 +1,13 @@
-# Use this file to easily define all of your cron jobs.
-#
-# It's helpful, but not entirely necessary to understand cron before proceeding.
-# http://en.wikipedia.org/wiki/Cron
+# Cron jobs for the application.
 
-# Example:
-#
-# set :output, "/path/to/my/cron_log.log"
-#
-# every 2.hours do
-#   command "/usr/bin/some_great_command"
-#   runner "MyModel.some_method"
-#   rake "some:great:rake:task"
-# end
-#
-# every 4.days do
-#   runner "AnotherModel.prune_old_records"
-# end
+# Use its own log.
+set :output, '/srv/http/sislac/shared/log/cron.log'
 
-# Learn more: http://github.com/javan/whenever
+# Custom job type with ENV variables set
+job_type :env_command, 'cd :path && RAILS_ENV=:environment :task'
+
+# Start services on boot.
+every :reboot do
+  # delayed_job.
+  env_command 'bin/delayed_job -n 2 restart'
+end
