@@ -22,6 +22,7 @@ gem 'actionpack-page_caching'
 gem 'delayed_job_active_record'
 gem 'daemons'
 gem 'dalli'
+gem 'whenever', require: false
 
 # Models
 gem 'jbuilder', '~> 2.5'
@@ -104,14 +105,14 @@ group :development do
   # Deployment
   gem 'capistrano', require: false
   gem 'capistrano-rails', require: false
-  gem 'capistrano-rbenv'
+  gem 'capistrano-rbenv', require: false
   gem 'capistrano-config_provider',
     git: 'https://github.com/mauriciopasquier/capistrano-config_provider.git',
     require: false
   # Useful tasks in db, log and tmp namespaces
-  gem 'capistrano-rails-collection'
-  gem 'capistrano3-delayed-job'
-  gem 'capistrano3-puma'
+  gem 'capistrano-rails-collection', require: false
+  gem 'capistrano3-delayed-job', require: false
+  gem 'capistrano3-puma', require: false
 end
 
 group :test do
