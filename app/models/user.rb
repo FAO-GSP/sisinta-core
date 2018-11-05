@@ -13,13 +13,20 @@ class User < ApplicationRecord
 
   validates :name, presence: true
 
+  before_save :normalize_current_selection
   after_save :grant_registered_role
 
   scope :admins, ->{ where role: :admin }
 
   private
 
+  # To every new registered user.
   def grant_registered_role
     self.registered! if persisted? && guest?
+  end
+
+  # Remove duplicate ids and order them.
+  def normalize_current_selection
+    self.current_selection = current_selection.uniq.sort
   end
 end

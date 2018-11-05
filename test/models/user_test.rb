@@ -1,7 +1,7 @@
 require 'test_helper'
 
 describe User do
-  subject { create :user }
+  subject { build :user }
 
   describe 'validations' do
     it 'requires an email' do
@@ -20,9 +20,18 @@ describe User do
     end
   end
 
-  describe '#role' do
-    subject { build :user }
+  describe '.admins' do
+    it 'returns only admins' do
+      user = create :user
+      admin = create :admin
 
+      User.admins.count.must_equal 1
+      User.admins.include?(admin).must_equal true
+      User.admins.include?(user).wont_equal true
+    end
+  end
+
+  describe '#role' do
     it 'defaults to :guest if not persisted' do
       subject.wont_be :persisted?
 
@@ -51,24 +60,33 @@ describe User do
     end
   end
 
-  describe '.admins' do
-    it 'returns only admins' do
-      user = create :user
-      admin = create :admin
-
-      User.admins.count.must_equal 1
-      User.admins.include?(admin).must_equal true
-      User.admins.include?(user).wont_equal true
-    end
-  end
-
   describe '#profiles' do
+    subject { create :user }
+
     it 'restricts destruction with error if there are any' do
       create :profile, user: subject
 
       subject.destroy
 
       subject.errors.wont_be :empty?
+    end
+  end
+
+  describe '#current_selection' do
+    it 'defaults to an empty array' do
+      subject.current_selection.must_equal []
+    end
+
+    it 'orders itself on save' do
+      subject.update_attribute :current_selection, [3, 2, 1]
+
+      subject.reload.current_selection.must_equal [1, 2, 3]
+    end
+
+    it 'does not save duplicate ids' do
+      subject.update_attribute :current_selection, [1, 1, 1]
+
+      subject.reload.current_selection.must_equal [1]
     end
   end
 end
