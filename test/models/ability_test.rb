@@ -45,6 +45,13 @@ describe Ability, :model do
   describe 'registered' do
     let(:user) { create :user }
 
+    it 'can manage itself' do
+      other_user = create(:user)
+
+      subject.can?(:manage, user).must_equal true
+      subject.can?(:manage, other_user).must_equal false
+    end
+
     it 'can read public Profiles' do
       public_profile = create :profile, public: true
       private_profile = create :profile, public: false

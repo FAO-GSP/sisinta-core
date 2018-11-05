@@ -19,13 +19,13 @@ class ProfilesControllerTest < ActionDispatch::IntegrationTest
 
   describe '#show' do
     it 'gets a response' do
-      get profile_path profile.to_param
+      get profile_path(profile.to_param)
 
       must_respond_with :success
     end
 
     it 'gets a geojson response' do
-      get profile_path profile.to_param, format: :geojson
+      get profile_path(profile.to_param, format: :geojson)
 
       must_respond_with :success
     end

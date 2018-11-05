@@ -18,8 +18,7 @@ class Ability
   end
 
   def authorized
-    # Can manage itself
-    can :manage, User, id: @user.id
+    registered
 
     # Can read every Profile and create them
     can :read, Profile
@@ -32,6 +31,9 @@ class Ability
   # Registered user
   def registered
     guest
+
+    # Can manage itself
+    can :manage, User, id: @user.id
   end
 
   # Guest (unregistered) user
