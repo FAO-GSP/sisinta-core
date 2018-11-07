@@ -40,3 +40,12 @@ module ActionDispatch::Integration
     end
   end
 end
+
+# Custom helpers for use in several tests or factories.
+module SisintaTestHelpers
+  # Allows to fake file uploads.
+  def uploaded_file(path = 'pixel.png', mime_type = 'image/png')
+    Rack::Test::UploadedFile.new(Rails.root.join('test/fixtures/files', path), mime_type)
+  end
+  module_function :test_file
+end

@@ -1,4 +1,5 @@
 # Creates GeoJSON Features from a Profile, ready to be serialized.
+
 class GeojsonDecorator < ProfileDecorator
   include GeojsonSerializer
 

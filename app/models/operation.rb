@@ -2,6 +2,7 @@
 
 class Operation < ApplicationRecord
   belongs_to :user
+  has_one_attached :results
 
   validates :name, presence: true
 end

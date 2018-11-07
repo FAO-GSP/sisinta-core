@@ -1,5 +1,6 @@
 # A collection of Profiles decorated with GeojsonDecorator for geojson
 # serialization.
+
 class GeojsonCollectionDecorator < Draper::CollectionDecorator
   include GeojsonSerializer
 

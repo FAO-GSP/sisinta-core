@@ -28,3 +28,6 @@
 # Ignore cache generated files
 /public/es
 /public/en
+
+# Ignore attachments
+/public/system
