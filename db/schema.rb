@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_05_052950) do
+ActiveRecord::Schema.define(version: 2018_11_07_115841) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -87,6 +87,14 @@ ActiveRecord::Schema.define(version: 2018_11_05_052950) do
     t.index ["profile_id"], name: "index_locations_on_profile_id"
   end
 
+  create_table "operations", force: :cascade do |t|
+    t.boolean "finished", default: false
+    t.bigint "user_id"
+    t.integer "profile_ids", default: [], array: true
+    t.string "name", null: false
+    t.index ["user_id"], name: "index_operations_on_user_id"
+  end
+
   create_table "profile_types", force: :cascade do |t|
     t.boolean "default", default: false, null: false
     t.jsonb "translations", default: {}
@@ -139,6 +147,7 @@ ActiveRecord::Schema.define(version: 2018_11_05_052950) do
 
   add_foreign_key "layers", "profiles"
   add_foreign_key "locations", "profiles"
+  add_foreign_key "operations", "users"
   add_foreign_key "profiles", "licenses"
   add_foreign_key "profiles", "profile_types", column: "type_id"
   add_foreign_key "profiles", "users"

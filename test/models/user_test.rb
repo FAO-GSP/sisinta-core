@@ -72,8 +72,19 @@ describe User do
     end
   end
 
+  describe '#operations' do
+    it 'destroys it' do
+      operation_id = create(:operation, user: subject).id
+
+      subject.destroy
+
+      Operation.where(id: operation_id).must_be :empty?
+    end
+  end
+
   describe '#current_selection' do
     it 'defaults to an empty array' do
+      User.new.current_selection.must_equal []
       subject.current_selection.must_equal []
     end
 

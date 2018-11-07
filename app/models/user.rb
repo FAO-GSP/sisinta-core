@@ -10,6 +10,7 @@ class User < ApplicationRecord
   enum role: [:guest, :registered, :authorized, :admin]
 
   has_many :profiles, dependent: :restrict_with_error
+  has_many :operations, dependent: :destroy
 
   validates :name, presence: true
 
