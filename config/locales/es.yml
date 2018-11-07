@@ -187,6 +187,8 @@ es:
       title: Inicio
   profiles:
     index:
+      select_all: Marcar todos
+      select_none: Desmarcar
       selected: Seleccionado
       title: Perfiles
     profile_layers:

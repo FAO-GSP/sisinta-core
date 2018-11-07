@@ -187,6 +187,8 @@ en:
       title: Welcome
   profiles:
     index:
+      select_all: Select all
+      select_none: Deselect
       selected: Selected
       title: Profiles
     profile_layers:

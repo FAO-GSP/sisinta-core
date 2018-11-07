@@ -13,6 +13,11 @@ class ApplicationController < ActionController::Base
     access_denied unless current_user.admin?
   end
 
+  # Redirects to the referer or root as a fallback.
+  def redirect_to_back
+    redirect_to request.env['HTTP_REFERER'] || localized_root_path
+  end
+
   # Sets up current locale as default for url_helpers.
   def self.default_url_options(options = { })
     options.merge({ locale: I18n.locale })
@@ -64,4 +69,14 @@ class ApplicationController < ActionController::Base
     localized_root_path
   end
   alias_method :after_sign_out_path_for, :after_sign_in_path_for
+
+  # Used for storing big objects in the session.
+  def compress(data)
+    Zlib.deflate Marshal.dump(data)
+  end
+
+  # Reverse `compress` method. Do not use for user input.
+  def decompress(data)
+    Marshal.load Zlib.inflate(data)
+  end
 end

@@ -15,6 +15,8 @@ class ProfilesController < ApplicationController
 
     respond_to do |format|
       format.html do
+        # Preserve all the ids for selection in SelectionsController.
+        session[:previous_profile_ids] = compress(@profiles.ids)
         # Return paginated and decorated objects to view.
         @profiles = @profiles.page(params[:page]).per(params[:page_size])
       end
