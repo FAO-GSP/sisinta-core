@@ -3,8 +3,6 @@
 class ImportsController < ApplicationController
   include GeojsonCache
 
-  skip_authorization_check only: [:new, :template]
-
   # Landing with explanation of the process and form to post.
   def new
     # Prepare defaults.

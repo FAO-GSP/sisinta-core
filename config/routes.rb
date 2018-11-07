@@ -25,6 +25,9 @@ Rails.application.routes.draw do
     # Profiles views
     resources :profiles, only: [:index, :show]
 
+    # Select profiles by id
+    resource :selection, only: [:update]
+
     # Importing data from users
     resources :imports, only: [:new, :create] do
       collection do

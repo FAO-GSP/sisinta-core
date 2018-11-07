@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
   before_action :setup_locale, :setup_global_search
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  rescue_from CanCan::AccessDenied, with: :access_denied
+
   # ActiveAdmin check for a logged-in user with admin rights.
   def authenticate_admin!
     authenticate_user!
@@ -30,10 +32,24 @@ class ApplicationController < ActionController::Base
     @global_search = Profile.search
   end
 
-  # Used here for authentication and by ActiveAdmin when checking authorization.
-  def access_denied
-    flash[:alert] = I18n.t 'active_admin.access_denied.message'
-    redirect_to localized_root_path
+  # Used here for authentication and by ActiveAdmin when checking
+  # authorization. `rescue_from` passes the exception.
+  def access_denied(exception = nil)
+    respond_to do |format|
+      format.js do
+        head :forbidden
+      end
+
+      format.json do
+        head :forbidden
+      end
+
+      format.html do
+        message = exception.try(:message) || I18n.t('active_admin.access_denied.message')
+
+        redirect_to localized_root_path, alert: message
+      end
+    end
   end
 
   # Extend default devise params

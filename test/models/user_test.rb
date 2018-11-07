@@ -83,8 +83,20 @@ describe User do
       subject.reload.current_selection.must_equal [1, 2, 3]
     end
 
+    it 'normalizes itself on input' do
+      subject.current_selection = [3, 2, 2, 1]
+
+      subject.current_selection.must_equal [1, 2, 3]
+    end
+
     it 'does not save duplicate ids' do
       subject.update_attribute :current_selection, [1, 1, 1]
+
+      subject.reload.current_selection.must_equal [1]
+    end
+
+    it 'wraps single values in arrays' do
+      subject.update_attribute :current_selection, 1
 
       subject.reload.current_selection.must_equal [1]
     end
