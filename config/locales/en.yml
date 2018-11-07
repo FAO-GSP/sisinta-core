@@ -187,6 +187,7 @@ en:
       title: Welcome
   profiles:
     index:
+      selected: Selected
       title: Profiles
     profile_layers:
       bottom: Bottom
@@ -215,3 +216,8 @@ en:
       layers: Layers
       map: Map
       properties: Properties
+  selections:
+    update:
+      selected_profiles:
+        one: "%{count} selected Profile"
+        other: "%{count} selected Profiles"

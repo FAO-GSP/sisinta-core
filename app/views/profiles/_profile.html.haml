@@ -1,5 +1,12 @@
 .row.profile
-  .col-1= profile.date
+  - if user_signed_in?
+    .col-1
+      -# Complemented by a handler on ajax:beforeSend that fixes data to add
+      -# checked status.
+      = check_box_tag 'selections[profile_ids][]', profile.id,
+        selected_profiles.include?(profile.id),
+        data: { remote: true, method: :put, disable: true, url: selection_path }
   .col-1= profile.country_code
   .col= profile.source
+  .col-1= profile.date
   .col-2.text-right= profile.link

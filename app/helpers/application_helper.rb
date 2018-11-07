@@ -65,6 +65,11 @@ module ApplicationHelper
     end
   end
 
+  # Safely access to the currently selected profiles.
+  def selected_profiles
+    current_user.try(:current_selection) || []
+  end
+
   private
 
   # Sets up html classes for the different notifications.

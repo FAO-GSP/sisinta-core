@@ -187,6 +187,7 @@ es:
       title: Inicio
   profiles:
     index:
+      selected: Seleccionado
       title: Perfiles
     profile_layers:
       bottom: Inf
@@ -215,3 +216,8 @@ es:
       layers: Horizontes
       map: Mapa
       properties: Propiedades
+  selections:
+    update:
+      selected_profiles:
+        one: "%{count} Perfil seleccionado"
+        other: "%{count} Perfiles seleccionados"

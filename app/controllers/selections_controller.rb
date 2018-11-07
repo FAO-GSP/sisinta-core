@@ -5,11 +5,16 @@ class SelectionsController < ApplicationController
   def update
     authorize! :update, current_user
 
-    if selection_params[:profile_ids].present?
-      current_user.current_selection += selection_params[:profile_ids].map(&:to_i)
+    ids = selection_params[:profile_ids].map(&:to_i)
 
-      current_user.save
+    if marked_for_removal?
+      current_user.current_selection -= ids
+    else
+      current_user.current_selection += ids
     end
+
+    # Does nothing if nothing changed.
+    current_user.save
 
     respond_to do |format|
       format.js
@@ -18,9 +23,16 @@ class SelectionsController < ApplicationController
 
   protected
 
+  # Require a specific structure of params.
   def selection_params
     params.require(:selections).permit(
+      :remove,
       profile_ids: []
-    )
+    ).tap { |selections| selections.require(:profile_ids) }
+  end
+
+  # Typecast to boolean from the user input.
+  def marked_for_removal?
+    ActiveRecord::Type::Boolean.new.cast(selection_params[:remove])
   end
 end

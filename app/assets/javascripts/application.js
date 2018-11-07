@@ -32,3 +32,4 @@
 //= require map/config
 //= require map/init
 //= require profiles
+//= require selections

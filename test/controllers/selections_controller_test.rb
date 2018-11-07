@@ -3,6 +3,7 @@ require 'test_helper'
 class SelectionsControllerTest < ActionDispatch::IntegrationTest
   subject { create :user, :confirmed }
   let(:profile) { create :profile }
+  let(:another_profile) { create :profile }
   let(:required_params) { { selections: { profile_ids: [] } } }
 
   describe '#update' do
@@ -24,13 +25,21 @@ class SelectionsControllerTest < ActionDispatch::IntegrationTest
     it 'adds to the current_selection' do
       subject.update_attribute :current_selection, [profile.to_param]
 
-      another_profile = create :profile
-
       put selection_path(format: :js),
         params: { selections: { profile_ids: [another_profile.to_param] } }
 
       subject.current_selection.include?(profile.id).must_equal true
       subject.current_selection.include?(another_profile.id).must_equal true
+    end
+
+    it 'removes from the current_selection' do
+      subject.update_attribute :current_selection, [profile.to_param, another_profile.to_param]
+
+      put selection_path(format: :js),
+        params: { selections: { profile_ids: [another_profile.to_param], remove: true } }
+
+      subject.current_selection.include?(profile.id).must_equal true
+      subject.current_selection.include?(another_profile.id).must_equal false
     end
 
     it 'returns forbidden if no user is logged in' do
