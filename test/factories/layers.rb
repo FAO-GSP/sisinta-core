@@ -5,7 +5,7 @@ FactoryBot.define do
     top { rand(10) }
     bottom { 10 + rand(10) }
 
-    # Every attribute and association initialized
+    # Every attribute and association initialized.
     trait :complete do
       designation { generate :unique_string }
       bulk_density { rand * 100 }

@@ -47,5 +47,5 @@ module SisintaTestHelpers
   def uploaded_file(path = 'pixel.png', mime_type = 'image/png')
     Rack::Test::UploadedFile.new(Rails.root.join('test/fixtures/files', path), mime_type)
   end
-  module_function :test_file
+  module_function :uploaded_file
 end

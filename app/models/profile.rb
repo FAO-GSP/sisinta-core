@@ -24,7 +24,7 @@ class Profile < ApplicationRecord
   scope :public_ones, ->{ where(public: true) }
   scope :geolocated, ->{ joins(:location).where('locations.coordinates is not ?', nil) }
 
-  delegate :coordinates, :geolocated?, to: :location, allow_nil: true
+  delegate :coordinates, :latitude, :longitude, :geolocated?, to: :location, allow_nil: true
 
   # Generates a UUID from (probably) unique values for this profile.
   def self.generate_uuid(country_code:, identifier:, source:, latitude:, longitude:)
