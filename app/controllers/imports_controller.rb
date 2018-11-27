@@ -33,7 +33,7 @@ class ImportsController < ApplicationController
         expire_geojson
 
         # Normally redirects to #show for the newly created model.
-        format.html { redirect_to new_import_path, notice: I18n.t('.success') }
+        format.html { redirect_to new_import_path, notice: I18n.t('imports.create.success') }
       else
         format.html do
           # Prefer to specify the error as flash instead of picking it from the

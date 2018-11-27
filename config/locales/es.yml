@@ -28,6 +28,14 @@ es:
         profiles: Perfiles
         statement: Declaración
         url: URL
+      operation:
+        complete: Completada
+        created_at: Inicio
+        name: Nombre
+        pending: Pendiente
+        profiles: Perfiles
+        results: Resultado
+        state: Estado
       profile:
         contact: Contacto
         coordinates: Coordenadas
@@ -98,6 +106,8 @@ es:
         country_code: Código de país
         source: e.g. Instituto de Suelos
   imports:
+    create:
+      success: Perfiles importados correctamente.
     error_html: "%{message} para los datos [%{row}] del CSV"
     new:
       country_code: Código de país
@@ -185,6 +195,24 @@ es:
     index:
       info_text: "%{profiles} perfiles (%{public_profiles} públicos)."
       title: Inicio
+  operations:
+    create:
+      csv_export: Exportar a CSV
+      no_operation: Ninguna operación llamada "%{name}"
+      processing: Procesando la operación
+    index:
+      available: Operaciones disponibles
+      csv_export: Exportar a CSV
+      current: Procesos actuales
+      selected:
+        one: "%{count} Perfil seleccionado"
+        other: "%{count} Perfiles seleccionados"
+      title: Operaciones con perfiles
+      toolbar:
+        profiles: Perfiles
+    show:
+      download: Descargar
+      info: Información de la operación
   profiles:
     index:
       select_all: Marcar todos

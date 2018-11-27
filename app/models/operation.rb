@@ -5,4 +5,6 @@ class Operation < ApplicationRecord
   has_one_attached :results
 
   validates :name, presence: true
+
+  scope :latest, ->{ order(created_at: :desc).limit(10) }
 end

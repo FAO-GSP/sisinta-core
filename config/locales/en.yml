@@ -28,6 +28,14 @@ en:
         profiles: Profiles
         statement: Statement
         url: URL
+      operation:
+        complete: Complete
+        created_at: Started at
+        name: Name
+        pending: Pending
+        profiles: Profiles
+        results: Results
+        state: State
       profile:
         contact: Contact
         coordinates: Coordinates
@@ -98,6 +106,8 @@ en:
         country_code: Country code
         source: e.g. Institute of Soil Science
   imports:
+    create:
+      success: Profiles imported successfully.
     error_html: "%{message} for [%{row}] CSV data"
     new:
       country_code: Country code
@@ -185,6 +195,24 @@ en:
     index:
       info_text: "%{profiles} profiles (%{public_profiles} of which are public)."
       title: Welcome
+  operations:
+    create:
+      csv_export: Export to CSV
+      no_operation: No operation called "%{name}"
+      processing: Processing
+    index:
+      available: Available operations
+      csv_export: Export to CSV
+      current: Current operations
+      selected:
+        one: "%{count} Profile selected"
+        other: "%{count} Profiles selected"
+      title: Operations with Profiles
+      toolbar:
+        profiles: Profiles
+    show:
+      download: Download
+      info: Operation information
   profiles:
     index:
       select_all: Select all

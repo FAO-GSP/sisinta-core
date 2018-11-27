@@ -1,0 +1,45 @@
+- content_for :page_title do
+  = t '.title'
+
+.row.button-bar
+  .col
+    .btn-toolbar
+      .btn-group.btn-group-sm
+        = link_to t('.toolbar.profiles'), profiles_path, class: 'btn btn-primary'
+
+.row.attributes
+  %dl.col
+    %dt= t('.available')
+    %hr
+    %dd
+      %dl.row
+        %dt.col-sm-4= t('.csv_export')
+        %dd.col-sm-8= link_to t('.selected', count: selected_profiles.size), export_operations_path, method: :post
+
+.row.layers
+  %dl.col
+    %dt= t('.current')
+    %dd
+      .table-responsive
+        %table.table.table-sm.table-hover
+          %thead
+            %tr
+              -# i18n-tasks-use t('activerecord.attributes.operation.name')
+              %th{ scope: 'col' }= Operation.human_attribute_name(:name)
+              -# i18n-tasks-use t('activerecord.attributes.operation.created_at')
+              %th{ scope: 'col' }= Operation.human_attribute_name(:created_at)
+              -# i18n-tasks-use t('activerecord.attributes.operation.state')
+              %th{ scope: 'col' }= Operation.human_attribute_name(:state)
+              -# i18n-tasks-use t('activerecord.attributes.operation.profiles')
+              %th{ scope: 'col' }= Operation.human_attribute_name(:profiles)
+              -# i18n-tasks-use t('activerecord.attributes.operation.results')
+              %th{ scope: 'col' }= Operation.human_attribute_name(:results)
+
+          %tbody
+            - operations.each do |operation|
+              %tr
+                %td= link_to operation.name, operation
+                %td= operation.start_time
+                %td= operation.state
+                %td= operation.profile_ids.size
+                %td= operation.download_link

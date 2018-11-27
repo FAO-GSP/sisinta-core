@@ -113,6 +113,8 @@ ActiveRecord::Schema.define(version: 2018_11_07_131322) do
     t.bigint "user_id"
     t.integer "profile_ids", default: [], array: true
     t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_operations_on_user_id"
   end
 
