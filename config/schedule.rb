@@ -15,3 +15,8 @@ every :reboot do
   # puma.
   env_command 'puma -C /srv/http/sislac/shared/puma.rb --daemon'
 end
+
+every :day, at: '2:00 am' do
+  # Clean up old operations.
+  rake 'sisinta:operations:cleanup'
+end
