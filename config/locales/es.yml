@@ -185,6 +185,7 @@ es:
       profiles:
         import: Importar
         index: Listado
+        process: Procesar
         title: Perfiles
     navbar:
       contact: Contacto

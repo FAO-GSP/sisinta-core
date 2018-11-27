@@ -35,6 +35,9 @@ class Ability
 
     # Can manage themselves, but not create other users.
     can [:read, :update, :destroy], User, id: @user.id
+
+    # Can create and manage their operations.
+    can [:create, :read, :update, :destroy], Operation, user_id: @user.id
   end
 
   # Guest (unregistered) user.

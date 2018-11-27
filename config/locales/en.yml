@@ -185,6 +185,7 @@ en:
       profiles:
         import: Import
         index: Listing
+        process: Process
         title: Profiles
     navbar:
       contact: Contact
