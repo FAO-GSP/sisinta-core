@@ -3,6 +3,7 @@ require 'test_helper'
 # :model tells Minitest it should use ActiveSupport::TestCase for this test
 describe Ability, :model do
   subject { Ability.new user }
+  let(:other_user) { create :user }
 
   describe 'admin' do
     let(:user) { create :admin }
@@ -19,8 +20,6 @@ describe Ability, :model do
     let(:user) { create :authorized }
 
     it 'can read, update and delete themselves' do
-      other_user = create(:user)
-
       [:read, :update, :destroy].each do |action|
         subject.can?(action, user).must_equal true,
           "Should be able to #{action} themselves."
@@ -52,8 +51,6 @@ describe Ability, :model do
     let(:user) { create :user }
 
     it 'can read, update and delete themselves' do
-      other_user = create(:user)
-
       [:read, :update, :destroy].each do |action|
         subject.can?(action, user).must_equal true,
           "Should be able to #{action} themselves."
@@ -72,6 +69,22 @@ describe Ability, :model do
 
     it "can't create Profiles" do
       subject.can?(:create, Profile).must_equal false
+    end
+
+    it 'can create Operations' do
+      subject.can?(:create, Operation).must_equal true
+    end
+
+    it 'can read, update and delete their Operations' do
+      own_operation = create(:operation, user: user)
+      other_operation = create(:operation, user: other_user)
+
+      [:read, :update, :destroy].each do |action|
+        subject.can?(action, own_operation).must_equal true,
+          "Should be able to #{action} their Operations."
+        subject.can?(action, other_operation).must_equal false,
+          "Should not be able to #{action} Operation owned by others."
+      end
     end
   end
 

@@ -31,7 +31,10 @@ Rails.application.routes.draw do
 
     # Import data from users.
     resources :imports, only: [:new, :create] do
-      get 'template', on: :collection
+      collection do
+        # Returns the template used for importing Profiles.
+        get 'template'
+      end
     end
 
     # Any long running operation to perform on the system.
