@@ -81,6 +81,13 @@ Rails.application.configure do
     domain: ENV['SISINTA_SMTP_DOMAIN']
   }
 
+  # relative_url_root needs script_name, devise needs host and port.
+  config.action_mailer.default_url_options = {
+    host: 'localhost',
+    port: 3000,
+    script_name: '/subdirectory'
+  }
+
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
   config.i18n.fallbacks = true
@@ -103,4 +110,7 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # Deployment is within a subdirectory
+  config.relative_url_root = '/subdirectory'
 end
