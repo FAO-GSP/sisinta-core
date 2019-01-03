@@ -204,17 +204,20 @@ en:
       title: Welcome
   operations:
     create:
-      csv_export: Export to CSV
-      delete: Bulk delete
       no_operation: No operation called "%{name}"
       processing: Processing
     index:
       available: Available operations
-      bulk_delete:
+      current: Current operations
+      delete:
         description: "%{allowed} allowed from a selection of %{total}"
         title: Delete profiles
-      csv_export: Export to CSV
-      current: Current operations
+      export:
+        description: Export every selected Profile and their Layers in %{process}.
+        title: Export to %{process}
+      process_with_r:
+        description: Process selected profiles with "%{process}" in R.
+        title: Process with R (%{process})
       selected:
         one: "%{count} Profile selected"
         other: "%{count} Profiles selected"

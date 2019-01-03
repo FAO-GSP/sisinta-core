@@ -22,7 +22,7 @@ class OperationsController < ApplicationController
     # TODO Test Profile.where(id: current_user.current_selection).
     authorize! :read, Profile
 
-    @operation = DispatchOperationService.call operation_params.merge(user: current_user)
+    @operation = DispatchOperationService.call operation_params.merge(user: current_user, process: params[:process])
 
     respond_to do |format|
       format.html { redirect_to operation_path(@operation), notice: I18n.t('operations.create.processing') }
@@ -39,6 +39,6 @@ class OperationsController < ApplicationController
   end
 
   def operation_params
-    params.require(:operation).permit(:name)
+    params.require(:operation).permit(:name, :process)
   end
 end

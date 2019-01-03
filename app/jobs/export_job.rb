@@ -1,7 +1,7 @@
 # Generates a CSV with selected profiles and attaches the result to the
 # Operation.
 
-class ExportCsvJob < ApplicationJob
+class ExportJob < ApplicationJob
   def perform(operation)
     profiles = Profile.where(id: operation.profile_ids)
     file = Tempfile.new([base_file_name, '.csv'])

@@ -204,17 +204,20 @@ es:
       title: Inicio
   operations:
     create:
-      csv_export: Exportar a CSV
-      delete: Eliminación en masa
       no_operation: Ninguna operación llamada "%{name}"
       processing: Procesando la operación
     index:
       available: Operaciones disponibles
-      bulk_delete:
+      current: Procesos actuales
+      delete:
         description: "%{allowed} permitidos de %{total} seleccionados"
         title: Eliminar perfiles
-      csv_export: Exportar a CSV
-      current: Procesos actuales
+      export:
+        description: Exportar los Perfiles seleccionados y sus Horizontes en %{process}.
+        title: Exportar a %{process}
+      process_with_r:
+        description: Realizar la operación "%{process}" en R sobre los perfiles seleccionados.
+        title: Procesar con R (%{process})
       selected:
         one: "%{count} Perfil seleccionado"
         other: "%{count} Perfiles seleccionados"

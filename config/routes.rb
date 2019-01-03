@@ -46,7 +46,10 @@ Rails.application.routes.draw do
     resources :operations, only: [:index, :show, :create] do
       collection do
         # Named routes for defined operations.
-        post 'export', to: 'operations#create', defaults: { operation: { name: 'csv_export' } }
+        post 'export/:process', to: 'operations#create', defaults: { operation: { name: 'export' } }, as: 'export'
+        # Accepts the type of R processing as parameter
+        post 'r/:process', to: 'operations#create', defaults: { operation: { name: 'process_with_r' } }, as: 'r'
+        # TODO Review :process need
         post 'delete', to: 'operations#create', defaults: { operation: { name: 'delete' } }
       end
     end

@@ -3,13 +3,14 @@
 class DispatchOperationService < ApplicationService
   include ActiveModel::Model
 
-  attr_accessor :user, :name
+  attr_accessor :user, :name, :process
 
   def call
     @operation = user.operations.create(
       name: operation_name,
       profile_ids: user.current_selection,
-      pure: operation_purity
+      pure: operation_purity,
+      process: process
     )
 
     operation_job.perform_later @operation
@@ -20,10 +21,11 @@ class DispatchOperationService < ApplicationService
   # Sanitizes user provided Operation name.
   def operation_name
     case name
-    when 'csv_export', 'delete'
-      # i18n-tasks-use t('operations.create.csv_export')
-      # i18n-tasks-use t('operations.create.delete')
-      I18n.t(name, scope: 'operations.create')
+    when 'export', 'process_with_r', 'delete'
+      # i18n-tasks-use t('operations.index.export')
+      # i18n-tasks-use t('operations.index.process_with_r')
+      # i18n-tasks-use t('operations.index.delete')
+      I18n.t("#{name}.title", scope: 'operations.index', process: process)
     else
       I18n.t('no_operation', scope: 'operations.create', name: name)
     end
@@ -32,8 +34,10 @@ class DispatchOperationService < ApplicationService
   # Maps operation name with class.
   def operation_job 
     case name
-    when 'csv_export'
-      ExportCsvJob
+    when 'export'
+      ExportJob
+    when 'process_with_r'
+      ProcessWithRJob
     when 'delete'
       DeleteProfilesJob
     else

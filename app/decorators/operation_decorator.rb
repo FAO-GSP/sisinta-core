@@ -11,7 +11,7 @@ class OperationDecorator < ApplicationDecorator
 
   def download_link
     if object.finished? && results.attached?
-      h.link_to results.filename, h.rails_blob_path(results), download: file_name
+      h.link_to results.filename, h.rails_blob_path(results), download: file_name, target: :_blank
     end
   end
 

@@ -10,17 +10,28 @@
 .row.attributes
   %dl.col
     %dt= t('.available')
+    %dd= t('.selected', count: selected_profiles.size)
     %hr
     %dd
       %dl.row
+        -# Export Operation
         %dt.col-sm-4
-          = t('.csv_export')
+          = t('.export.title', process: 'csv')
         %dd.col-sm-8
-          = link_to t('.selected', count: selected_profiles.size), export_operations_path, method: :post
+          = link_to t('.export.description', process: 'csv'), export_operations_path(process: 'csv'), method: :post
+
+        -# Bulk Delete Operation
         %dt.col-sm-4
           = t('.bulk_delete.title')
         %dd.col-sm-8
           = link_to t('.bulk_delete.description', allowed: selected_profiles_for(:destroy).size, total: selected_profiles.size), delete_operations_path, method: :post
+
+        -# Process with R Operations
+        - %w{string plot json}.each do |process|
+          %dt.col-sm-4
+            = t('.process_with_r.title', process: process)
+          %dd.col-sm-8
+            = link_to t('.process_with_r.description', process: process), r_operations_path(process: process), method: :post
 
 .row.layers
   %dl.col
