@@ -113,32 +113,32 @@ es:
       country_code: Código de país
       csv_spreadsheet: Planilla de datos (formato CSV)
       desc:
-        bottom: El límite inferior de esta capa
+        bottom: El límite inferior del horizonte
         bulk_density: Densidad aparente
-        ca_co3: Ca CO3
-        clay: Arcilla total
-        coarse_fragments: Gravas
-        conductivity: Conductividad
+        ca_co3: Carbono inorgánico
+        clay: Porcentaje de arcilla
+        coarse_fragments: Porcentaje de fragmentos gruesos
+        conductivity: Conductividad eléctrica
         contact: Email de contacto sobre los datos
-        country_code: El código del país donde está ubicado este Perfil
-        date: La fecha de recolección de los datos
-        designation: Nomenclatura del Horizonte
-        ecec: Capacidad de intercambio catiónico efectiva
-        latitude: La latitud de las coordenadas del Perfil
-        layer_identifier: Un ID arbitrario de Horizonte, único dentro de un mismo Perfil
+        country_code: El código del país donde está ubicado este perfil
+        date: La fecha de captura de los datos
+        designation: Nomenclatura del horizonte (por ej. A, Bw, C2)
+        ecec: Capacidad de intercambio catiónico
+        latitude: Latitud de la ubicación del perfil
+        layer_identifier: Código único de cada horizonte
         license: Código de licencia (%{licenses})
-        longitude: La longitud de las coordenadas del Perfil
+        longitude: Longitud de la ubicación del perfil
         order: Orden de suelo
         organic_carbon: Carbono orgánico
         ph_h2o_1: pH H2O (1:1)
         ph_h2o_2_5: pH H2O (1:2.5)
         ph_kcl_1: pH KCl (1:1)
         ph_kcl_2_5: pH KCl (1:2.5)
-        profile_identifier: Un ID arbitrario del Perfil, con el que agrupar las filas
-        sand: Arena total
-        silt: Limo total
+        profile_identifier: Código único del perfil
+        sand: Porcentaje de arena
+        silt: Porcentaje de limo
         source: Fuente u origen de los datos
-        top: El límite superior de esta capa
+        top: El límite superior del horizonte
         type: Tipo de punto (%{types})
         water_retention: Agua útil
       download: Descargar plantilla
@@ -158,7 +158,7 @@ es:
         alphanumeric: Alfanumérico
         date: Formato AAAA-MM-DD
         iso_3166_alpha_3: Código ISO 3166-1 de 3 letras
-        signed_decimal: Decimal signado
+        signed_decimal: Grados decimales
   kaminari:
     sisinta:
       pagination:
