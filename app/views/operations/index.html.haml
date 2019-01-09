@@ -27,7 +27,7 @@
           = link_to t('.bulk_delete.description', allowed: selected_profiles_for(:destroy).size, total: selected_profiles.size), delete_operations_path, method: :post
 
         -# Process with R Operations
-        - %w{string plot json}.each do |process|
+        - %w{plot_spc plot_slabs dissimilarity}.each do |process|
           %dt.col-sm-4
             = t('.process_with_r.title', process: process)
           %dd.col-sm-8

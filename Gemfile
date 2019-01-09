@@ -24,6 +24,10 @@ gem 'daemons'
 gem 'dalli'
 gem 'whenever', require: false
 
+# API
+# Talk to other APIs
+gem 'httparty'
+
 # Models
 gem 'jbuilder', '~> 2.5'
 # GIS tools

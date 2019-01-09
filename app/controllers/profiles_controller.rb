@@ -26,7 +26,7 @@ class ProfilesController < ApplicationController
     respond_to do |format|
       format.html
       format.geojson do
-        render json: GeojsonDecorator.decorate(@profile)
+        render json: GeojsonProfileDecorator.decorate(@profile)
       end
     end
   end

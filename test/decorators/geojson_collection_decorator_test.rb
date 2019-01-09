@@ -5,7 +5,7 @@ class GeojsonCollectionDecoratorTest < Draper::TestCase
   let(:profile) { build_stubbed(:location, :geolocated).profile }
 
   it 'decorates items as GeoJSON' do
-    subject.first.must_be_instance_of GeojsonDecorator
+    subject.first.must_be_instance_of GeojsonProfileDecorator
   end
 
   describe '#as_json' do

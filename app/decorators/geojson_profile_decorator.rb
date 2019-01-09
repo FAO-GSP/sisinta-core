@@ -1,9 +1,10 @@
 # Creates GeoJSON Features from a Profile, ready to be serialized.
 
-class GeojsonDecorator < ProfileDecorator
+class GeojsonProfileDecorator < ProfileDecorator
   include GeojsonSerializer
 
   decorates :profile
+  decorates_association :layers, scope: :from_top_to_bottom, with: GeojsonLayerDecorator
 
   # Use this class for collection decoration.
   def self.collection_decorator_class
@@ -30,8 +31,9 @@ class GeojsonDecorator < ProfileDecorator
       id: object.id,
       public: object.public,
       identifier: identifier,
-
-      url: h.profile_url(object)
+      country_code: object.country_code,
+      layers: layers.collect(&:as_json),
+      url: profile_url(object)
     }
   end
 end
