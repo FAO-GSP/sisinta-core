@@ -208,7 +208,6 @@ es:
       processing: Procesando la operación
     index:
       available: Operaciones disponibles
-      current: Procesos actuales
       delete:
         description: "%{allowed} permitidos de %{total} seleccionados"
         title: Eliminar perfiles
@@ -218,6 +217,7 @@ es:
       process_with_r:
         description: Realizar la operación "%{process}" en R sobre los perfiles seleccionados.
         title: Procesar con R (%{process})
+      recent: Procesos recientes
       selected:
         one: "%{count} Perfil seleccionado"
         other: "%{count} Perfiles seleccionados"
@@ -262,6 +262,10 @@ es:
       layers: Horizontes
       map: Mapa
       properties: Propiedades
+  rapi:
+    response:
+      code:
+        '500': Ocurrió un error con el servidor de R
   selections:
     update:
       selected_profiles:

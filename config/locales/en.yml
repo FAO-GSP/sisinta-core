@@ -208,7 +208,6 @@ en:
       processing: Processing
     index:
       available: Available operations
-      current: Current operations
       delete:
         description: "%{allowed} allowed from a selection of %{total}"
         title: Delete profiles
@@ -218,6 +217,7 @@ en:
       process_with_r:
         description: Process selected profiles with "%{process}" in R.
         title: Process with R (%{process})
+      recent: Recent operations
       selected:
         one: "%{count} Profile selected"
         other: "%{count} Profiles selected"
@@ -262,6 +262,10 @@ en:
       layers: Layers
       map: Map
       properties: Properties
+  rapi:
+    response:
+      code:
+        '500': There was an error with R Server
   selections:
     update:
       selected_profiles:

@@ -22,9 +22,9 @@
 
         -# Bulk Delete Operation
         %dt.col-sm-4
-          = t('.bulk_delete.title')
+          = t('.delete.title')
         %dd.col-sm-8
-          = link_to t('.bulk_delete.description', allowed: selected_profiles_for(:destroy).size, total: selected_profiles.size), delete_operations_path, method: :post
+          = link_to t('.delete.description', allowed: selected_profiles_for(:destroy).size, total: selected_profiles.size), delete_operations_path, method: :post
 
         -# Process with R Operations
         - %w{plot_spc plot_slabs dissimilarity}.each do |process|
@@ -35,7 +35,7 @@
 
 .row.layers
   %dl.col
-    %dt= t('.current')
+    %dt= t('.recent')
     %dd
       .table-responsive
         %table.table.table-sm.table-hover

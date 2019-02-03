@@ -5,7 +5,7 @@ default: &default
     contact: 'sisinta at inta.gob.ar'
   google_api_key: <%= ENV['GOOGLE_API_KEY'] %>
   rapi:
-    base_path: 'http://localhost:8000/test'
+    base_path: 'http://localhost:8000'
 
 development:
   <<: *default

@@ -38,8 +38,9 @@ class ImportsController < ApplicationController
       else
         format.html do
           # Prefer to specify the error as flash instead of picking it from the
-          # model in the view.
-          flash[:alert] = @import.errors.full_messages.to_sentence
+          # model in the view. Uses flash.now because this is a render, instead
+          # of redirect.
+          flash.now[:alert] = @import.errors.full_messages.to_sentence
           render action: :new
         end
       end

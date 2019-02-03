@@ -32,7 +32,7 @@ class OperationsController < ApplicationController
   private
 
   def expire_geojson_if_needed
-    # Crude heuristic, 2 seconds per profile
+    # Crude heuristic, wait 2 seconds per profile
     estimated_operation_time = @operation.profile_ids.size.seconds * 2
 
     expire_geojson(wait: estimated_operation_time) unless @operation.pure?
