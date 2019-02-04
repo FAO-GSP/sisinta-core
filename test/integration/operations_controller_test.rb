@@ -46,18 +46,8 @@ class ProfilesControllerTest < ActionDispatch::IntegrationTest
       value({
         controller: 'operations', action: 'create', locale: 'es',
         operation: { 'name' => 'csv_export' }
-      }).must_route_to('/es/operations/export')
-
-      # FIXME Verify if this should pass, generating the default create action.
-      # value({
-      #   controller: 'operations', action: 'create', locale: 'es'
-      # }).must_route_to('/es/operations')
-
-      value({
+      }).must_route_for({
         path: '/es/operations/export', method: :post
-      }).must_route_from({
-        controller: 'operations', action: 'create', locale: 'es',
-        operation: { 'name' => 'csv_export' }
       })
     end
   end

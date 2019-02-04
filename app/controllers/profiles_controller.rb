@@ -1,18 +1,11 @@
 class ProfilesController < ApplicationController
   include GeojsonCache
 
+  before_action :setup_profiles, only: :index
+
   decorates_assigned :profile, :profiles
 
   def index
-    # Filter with query if present, or return a default order.
-    # TODO Let the user request a specific ordering.
-    @profiles =
-      if params[:q].present?
-        Profile.search(params[:q]).result(distinct: true)
-      else
-        Profile.order(date: :desc)
-      end
-
     respond_to do |format|
       format.html do
         # Preserve all the ids for selection in SelectionsController.
@@ -37,5 +30,26 @@ class ProfilesController < ApplicationController
         render json: GeojsonDecorator.decorate(@profile)
       end
     end
+  end
+
+  protected
+
+  def setup_profiles
+    @profiles =
+      if params[:owned] && user_signed_in?
+        current_user.profiles
+      else
+        # TODO Test Profile.accessible_by(current_ability)
+        Profile.all
+      end
+
+    # Filter with query if present, or return a default order.
+    # TODO Let the user request a specific ordering.
+    @profiles =
+      if params[:q].present?
+        @profiles.search(params[:q]).result(distinct: true)
+      else
+        @profiles.order(date: :desc)
+      end
   end
 end

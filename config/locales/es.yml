@@ -184,7 +184,8 @@ es:
         title: Idioma
       profiles:
         import: Importar
-        index: Listado
+        index: Listado global
+        owned: Perfiles propios
         process: Procesar
         title: Perfiles
     navbar:

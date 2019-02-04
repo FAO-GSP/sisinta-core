@@ -30,4 +30,12 @@ class ProfilesControllerTest < ActionDispatch::IntegrationTest
       must_respond_with :success
     end
   end
+
+  describe 'routes' do
+    it 'understands owned_profiles' do
+      value({
+        controller: 'profiles', action: 'index', locale: 'es', owned: true
+      }).must_route_for '/es/profiles/owned'
+    end
+  end
 end

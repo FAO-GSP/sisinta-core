@@ -24,7 +24,11 @@ Rails.application.routes.draw do
     ActiveAdmin.routes(self)
 
     # Profiles views.
-    resources :profiles, only: [:index, :show]
+    resources :profiles, only: [:index, :show] do
+      collection do
+        get 'owned', to: 'profiles#index', defaults: { owned: true }
+      end
+    end
 
     # Select profiles by id.
     resource :selection, only: [:update]

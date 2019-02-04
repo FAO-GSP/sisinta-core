@@ -184,7 +184,8 @@ en:
         title: Language
       profiles:
         import: Import
-        index: Listing
+        index: Global listing
+        owned: Owned profiles
         process: Process
         title: Profiles
     navbar:
