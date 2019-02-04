@@ -91,6 +91,8 @@ es:
     sidebar:
       related: Relacionados
   back: Volver
+  confirm_delete: "¿Desea continuar? Esta acción es irreversible"
+  delete: Eliminar
   devise:
     menu:
       registration_link:
@@ -216,6 +218,8 @@ es:
       download: Descargar
       info: Información de la operación
   profiles:
+    destroy:
+      success: El perfil ha sido eliminado.
     index:
       select_all: Marcar todos
       select_none: Desmarcar

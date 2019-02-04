@@ -31,6 +31,45 @@ class ProfilesControllerTest < ActionDispatch::IntegrationTest
     end
   end
 
+  describe '#destroy' do
+    let(:user) { create :authorized, :confirmed }
+    let(:profile) { create :profile, user: user }
+
+    describe 'when owner is logged in' do
+      before { sign_in user }
+
+      it 'destroys a profile' do
+        profile.must_be :persisted?
+
+        lambda do
+          delete profile_path(profile.to_param)
+        end.must_change 'Profile.count', -1
+      end
+
+      it 'gets a response' do
+        delete profile_path(profile.to_param)
+
+        must_redirect_to profiles_path
+      end
+    end
+
+    describe 'when not authorized' do
+      it 'does not destroy the profile' do
+        profile.must_be :persisted?
+
+        lambda do
+          delete profile_path(profile.to_param)
+        end.wont_change 'Profile.count'
+      end
+
+      it 'redirects to root' do
+        delete profile_path(profile.to_param)
+
+        must_redirect_to localized_root_path
+      end
+    end
+  end
+
   describe 'routes' do
     it 'understands owned_profiles' do
       value({

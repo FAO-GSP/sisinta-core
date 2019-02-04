@@ -91,6 +91,8 @@ en:
     sidebar:
       related: Related
   back: Back
+  confirm_delete: "¿Are you sure? This action is irreversible"
+  delete: Delete
   devise:
     menu:
       registration_link:
@@ -216,6 +218,8 @@ en:
       download: Download
       info: Operation information
   profiles:
+    destroy:
+      success: The profile has been deleted.
     index:
       select_all: Select all
       select_none: Deselect

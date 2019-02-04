@@ -2,6 +2,7 @@ class ProfilesController < ApplicationController
   include GeojsonCache
 
   before_action :setup_profiles, only: :index
+  load_and_authorize_resource only: [:show, :destroy]
 
   decorates_assigned :profile, :profiles
 
@@ -22,13 +23,21 @@ class ProfilesController < ApplicationController
   end
 
   def show
-    @profile = Profile.find(params[:id])
-
     respond_to do |format|
       format.html
       format.geojson do
         render json: GeojsonDecorator.decorate(@profile)
       end
+    end
+  end
+
+  def destroy
+    if @profile.destroy
+      expire_geojson @profile
+    end
+
+    respond_to do |format|
+      format.html { redirect_to profiles_path, notice: I18n.t('profiles.destroy.success') }
     end
   end
 
