@@ -15,12 +15,13 @@ class User < ApplicationRecord
   validates :name, presence: true
 
   after_save :grant_registered_role
+  after_find :check_selected_profiles_for_existance
 
   scope :admins, ->{ where role: :admin }
 
-  # Enforce an array, remove duplicate ids and order them.
+  # Enforce an array of integers, remove duplicate ids and order them.
   def current_selection=(value)
-    super Array.wrap(value).uniq.sort
+    super (Array.wrap(value).map(&:to_i) & Profile.ids).uniq.sort
   end
 
   private
@@ -28,5 +29,10 @@ class User < ApplicationRecord
   # To every new registered user.
   def grant_registered_role
     self.registered! if persisted? && guest?
+  end
+
+  # Trims selected profiles to those still exising in the database.
+  def check_selected_profiles_for_existance
+    update_column :current_selection, current_selection & Profile.ids
   end
 end

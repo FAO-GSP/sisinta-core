@@ -13,8 +13,10 @@ class SelectionsHelperTest < ActionView::TestCase
   describe SelectionsHelper do
     describe '#selected_profiles' do
       it 'returns selected profiles for the current user' do
-        stub :current_user, create(:user, current_selection: [1, 2]) do
-          selected_profiles.must_equal [1, 2]
+        2.times { create :profile }
+
+        stub :current_user, create(:user, current_selection: Profile.ids) do
+          selected_profiles.must_equal Profile.ids
         end
       end
 

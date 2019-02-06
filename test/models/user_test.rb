@@ -83,33 +83,57 @@ describe User do
   end
 
   describe '#current_selection' do
+    let(:profile) { create :profile }
+
     it 'defaults to an empty array' do
       User.new.current_selection.must_equal []
       subject.current_selection.must_equal []
     end
 
-    it 'orders itself on save' do
-      subject.update_attribute :current_selection, [3, 2, 1]
+    it 'does not save non existant ids' do
+      subject.update_attribute :current_selection, [profile.id, profile.id + 1]
 
-      subject.reload.current_selection.must_equal [1, 2, 3]
+      subject.reload.current_selection.must_equal [profile.id]
     end
 
-    it 'normalizes itself on input' do
-      subject.current_selection = [3, 2, 2, 1]
+    it 'does not restore non existant ids' do
+      subject.update_attribute :current_selection, [profile.id]
+      profile.destroy
 
-      subject.current_selection.must_equal [1, 2, 3]
+      subject.reload.current_selection.must_equal []
+    end
+
+    it 'orders itself on save' do
+      3.times { create :profile }
+
+      subject.update_attribute :current_selection, Profile.ids.sort.reverse
+
+      subject.reload.current_selection.must_equal Profile.ids.sort
+    end
+
+    it 'normalizes itself on input without saving' do
+      2.times { create :profile }
+
+      subject.current_selection = [
+        Profile.last.id,
+        Profile.last.id,
+        Profile.first.id,
+        Profile.first.id
+      ]
+
+      subject.current_selection.must_equal [Profile.first.id, Profile.last.id]
     end
 
     it 'does not save duplicate ids' do
-      subject.update_attribute :current_selection, [1, 1, 1]
+      subject.update_attribute :current_selection, [profile.id, profile.id]
 
-      subject.reload.current_selection.must_equal [1]
+      subject.reload.current_selection.must_equal [profile.id]
     end
 
     it 'wraps single values in arrays' do
-      subject.update_attribute :current_selection, 1
+      subject.update_attribute :current_selection, profile.id
 
-      subject.reload.current_selection.must_equal [1]
+      subject.reload.current_selection.must_equal [profile.id]
     end
   end
 end
