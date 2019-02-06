@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/fao-gsp/sislac-extensions.git
-  revision: c320f7b20371d95fc75cccdccd86a29d50242dee
+  revision: c37c72ca41705c2f753ed784fca6bc328bc79a99
   specs:
-    sislac (0.1.0)
+    sislac (0.1.1)
       rails (~> 5.2.1)
 
 GIT
@@ -89,7 +89,7 @@ GEM
     awesome_print (1.8.0)
     bcrypt (3.1.12)
     bindex (0.5.0)
-    bootsnap (1.3.1)
+    bootsnap (1.3.2)
       msgpack (~> 1.0)
     builder (3.2.3)
     byebug (10.0.2)
@@ -139,7 +139,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.12.2)
-    concurrent-ruby (1.0.5)
+    concurrent-ruby (1.1.4)
     countries (0.10.0)
       currencies (~> 0.4.2)
     crass (1.0.4)
@@ -202,7 +202,7 @@ GEM
       haml (>= 4.0, < 6)
       nokogiri (>= 1.6.0)
       ruby_parser (~> 3.5)
-    i18n (1.1.1)
+    i18n (1.5.3)
       concurrent-ruby (~> 1.0)
     i18n-tasks (0.9.23)
       activesupport (>= 4.0.2)
@@ -262,22 +262,22 @@ GEM
     mimemagic (0.3.2)
     mini_magick (4.9.2)
     mini_mime (1.0.1)
-    mini_portile2 (2.3.0)
+    mini_portile2 (2.4.0)
     minitest (5.11.3)
     minitest-rails (3.0.0)
       minitest (~> 5.8)
       railties (~> 5.0)
-    mobility (0.8.4)
+    mobility (0.8.7)
       i18n (>= 0.6.10, < 2)
       request_store (~> 1.0)
-    msgpack (1.2.4)
+    msgpack (1.2.6)
     multi_json (1.13.1)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (5.0.2)
     nio4r (2.3.1)
-    nokogiri (1.8.5)
-      mini_portile2 (~> 2.3.0)
+    nokogiri (1.10.1)
+      mini_portile2 (~> 2.4.0)
     orm_adapter (0.5.0)
     parser (2.5.1.2)
       ast (~> 2.4.0)
@@ -460,7 +460,7 @@ DEPENDENCIES
   rgeo-geojson
   sass-rails (~> 5.0)
   selenium-webdriver
-  sislac!
+  sislac (= 0.1.1)!
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)
@@ -472,4 +472,4 @@ RUBY VERSION
    ruby 2.5.1p57
 
 BUNDLED WITH
-   1.16.3
+   2.0.1
