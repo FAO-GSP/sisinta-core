@@ -28,6 +28,9 @@ en:
         profiles: Profiles
         statement: Statement
         url: URL
+      location:
+        latitude: Latitud
+        longitude: Longitud
       operation:
         complete: Complete
         created_at: Started at

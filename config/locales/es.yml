@@ -28,6 +28,9 @@ es:
         profiles: Perfiles
         statement: Declaración
         url: URL
+      location:
+        latitude: Latitud
+        longitude: Longitud
       operation:
         complete: Completada
         created_at: Inicio

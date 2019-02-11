@@ -10,8 +10,18 @@ class Location < ApplicationRecord
 
   # Latitudes are restricted to the range (-85.0511287, 85.0511287)
   # because it results in a square projected domain.
-  validates :latitude, inclusion: { within: -85.0511287..85.0511287, allow_nil: true }
-  validates :longitude, inclusion: { within: -180..180, allow_nil: true }
+  # i18n-tasks-use t('activerecord.attributes.location.latitude')
+  validates :latitude, numericality: {
+    greater_than_or_equal_to: -85.0511287,
+    less_than_or_equal_to: 85.0511287,
+    allow_nil: true
+  }
+  # i18n-tasks-use t('activerecord.attributes.location.longitude')
+  validates :longitude, numericality: {
+    greater_than_or_equal_to: -180,
+    less_than_or_equal_to: 180,
+    allow_nil: true
+  }
 
   after_initialize :load_latitude_and_longitude
   before_save :update_coordinates
