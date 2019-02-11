@@ -26,7 +26,8 @@ Rails.application.routes.draw do
     # Profiles views.
     resources :profiles, only: [:index, :show, :destroy] do
       collection do
-        get 'owned', to: 'profiles#index', defaults: { owned: true }
+        # Optional filter as URL segment (i.e. /profiles/owned).
+        get '(:filter)', to: 'profiles#index', constraints: { filter: /owned/ }, as: :filtered
       end
     end
 

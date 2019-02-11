@@ -71,10 +71,16 @@ class ProfilesControllerTest < ActionDispatch::IntegrationTest
   end
 
   describe 'routes' do
-    it 'understands owned_profiles' do
+    it 'understands filtered_profiles' do
       value({
-        controller: 'profiles', action: 'index', locale: 'es', owned: true
+        controller: 'profiles', action: 'index', locale: 'es', filter: 'owned'
       }).must_route_for '/es/profiles/owned'
+    end
+
+    it 'understands index' do
+      value({
+        controller: 'profiles', action: 'index', locale: 'es'
+      }).must_route_for '/es/profiles'
     end
   end
 end

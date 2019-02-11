@@ -5,7 +5,7 @@
   .dropdown-menu
     = link_to t('.profiles.index'), profiles_path, class: 'dropdown-item'
     - if user_signed_in? && current_user.profiles.any?
-      = link_to t('.profiles.owned'), owned_profiles_path, class: 'dropdown-item'
+      = link_to t('.profiles.owned'), filtered_profiles_path('owned'), class: 'dropdown-item'
     - if can? :create, Profile
       .dropdown-divider
       = link_to t('.profiles.import'), new_import_path, class: 'dropdown-item'

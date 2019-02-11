@@ -45,7 +45,7 @@ class ProfilesController < ApplicationController
 
   def setup_profiles
     @profiles =
-      if params[:owned] && user_signed_in?
+      if params[:filter] == 'owned' && user_signed_in?
         current_user.profiles
       else
         # TODO Test Profile.accessible_by(current_ability)

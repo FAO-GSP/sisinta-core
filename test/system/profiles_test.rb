@@ -14,7 +14,7 @@ class ProfilesTest < ApplicationSystemTestCase
 
     describe 'owned profiles' do
       it 'lists owned profiles' do
-        visit owned_profiles_path
+        visit filtered_profiles_path('owned')
 
         page.must_have_content 'owned'
         page.wont_have_content 'foreign'
