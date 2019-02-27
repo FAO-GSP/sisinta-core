@@ -3,6 +3,9 @@
 class ImportsController < ApplicationController
   include GeojsonCache
 
+  # Always expire because of partial imports.
+  after_action :expire_geojson, only: [:create]
+
   # Landing with explanation of the process and form to post.
   def new
     # Prepare defaults.
@@ -30,8 +33,6 @@ class ImportsController < ApplicationController
 
     respond_to do |format|
       if CsvImportService.call(import: @import)
-        expire_geojson
-
         # Normally redirects to #show for the newly created model.
         format.html { redirect_to new_import_path, notice: I18n.t('imports.create.success') }
       else
