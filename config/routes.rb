@@ -47,6 +47,7 @@ Rails.application.routes.draw do
       collection do
         # Named routes for defined operations.
         post 'export', to: 'operations#create', defaults: { operation: { name: 'csv_export' } }
+        post 'delete', to: 'operations#create', defaults: { operation: { name: 'delete' } }
       end
     end
   end

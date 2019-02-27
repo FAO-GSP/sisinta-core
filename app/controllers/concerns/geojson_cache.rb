@@ -17,14 +17,14 @@ module GeojsonCache
   # destroyed) it is needed to bust the index and that specific cached profile.
   #
   # Expiration `target` can be a single profile, none, or a collection.
-  def expire_geojson(target = nil)
+  def expire_geojson(target = nil, **job_options)
     if target.respond_to?(:each)
-      target.each { |profile| expire_profile_geojson profile }
+      target.each { |profile| expire_profile_geojson(profile) }
     elsif target.present?
       expire_profile_geojson target
     end
 
-    expire_profiles_geojson
+    expire_profiles_geojson job_options
   end
 
   # Expire a single profile in every locale.
@@ -35,12 +35,12 @@ module GeojsonCache
   end
 
   # Expire profiles indices in every locale and regenerate them.
-  def expire_profiles_geojson
+  def expire_profiles_geojson(job_options = {})
     I18n.available_locales.each do |locale|
       page_params = base_params.merge(action: :index, locale: locale)
 
       expire_page page_params
-      WarmCacheJob.perform_later url_for(page_params)
+      WarmCacheJob.set(job_options).perform_later url_for(page_params)
     end
   end
 

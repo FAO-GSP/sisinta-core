@@ -13,8 +13,14 @@
     %hr
     %dd
       %dl.row
-        %dt.col-sm-4= t('.csv_export')
-        %dd.col-sm-8= link_to t('.selected', count: selected_profiles.size), export_operations_path, method: :post
+        %dt.col-sm-4
+          = t('.csv_export')
+        %dd.col-sm-8
+          = link_to t('.selected', count: selected_profiles.size), export_operations_path, method: :post
+        %dt.col-sm-4
+          = t('.bulk_delete.title')
+        %dd.col-sm-8
+          = link_to t('.bulk_delete.description', allowed: selected_profiles_for(:destroy).size, total: selected_profiles.size), delete_operations_path, method: :post
 
 .row.layers
   %dl.col

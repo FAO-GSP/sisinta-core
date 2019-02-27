@@ -205,10 +205,14 @@ en:
   operations:
     create:
       csv_export: Export to CSV
+      delete: Bulk delete
       no_operation: No operation called "%{name}"
       processing: Processing
     index:
       available: Available operations
+      bulk_delete:
+        description: "%{allowed} allowed from a selection of %{total}"
+        title: Delete profiles
       csv_export: Export to CSV
       current: Current operations
       selected:
