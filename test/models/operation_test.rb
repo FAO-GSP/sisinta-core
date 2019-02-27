@@ -24,6 +24,13 @@ describe Operation do
     end
   end
 
+  describe '#pure' do
+    it 'defaults to true' do
+      Operation.new.must_be :pure?
+      subject.must_be :pure?
+    end
+  end
+
   describe '#profile_ids' do
     it 'defaults to an empty array' do
       Operation.new.profile_ids.must_equal []
