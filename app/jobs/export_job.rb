@@ -3,6 +3,8 @@
 
 class ExportJob < ApplicationJob
   def perform(operation)
+    operation.start!
+
     profiles = Profile.where(id: operation.profile_ids)
     file = Tempfile.new([base_file_name, '.csv'])
     headers = CsvDecorator.default_headers
@@ -29,7 +31,7 @@ class ExportJob < ApplicationJob
       filename: "#{base_file_name}.csv",
       content_type: 'text/csv'
     )
-    operation.update finished: true
+    operation.complete!
 
     file.close
     file.unlink

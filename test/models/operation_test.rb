@@ -17,10 +17,13 @@ describe Operation do
     end
   end
 
-  describe '#finished' do
-    it 'defaults to false' do
-      Operation.new.wont_be :finished?
-      subject.wont_be :finished?
+  describe '#state' do
+    it 'defaults to new' do
+      Operation.new.must_be :new?
+      subject.wont_be :queued?
+      subject.wont_be :running?
+      subject.wont_be :failed?
+      subject.wont_be :completed?
     end
   end
 

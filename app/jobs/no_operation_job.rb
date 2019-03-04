@@ -4,6 +4,7 @@ class NoOperationJob < ApplicationJob
   # Does nothing but respects the method signature for Operations and logs it
   # successfully.
   def perform(operation)
-    operation.update finished: true
+    operation.start!
+    operation.complete!
   end
 end

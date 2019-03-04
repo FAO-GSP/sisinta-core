@@ -4,6 +4,8 @@ class DeleteProfilesJob < ApplicationJob
   include GeojsonCache
 
   def perform(operation)
+    operation.start!
+
     # Setup this user's permissions.
     ability = Ability.new operation.user
 
@@ -16,6 +18,6 @@ class DeleteProfilesJob < ApplicationJob
       profile.destroy!
     end
 
-    operation.update finished: true
+    operation.complete!
   end
 end

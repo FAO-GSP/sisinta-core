@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_04_015617) do
+ActiveRecord::Schema.define(version: 2019_03_04_052300) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -109,7 +109,6 @@ ActiveRecord::Schema.define(version: 2019_03_04_015617) do
   end
 
   create_table "operations", force: :cascade do |t|
-    t.boolean "finished", default: false
     t.bigint "user_id"
     t.integer "profile_ids", default: [], array: true
     t.string "name", null: false
@@ -118,6 +117,7 @@ ActiveRecord::Schema.define(version: 2019_03_04_015617) do
     t.boolean "pure", default: true
     t.string "process"
     t.string "error_message"
+    t.string "state"
     t.index ["user_id"], name: "index_operations_on_user_id"
   end
 

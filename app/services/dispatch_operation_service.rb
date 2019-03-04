@@ -13,6 +13,7 @@ class DispatchOperationService < ApplicationService
       process: process
     )
 
+    @operation.enqueue!
     operation_job.perform_later @operation
     
     @operation

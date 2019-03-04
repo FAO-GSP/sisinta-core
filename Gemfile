@@ -29,6 +29,7 @@ gem 'whenever', require: false
 gem 'httparty'
 
 # Models
+gem 'aasm'
 gem 'jbuilder', '~> 2.5'
 # GIS tools
 gem 'rgeo'

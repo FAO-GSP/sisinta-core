@@ -32,12 +32,15 @@ es:
         latitude: Latitud
         longitude: Longitud
       operation:
-        complete: Completada
+        completed: Completada
         created_at: Inicio
+        failed: Fallada
         name: Nombre
-        pending: Pendiente
+        new: Nueva
         profiles: Perfiles
+        queued: En cola
         results: Resultado
+        running: Ejecutándose
         state: Estado
       profile:
         contact: Contacto
@@ -265,6 +268,7 @@ es:
   rapi:
     response:
       code:
+        '404': La operación solicitada no está disponible
         '500': Ocurrió un error con el servidor de R
   selections:
     update:

@@ -16,7 +16,7 @@
         %dt.col-sm-4= Operation.human_attribute_name(:state)
         %dd.col-sm-8= operation.state
 
-        - if operation.error_message.present?
+        - if operation.failed?
           %dt.col-sm-4
           %dd.col-sm-8= operation.error_message
 
@@ -26,6 +26,6 @@
         %dt.col-sm-4= Operation.human_attribute_name(:profiles)
         %dd.col-sm-8= operation.profile_ids.size
 
-        - if operation.finished? && operation.results.attached?
+        - if operation.completed? && operation.results.attached?
           %dt.col-sm-4= t('.download')
           %dd.col-sm-8= operation.download_link
