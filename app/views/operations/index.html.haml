@@ -59,4 +59,4 @@
                 %td= operation.start_time
                 %td= operation.state
                 %td= operation.profile_ids.size
-                %td= operation.download_link
+                %td= operation.error_message || operation.download_link

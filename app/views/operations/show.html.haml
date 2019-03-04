@@ -16,6 +16,10 @@
         %dt.col-sm-4= Operation.human_attribute_name(:state)
         %dd.col-sm-8= operation.state
 
+        - if operation.error_message.present?
+          %dt.col-sm-4
+          %dd.col-sm-8= operation.error_message
+
         %dt.col-sm-4= Operation.human_attribute_name(:created_at)
         %dd.col-sm-8= operation.start_time
 
