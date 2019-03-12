@@ -1,0 +1,30 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://localhost:8000/dissimilarity
+    body:
+      encoding: UTF-8
+      string: '{"type":"FeatureCollection","features":[{"type":"Feature","geometry":{"type":"Point","coordinates":[71.0,-68.0]},"properties":{"id":809,"public":false,"identifier":"ar","country_code":"CYM","layers":[{"profile_id":809,"top":4,"bottom":10,"designation":null,"bulk_density":null,"ca_co3":null,"coarse_fragments":null,"ecec":null,"conductivity":null,"organic_carbon":null,"ph_h2o_1":null,"ph_kcl_1":null,"clay":null,"silt":null,"sand":null,"water_retention":null,"ph_h2o_2_5":null,"ph_kcl_2_5":null,"layer_identifier":"av"},{"profile_id":809,"top":7,"bottom":19,"designation":null,"bulk_density":null,"ca_co3":null,"coarse_fragments":null,"ecec":null,"conductivity":null,"organic_carbon":null,"ph_h2o_1":null,"ph_kcl_1":null,"clay":null,"silt":null,"sand":null,"water_retention":null,"ph_h2o_2_5":null,"ph_kcl_2_5":null,"layer_identifier":"au"}],"url":"http://localhost:3000/es/profiles/809"},"id":809}]}'
+    headers:
+      Charset:
+      - utf-8
+  response:
+    status:
+      code: 500
+      message: Internal Server Error
+    headers:
+      Content-Type:
+      - application/json
+      Date:
+      - mar, 12 mar 2019 05:09:53 GMT
+      Connection:
+      - close
+      Content-Length:
+      - '41'
+    body:
+      encoding: UTF-8
+      string: '{"error":["500 - Internal server error"]}'
+    http_version: 
+  recorded_at: Tue, 12 Mar 2019 05:09:53 GMT
+recorded_with: VCR 4.0.0

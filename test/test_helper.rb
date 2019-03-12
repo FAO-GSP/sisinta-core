@@ -9,6 +9,8 @@ require 'minitest/pride'
 require 'minitest/rails'
 # Needed for system tests.
 require 'capybara/minitest/spec'
+# Replay HTTP responses
+require 'vcr_setup'
 
 class ActiveSupport::TestCase
   # Model initialization helpers.

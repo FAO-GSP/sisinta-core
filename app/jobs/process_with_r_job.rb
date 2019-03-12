@@ -9,29 +9,34 @@ class ProcessWithRJob < ApplicationJob
     self.operation = operation
     self.profiles = Profile.where(id: operation.profile_ids)
 
-    # Call the API
-    self.response = Rapi.new(
-      GeojsonCollectionDecorator.new(profiles).to_json
-    ).process(operation.process)
-
-    if response.success?
-      Tempfile.open(filename) do |file|
-        file.binmode
-        file.write(response.body)
-        file.rewind
-
-        operation.results.attach(
-          io: file,
-          filename: filename,
-          content_type: response.content_type
-        )
-        operation.complete!
-      end
-    else
-      # i18n-tasks-use t('rapi.response.code.404')
-      # i18n-tasks-use t('rapi.response.code.500')
+    if profiles.empty?
       operation.fail
-      operation.update error_message: I18n.t(response.code, scope: 'rapi.response.code')
+      operation.update error_message: I18n.t('jobs.process_with_r.no_profiles_selected')
+    else
+      # Call the API
+      self.response = Rapi.new(
+        GeojsonCollectionDecorator.new(profiles).to_json
+      ).process(operation.process)
+
+      if response.success?
+        Tempfile.open(filename) do |file|
+          file.binmode
+          file.write(response.body)
+          file.rewind
+
+          operation.results.attach(
+            io: file,
+            filename: filename,
+            content_type: response.content_type
+          )
+          operation.complete!
+        end
+      else
+        # i18n-tasks-use t('rapi.response.code.404')
+        # i18n-tasks-use t('rapi.response.code.500')
+        operation.fail
+        operation.update error_message: I18n.t(response.code, scope: 'rapi.response.code')
+      end
     end
   rescue HTTParty::Error => e
     operation.fail

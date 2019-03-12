@@ -1,0 +1,31 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://localhost:8000/plot_spc
+    body:
+      encoding: UTF-8
+      string: '{"type":"FeatureCollection","features":[{"type":"Feature","geometry":{"type":"Point","coordinates":[-82.0,71.0]},"properties":{"id":807,"public":false,"identifier":"ab","country_code":"SLV","layers":[{"profile_id":807,"top":1,"bottom":14,"designation":null,"bulk_density":null,"ca_co3":null,"coarse_fragments":null,"ecec":null,"conductivity":null,"organic_carbon":null,"ph_h2o_1":null,"ph_kcl_1":null,"clay":null,"silt":null,"sand":null,"water_retention":null,"ph_h2o_2_5":null,"ph_kcl_2_5":null,"layer_identifier":"af"},{"profile_id":807,"top":8,"bottom":13,"designation":null,"bulk_density":null,"ca_co3":null,"coarse_fragments":null,"ecec":null,"conductivity":null,"organic_carbon":null,"ph_h2o_1":null,"ph_kcl_1":null,"clay":null,"silt":null,"sand":null,"water_retention":null,"ph_h2o_2_5":null,"ph_kcl_2_5":null,"layer_identifier":"ae"}],"url":"http://localhost:3000/es/profiles/807"},"id":807}]}'
+    headers:
+      Charset:
+      - utf-8
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - image/png
+      Date:
+      - mar, 12 mar 2019 05:09:52 GMT
+      Connection:
+      - close
+      Content-Length:
+      - '2326'
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        iVBORw0KGgoAAAANSUhEUgAAAeAAAAHgCAMAAABKCk6nAAABlVBMVEUKCgoSEhIbGxsiIiInJycsLCwtLS0xMTEzMzM2NjY3Nzc5OTk7Ozs+Pj4/Pz9CQkJERERFRUVGRkZHR0dLS0tMTExOTk5QUFBRUVFTU1NUVFRVVVVWVlZYWFhZWVlaWlpbW1tfX19hYWFjY2NmZmZnZ2doaGhpaWlqampra2tsbGxtbW1vb29wcHBxcXFycnJzc3N0dHR1dXV2dnZ3d3d4eHh5eXl6enp8fHx9fX1+fn5/f3+AgICBgYGCgoKDg4OEhISFhYWGhoaHh4eIiIiJiYmKioqLi4uMjIyNjY2Pj4+QkJCSkpKTk5OUlJSWlpaZmZmdnZ2goKChoaGioqKlpaWmpqanp6eqqqqrq6utra2urq6wsLC1tbW2tra5ubm+vr6/v7/AwMDCwsLIyMjKysrLy8vMzMzNzc3Ozs7S0tLT09PU1NTZ2dna2trc3Nze3t7h4eHi4uLj4+Pk5OTs7Ozt7e3u7u7v7+/w8PDy8vLz8/P09PT19fX29vb39/f4+Pj5+fn7+/v8/Pz9/f3+/v7////23yaFAAAHPElEQVR4nO3d21tUVRiAcbKDZVhEdKLMQxk1dIDEcSxOZsFohRVWYlRqFgpWWu0UsoMwrr87hpku4mqW8+y9hnfeH1frYhb7We8ze/bNN9MThNaT+gKULwPDGRjOwHAGhjMwnIHhDAxnYDgDwxkYzsBwBoYzMJyB4QwMZ2A4A8MZGM7AcAaGMzCcgeEMDGdgOAPDGRjOwHAGhjMwnIHhDAxnYDgDwxkYzsBwBoYzMJyB4QwMZ2A4A8MZGM7AcAaGMzCcgeEMDGdgOAPDGRjOwHAGhjMwnIHhDAxnYDgDwxkYzsBwBoYzMJyB4QwMZ2A4A8MZGM7AcAaGMzCcgeEMDGdgOAPDGRjOwHAGhjMwnIHhDAxnYDgDwxkYzsBwBoYzMJyB4QwMZ2A4A8MZGM7AcAaGMzCcgeEMDGdgOAPDGRjOwHAGhjMwnIHhDAxnYDgDwxkYzsBwBoYzMJyB4QwMZ2A4A8MZGM7AcAaGMzCcgeEMDGdgOAPDGRjOwHAGhjMwnIHhDAxnYDgDwxkYzsBwBoYzMJyB4QwMZ2A4A8MZGM7AcAaGMzBchwQuzaW+AioDw3VA4G927/6h9NCuydTXwdQBgb/7aO+x0qu/3/d36gtB6oDAg7OvHS2VVntWU18IUgcEPvlA74ul+3e9m/o6mDogsPJkYDgDwxkYzsBwBt5BLkzNRr/GwDvIUBgO4as3T42OPFP+osXXGLiT7X+sr+7JlcZyJJRr4Z1wbfTuaDje4hYG7mQv/fy/5WSYCptlv6+E8c2/1hi4k20LfGl8LoSF8qcGptgW+F4YuJMZGM7AcAaGMzCcgeEMDGdgOAPDGRjOwHAGhjMwXOLAA33dqPfLtg+9ZYkD/7HWjRZm2j70lhk4AQPDGRjOwHAGhjMwnIHhDAxnYDgDwxkYzsBwBoYzMFzCwOfL8d/3aOBYCQPPh7GNIif8DZy33gcfrntkubm+PBaKnPA3cN62vYMvztYKnfA3cN62BT5YqawXOeFv4Lz5FJ2AgeEMDGdgOAPDGRjOwHAGhjMwnIHhDAxnYDgDwxkYzsBwBoYzMJyB4QwMZ2A4A8MZGM7AcAaGMzCcgeEMDGdgOAPDpQxcux69hYFjFRn40JWbdav/rc9MByf881Zk4L29W78i8MRKY3n17LQT/rlLeIsenOhfc8I/byk/g29vvoOd8M+ZT9FwBoYzMJyB4QwMZ2A4A8MZGM7AcAaGMzCcgeEMDGdgOAPDGRjOwHAGhjMwnIHhDAxnYDgDwxkYzsBwBoYzMJyB4QwMlzDw0pEPorcwcKwiAx9YXKq78k9j+cbdFSf8c1dk4L59L9e98mNj+ULlhBP+uUt4i54Kx2tO+OctYeBvj552wj93PkXDGRjOwHAGhjMwnIHhDAxnYDgDwxkYzsBwBoYzMJyB4QwMZ2A4A8MZGM7AcAaGMzCcgeEMDGdgOAPDGRjOwHAGhjMwXMLAX0+ejt6incCfz3ejtyptHFmkwY/P1S3caiyP/TJU6IT/exPd6MBAG0cWaeDt9+tmfm0sPxt+3Qn/3C0UGHjbLfpIKG844Z+3hIEXT55ywj93CQPfCwPHMjCcgeEMDGdgOAPDGRjOwHAGhjMwnIHhDAxnYDgDwxkYzsBwBoYzMJyB4QwMZ2A4A8MZGM7AcAaGMzCcgeEMDJcy8I07F6Zm47YwcKyEgVf2ZENhOG4G3MCxigz89PQnW35rrqvZSCjXombADRyryMDPNb7C4VzWXFezyTAVombADRwr5WdwNbs0Phc3A27gWD5FwxkYzsBwBoYzMJyB4QwMZ2A4A8MZGM7AcAaGMzCcgeEMDGdgOAPDGRjOwHAGhjMwnIHhDAxnYDgDwxkYzsBwBoYzMFzaCf/z5cm4LQwcK+2E/3wY23DCP1dFBu4/PLblp+a6moXLY3G/8m7gWEUG3r+4tOWv5rqaXZytOeGfr7QT/gcrlXUn/HPlUzScgeEMDGdgOAPDGRjOwHAGhjMwnIHhDAxnYDgDw3VR4MOHulHfU20fessSB7623I3mTrR96C3zFp3Awkzbh94yAydgYDgDwxkYzsBwBoYzMJyB4QwMZ2A4A8MZGM7AcCkD37gTatfjtjBwrISBV/Zk4cx0KGzCf9+z3ejRD9s4skiPDzy/Zbm5rmZXz04XN+F/62ZXWm/jyCL92fyXtea6mg1O9K8VNuGvolWzcHvzHVzUhL92AAPDGRjOwHAGhjMwnIHhDAxnYDgDwxkYzsBwBoYzMJyB4QwMZ2A4A8MZGM7AcAaGMzCcgeEMDGdgOAPDGRjOwHAGhjMwnIHhDAxnYDgDwxkYzsBwBoYzMJyB4QwMZ2A4A8MZGM7AcAaGMzCcgeEMDGdgOAPDGRjOwHAGhjMwnIHhDAxnYDgDwxkYzsBwBoYzMJyB4QwMZ2A4A8MZGM7AcAaGMzCcgeEMDGdgOAPDGRjOwHAGhjMwnIHhDAxnYDgDwxkYzsBw/wLzokyXYockVgAAAABJRU5ErkJggg==
+    http_version: 
+  recorded_at: Tue, 12 Mar 2019 05:09:52 GMT
+recorded_with: VCR 4.0.0

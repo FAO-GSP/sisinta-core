@@ -128,4 +128,7 @@ group :test do
   gem 'chromedriver-helper'
   # Resets db around each tests
   gem 'database_cleaner'
+  # Saves and replays HTTP responses
+  gem 'vcr'
+  gem 'webmock'
 end

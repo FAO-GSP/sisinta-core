@@ -1,4 +1,10 @@
 require 'test_helper'
+require 'vcr'
+
+# Allow connections in system tests
+VCR.configure do |c|
+  c.allow_http_connections_when_no_cassette = true
+end
 
 class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
   # Model initialization helpers

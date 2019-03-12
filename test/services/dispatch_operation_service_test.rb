@@ -9,10 +9,16 @@ describe DispatchOperationService, :model do
       subject.operation_job.must_equal NoOperationJob
     end
 
-    it 'recognizes csv_export' do
+    it 'recognizes export' do
       subject.name = 'export'
 
       subject.operation_job.must_equal ExportJob
+    end
+
+    it 'recognizes delete' do
+      subject.name = 'delete'
+
+      subject.operation_job.must_equal DeleteProfilesJob
     end
 
     it 'recognizes process_with_r' do
@@ -32,6 +38,12 @@ describe DispatchOperationService, :model do
       subject.process = 'something'
 
       subject.operation_name.must_equal I18n.t('operations.index.export.title', process: 'something')
+    end
+
+    it 'recognizes delete' do
+      subject.name = 'delete'
+
+      subject.operation_name.must_equal I18n.t('operations.index.delete.title')
     end
 
     it 'recognizes process_with_r' do

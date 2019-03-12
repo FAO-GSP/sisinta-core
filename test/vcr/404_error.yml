@@ -1,0 +1,30 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://localhost:8000/invented-process
+    body:
+      encoding: UTF-8
+      string: '{"type":"FeatureCollection","features":[{"type":"Feature","geometry":{"type":"Point","coordinates":[-136.0,33.0]},"properties":{"id":805,"public":false,"identifier":"l","country_code":"CUB","layers":[{"profile_id":805,"top":3,"bottom":13,"designation":null,"bulk_density":null,"ca_co3":null,"coarse_fragments":null,"ecec":null,"conductivity":null,"organic_carbon":null,"ph_h2o_1":null,"ph_kcl_1":null,"clay":null,"silt":null,"sand":null,"water_retention":null,"ph_h2o_2_5":null,"ph_kcl_2_5":null,"layer_identifier":"p"},{"profile_id":805,"top":4,"bottom":16,"designation":null,"bulk_density":null,"ca_co3":null,"coarse_fragments":null,"ecec":null,"conductivity":null,"organic_carbon":null,"ph_h2o_1":null,"ph_kcl_1":null,"clay":null,"silt":null,"sand":null,"water_retention":null,"ph_h2o_2_5":null,"ph_kcl_2_5":null,"layer_identifier":"o"}],"url":"http://localhost:3000/es/profiles/805"},"id":805}]}'
+    headers:
+      Charset:
+      - utf-8
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Content-Type:
+      - application/json
+      Date:
+      - mar, 12 mar 2019 05:09:52 GMT
+      Connection:
+      - close
+      Content-Length:
+      - '38'
+    body:
+      encoding: UTF-8
+      string: '{"error":["404 - Resource Not Found"]}'
+    http_version: 
+  recorded_at: Tue, 12 Mar 2019 05:09:52 GMT
+recorded_with: VCR 4.0.0

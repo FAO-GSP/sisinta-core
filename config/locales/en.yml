@@ -167,6 +167,9 @@ en:
         date: AAAA-MM-DD format
         iso_3166_alpha_3: ISO 3166-1 3 letter code
         signed_decimal: Decimal degrees
+  jobs:
+    process_with_r:
+      no_profiles_selected: No se seleccionaron perfiles
   kaminari:
     sisinta:
       pagination:
