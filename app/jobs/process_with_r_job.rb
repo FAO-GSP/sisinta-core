@@ -38,9 +38,13 @@ class ProcessWithRJob < ApplicationJob
         operation.update error_message: I18n.t(response.code, scope: 'rapi.response.code')
       end
     end
+  # FIXME Raise Rapi::Error and catch this errors there
   rescue HTTParty::Error => e
     operation.fail
     operation.update error_message: e.message
+  rescue Errno::ECONNREFUSED => e
+    operation.fail
+    operation.update error_message: I18n.t('rapi.unavailable')
   end
 
   # Generates a filename for the operaton results.

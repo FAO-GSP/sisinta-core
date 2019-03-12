@@ -14,6 +14,15 @@ class ProcessWithRJobTest < ActiveJob::TestCase
     let(:profile) { create :profile, :complete }
     let(:operation) { create :operation, state: 'queued', process: 'plot_spc', profile_ids: [profile.id] }
 
+    it 'handles no server available' do
+      VCR.use_cassette 'server unavailable' do
+        ProcessWithRJob.perform_now(operation)
+      end
+
+      operation.must_be :failed?
+      operation.error_message.must_equal I18n.t('rapi.unavailable')
+    end
+
     it 'handles 500 errors' do
       # Currently fails
       operation.process = 'dissimilarity'

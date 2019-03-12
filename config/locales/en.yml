@@ -273,6 +273,7 @@ en:
       code:
         '404': The requested operation was unavailable
         '500': There was an error with R Server
+    unavailable: The R Server is unavailable
   selections:
     update:
       selected_profiles:
