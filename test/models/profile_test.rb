@@ -21,10 +21,14 @@ describe Profile do
     end
 
     it 'can have a nil identifier' do
-      create(:profile, user: user, identifier: nil)
-
       build(:profile, identifier: nil).must_be :valid?
       build(:profile, user: user, identifier: nil).must_be :valid?
+    end
+
+    it 'can have a nil identifier regardless of duplication' do
+      existing = create(:profile, user: user, identifier: nil)
+
+      build(:profile, user: user, identifier: existing.identifier).must_be :valid?
     end
 
     it 'requires a source' do

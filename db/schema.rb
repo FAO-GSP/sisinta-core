@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_04_052300) do
+ActiveRecord::Schema.define(version: 2019_03_25_050001) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -106,6 +106,20 @@ ActiveRecord::Schema.define(version: 2019_03_04_052300) do
     t.datetime "updated_at", null: false
     t.index ["coordinates"], name: "index_locations_on_coordinates", using: :gist
     t.index ["profile_id"], name: "index_locations_on_profile_id"
+  end
+
+  create_table "metadata_types", force: :cascade do |t|
+    t.string "field_name", null: false
+    t.string "value", null: false
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "metadata_types_profiles", id: false, force: :cascade do |t|
+    t.bigint "metadata_type_id", null: false
+    t.bigint "profile_id", null: false
+    t.index ["profile_id", "metadata_type_id"], name: "profile_metadata"
   end
 
   create_table "operations", force: :cascade do |t|
