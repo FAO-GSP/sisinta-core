@@ -82,6 +82,9 @@ en:
       license:
         one: License
         other: Licenses
+      metadata_type:
+        one: Metadata Type
+        other: Metadata Types
       profile:
         one: Profile
         other: Profiles

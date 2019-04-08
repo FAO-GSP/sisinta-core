@@ -3,8 +3,16 @@ require 'test_helper'
 describe MetadataType do
   describe 'validations' do
     it 'requires a field_name' do
-      build(:metadata_type, field_name: 'something').must_be :valid?
+      build(:metadata_type, field_name: MetadataType::FIELD_NAMES.sample).must_be :valid?
       build(:metadata_type, field_name: nil).wont_be :valid?
+    end
+
+    it 'requires field_name is one of the allowed field names' do
+      build(:metadata_type, field_name: 'something').wont_be :valid?
+
+      MetadataType::FIELD_NAMES.each do |field_name|
+        build(:metadata_type, field_name: field_name).must_be :valid?
+      end
     end
 
     it 'requires a value' do
@@ -13,7 +21,7 @@ describe MetadataType do
     end
 
     it 'has a unique value scoped per field_name' do
-      existing = create :metadata_type, field_name: 'a field', value: 'a value'
+      existing = create :metadata_type, field_name: MetadataType::FIELD_NAMES.sample, value: 'a value'
 
       build(:metadata_type, value: existing.value).must_be :valid?
       build(:metadata_type, field_name: existing.field_name, value: existing.value).wont_be :valid?
