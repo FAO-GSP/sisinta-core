@@ -10,8 +10,8 @@ ActiveAdmin.register ProfileType do
 
   permit_params :default, :value_es, :value_en
 
-  # Don't load every profile on index
-  remove_filter :profiles
+  # Filters not needed here
+  config.filters = false
 
   index do
     id_column

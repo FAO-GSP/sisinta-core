@@ -31,6 +31,10 @@ en:
       location:
         latitude: Latitud
         longitude: Longitud
+      metadata_type:
+        field_name: Field Name
+        translated_value: Value (%{language})
+        value: Value
       operation:
         completed: Completed
         created_at: Started at

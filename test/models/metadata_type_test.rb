@@ -21,9 +21,11 @@ describe MetadataType do
     end
 
     it 'has a unique value scoped per field_name' do
-      existing = create :metadata_type, field_name: MetadataType::FIELD_NAMES.sample, value: 'a value'
+      a_field, other_field = MetadataType::FIELD_NAMES.sample 2
 
-      build(:metadata_type, value: existing.value).must_be :valid?
+      existing = create :metadata_type, field_name: a_field, value: 'a value'
+
+      build(:metadata_type, field_name: other_field, value: existing.value).must_be :valid?
       build(:metadata_type, field_name: existing.field_name, value: existing.value).wont_be :valid?
     end
   end

@@ -1,8 +1,6 @@
 # ProfileTypes possible values
 class ProfileType < ApplicationRecord
   extend Mobility
-  # TODO Investigate why this line breaks db creation from zero
-  # https://github.com/shioyama/mobility/issues/300
   translates :value
 
   has_many :profiles, inverse_of: :type, foreign_key: :type_id,

@@ -11,11 +11,14 @@ class MetadataType < ApplicationRecord
     ecec
     conductivity
     organic_carbon
-    pH
+    ph
     clay
     silt
     sand
   }
+
+  extend Mobility
+  translates :value
 
   validates :field_name, presence: true, inclusion: { in: FIELD_NAMES }
   validates :value, presence: true, uniqueness: { scope: :field_name }
