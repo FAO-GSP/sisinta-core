@@ -1,5 +1,5 @@
-# Possible licenses for Profile data
-# Id is set because these are lookup tables, mostly static data
+# Possible licenses for Profile data.
+# Id is set because these are lookup tables, mostly static data.
 licenses = [
   {
     id: 1,
@@ -76,7 +76,7 @@ licenses = [
 ]
 
 licenses.each do |license|
-  # If any value was changed by application users, do not touch it
+  # If any value was changed by application users, do not touch it.
   unless License.exists?(license[:id])
     License.find_or_create_by(license).update_column(:id, license[:id])
   end

@@ -1,4 +1,4 @@
-# Creates an admin if there are none
+# Creates an admin if there are none.
 unless User.admins.any?
   email = ENV['SISINTA_ADMIN_EMAIL']
   name = ENV['SISINTA_ADMIN_NAME']
