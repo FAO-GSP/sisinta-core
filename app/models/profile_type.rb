@@ -24,8 +24,8 @@ class ProfileType < ApplicationRecord
   private
 
   # Prevents leaving the app without a default ProfileType
+  # i18n-tasks-use t('activerecord.errors.models.profile_type.attributes.default.there_must_be_a_default_profile_type')
   def always_a_default
-    # i18n-tasks-use t('activerecord.errors.models.profile_type.attributes.default.there_must_be_a_default_profile_type')
     errors.add(:default, :there_must_be_a_default_profile_type) if ProfileType.where(default: true).empty? && !default?
   end
 

@@ -21,8 +21,8 @@ class License < ActiveRecord::Base
   private
 
   # Prevents leaving the app without a default License
+  # i18n-tasks-use t('activerecord.errors.models.license.attributes.default.there_must_be_a_default_license')
   def always_a_default
-    # i18n-tasks-use t('activerecord.errors.models.license.attributes.default.there_must_be_a_default_license')
     errors.add(:default, :there_must_be_a_default_license) if License.where(default: true).empty? && !default?
   end
 

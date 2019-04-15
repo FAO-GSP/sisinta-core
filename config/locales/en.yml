@@ -75,6 +75,10 @@ en:
           attributes:
             default:
               there_must_be_a_default_license: There must be a default license
+        metadata_entry:
+          attributes:
+            metadata_type:
+              fields_cant_have_more_than_one_entry: Fields can't have more than one metadata entry
         profile_type:
           attributes:
             default:
@@ -163,9 +167,9 @@ en:
       help_html: It is possible to %{import} profiles to the application through a specially defined %{template}, honoring the following designation and units in its columns.
       import: import
       import_submit: Import profiles
-      layer_attributes: Layer attributes
+      layer_attributes: Layer attributes and Metadata
       license: License
-      profile_attributes: Profile attributes
+      profile_attributes: Profile attributes and Metadata
       template: template
       title: Import Profiles and Layers
       type: Point type

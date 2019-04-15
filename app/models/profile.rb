@@ -6,6 +6,9 @@ class Profile < ApplicationRecord
   belongs_to :license
   has_one :location, dependent: :destroy
   has_many :layers, dependent: :destroy
+  # Associative model instead of a HABTM relationship for validation purposes.
+  has_many :metadata_entries
+  has_many :metadata_types, through: :metadata_entries
 
   validates :user, presence: true
   validates :source, presence: true

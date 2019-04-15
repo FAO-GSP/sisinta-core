@@ -59,5 +59,12 @@ metadata_types.each do |metadata_type|
   # If any value was changed by application users, do not touch it.
   unless MetadataType.exists?(metadata_type[:id])
     MetadataType.create!(metadata_type).update_column(:id, metadata_type[:id])
+
+    # Initialize every locale with default values
+    (I18n.available_locales - [I18n.default_locale]).each do |locale|
+      I18n.with_locale(locale) do
+        MetadataType.find(metadata_type[:id]).update value: metadata_type[:value]
+      end
+    end
   end
 end

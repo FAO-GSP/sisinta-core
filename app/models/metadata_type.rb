@@ -20,6 +20,11 @@ class MetadataType < ApplicationRecord
   extend Mobility
   translates :value
 
+  has_many :metadata_entries
+  has_many :profiles, through: :metadata_entries
+
   validates :field_name, presence: true, inclusion: { in: FIELD_NAMES }
   validates :value, presence: true, uniqueness: { scope: :field_name }
+
+  scope :for, ->(field_name) { where(field_name: field_name) }
 end

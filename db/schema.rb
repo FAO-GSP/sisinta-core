@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_08_081413) do
+ActiveRecord::Schema.define(version: 2019_04_12_052349) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -108,17 +108,21 @@ ActiveRecord::Schema.define(version: 2019_04_08_081413) do
     t.index ["profile_id"], name: "index_locations_on_profile_id"
   end
 
-  create_table "metadata_types", force: :cascade do |t|
-    t.string "field_name", null: false
+  create_table "metadata_entries", force: :cascade do |t|
+    t.bigint "profile_id"
+    t.bigint "metadata_type_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.jsonb "translations", default: {}
+    t.index ["metadata_type_id"], name: "index_metadata_entries_on_metadata_type_id"
+    t.index ["profile_id", "metadata_type_id"], name: "index_metadata_entries_on_profile_id_and_metadata_type_id", unique: true
+    t.index ["profile_id"], name: "index_metadata_entries_on_profile_id"
   end
 
-  create_table "metadata_types_profiles", id: false, force: :cascade do |t|
-    t.bigint "metadata_type_id", null: false
-    t.bigint "profile_id", null: false
-    t.index ["profile_id", "metadata_type_id"], name: "profile_metadata"
+  create_table "metadata_types", force: :cascade do |t|
+    t.string "field_name", null: false
+    t.jsonb "translations", default: {}
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "operations", force: :cascade do |t|
@@ -186,6 +190,8 @@ ActiveRecord::Schema.define(version: 2019_04_08_081413) do
 
   add_foreign_key "layers", "profiles"
   add_foreign_key "locations", "profiles"
+  add_foreign_key "metadata_entries", "metadata_types"
+  add_foreign_key "metadata_entries", "profiles"
   add_foreign_key "operations", "users"
   add_foreign_key "profiles", "licenses"
   add_foreign_key "profiles", "profile_types", column: "type_id"
