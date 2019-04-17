@@ -3,7 +3,8 @@
 class CsvImport
   include ActiveModel::Model
 
-  attr_accessor :file, :user, :type_id, :license_id, :source, :contact, :country_code
+  attr_accessor :file, :user, :type_id, :license_id, :source, :contact,
+    :country_code, :metadata
 
   # List of allowed CSV headers for importing
   # TODO Extract to UI gems (pass it as attribute to .template method)

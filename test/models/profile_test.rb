@@ -119,6 +119,79 @@ describe Profile do
     end
   end
 
+  describe '#metadata' do
+    let(:type_one) { create :metadata_type, field_name: MetadataType::FIELD_NAMES.first }
+    let(:type_two) { create :metadata_type, field_name: MetadataType::FIELD_NAMES.second }
+
+    it 'saves a metadata types id' do
+      subject.metadata_entries.must_be :empty?
+
+      subject.update metadata: type_one.id
+
+      subject.metadata_entries.size.must_equal 1
+      subject.metadata_types.size.must_equal 1
+      subject.metadata_types.must_include type_one
+    end
+
+    it 'saves an array of metadata types ids' do
+      subject.metadata_entries.must_be :empty?
+
+      subject.update metadata: [type_one.id, type_two.id]
+
+      subject.metadata_entries.size.must_equal 2
+      subject.metadata_types.size.must_equal 2
+      subject.metadata_types.must_include type_one
+      subject.metadata_types.must_include type_two
+    end
+
+    it 'replaces existing metadata with the whole array' do
+      subject.update metadata: type_one.id
+
+      subject.update metadata: type_two.id
+
+      subject.metadata_types.wont_include type_one
+      subject.metadata_types.must_include type_two
+    end
+
+    it 'does not change metadata if nil given' do
+      subject.update metadata: type_one.id
+
+      subject.update metadata: nil
+
+      subject.reload.metadata_types.must_include type_one
+    end
+
+    it 'does not change metadata if empty array given' do
+      subject.update metadata: type_one.id
+
+      subject.update metadata: []
+
+      subject.reload.metadata_types.must_include type_one
+    end
+
+    it 'validates generated metadata_entries' do
+      repeated_field = create :metadata_type, field_name: type_one.field_name
+
+      # Repeated MetadataType should be invalid
+      subject.assign_attributes metadata: [type_one.id, repeated_field.id], source: 'sarasa'
+
+      subject.save
+
+      subject.wont_be :valid?
+      subject.errors.messages[:metadata_entries].wont_be :empty?
+    end
+  end
+
+  describe '#metadata_entries' do
+    it 'destroys them' do
+      entry_id = create(:metadata_entry, profile: subject).id
+
+      subject.destroy
+
+      MetadataEntry.where(id: entry_id).must_be :empty?
+    end
+  end
+
   describe '.geolocated' do
     it 'only returns objects with location and coordinates' do
       # not geolocated profiles

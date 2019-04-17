@@ -9,8 +9,9 @@ class ImportsController < ApplicationController
   # Landing with explanation of the process and form to post.
   def new
     # Prepare defaults.
+    # TODO Associate metadata defaults with the user somehow.
     @import = CsvImport.new license_id: License.default.to_param,
-      type_id: ProfileType.default.to_param
+      type_id: ProfileType.default.to_param, metadata: []
   end
 
   # Downloads the template with keyed columns
@@ -51,7 +52,8 @@ class ImportsController < ApplicationController
 
   def import_params
     params.require(:import).permit(
-      :file, :type_id, :license_id, :source, :contact, :country_code
+      :file, :type_id, :license_id, :source, :contact, :country_code,
+      metadata: []
     )
   end
 

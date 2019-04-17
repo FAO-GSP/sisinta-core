@@ -20,7 +20,7 @@ class MetadataType < ApplicationRecord
   extend Mobility
   translates :value
 
-  has_many :metadata_entries
+  has_many :metadata_entries, dependent: :destroy
   has_many :profiles, through: :metadata_entries
 
   validates :field_name, presence: true, inclusion: { in: FIELD_NAMES }

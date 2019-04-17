@@ -7,7 +7,7 @@ class Profile < ApplicationRecord
   has_one :location, dependent: :destroy
   has_many :layers, dependent: :destroy
   # Associative model instead of a HABTM relationship for validation purposes.
-  has_many :metadata_entries
+  has_many :metadata_entries, dependent: :destroy
   has_many :metadata_types, through: :metadata_entries
 
   validates :user, presence: true
@@ -34,6 +34,17 @@ class Profile < ApplicationRecord
     key = [country_code, identifier, source, latitude, longitude]
 
     Digest::MD5.hexdigest key.join
+  end
+
+  # Generates Metadata Entries for each Metadata Type id in the array passed,
+  # replacing existing ones.
+  def metadata=(type_ids)
+    return if !type_ids.present?
+
+    self.metadata_entries.destroy_all
+    MetadataType.where(id: type_ids).each do |type|
+      self.metadata_entries.build metadata_type: type
+    end
   end
 
   private

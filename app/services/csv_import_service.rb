@@ -30,7 +30,8 @@ class CsvImportService < ApplicationService
       license_id: import.license_id,
       source: import.source,
       contact: import.contact,
-      country_code: import.country_code
+      country_code: import.country_code,
+      metadata: import.metadata
     }
   end
 end

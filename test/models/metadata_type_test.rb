@@ -1,6 +1,8 @@
 require 'test_helper'
 
 describe MetadataType do
+  subject { create :metadata_type }
+
   describe 'validations' do
     it 'requires a field_name' do
       build(:metadata_type, field_name: MetadataType::FIELD_NAMES.sample).must_be :valid?
@@ -27,6 +29,16 @@ describe MetadataType do
 
       build(:metadata_type, field_name: other_field, value: existing.value).must_be :valid?
       build(:metadata_type, field_name: existing.field_name, value: existing.value).wont_be :valid?
+    end
+  end
+
+  describe '#metadata_entries' do
+    it 'destroys them' do
+      entry_id = create(:metadata_entry, metadata_type: subject).id
+
+      subject.destroy
+
+      MetadataEntry.where(id: entry_id).must_be :empty?
     end
   end
 end
