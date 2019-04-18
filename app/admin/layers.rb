@@ -11,10 +11,7 @@
 # i18n-tasks-use t('activerecord.attributes.layer.ecec')
 # i18n-tasks-use t('activerecord.attributes.layer.conductivity')
 # i18n-tasks-use t('activerecord.attributes.layer.organic_carbon')
-# i18n-tasks-use t('activerecord.attributes.layer.ph_h2o_1')
-# i18n-tasks-use t('activerecord.attributes.layer.ph_h2o_2_5')
-# i18n-tasks-use t('activerecord.attributes.layer.ph_kcl_1')
-# i18n-tasks-use t('activerecord.attributes.layer.ph_kcl_2_5')
+# i18n-tasks-use t('activerecord.attributes.layer.ph')
 # i18n-tasks-use t('activerecord.attributes.layer.clay')
 # i18n-tasks-use t('activerecord.attributes.layer.silt')
 # i18n-tasks-use t('activerecord.attributes.layer.sand')
@@ -25,8 +22,7 @@ ActiveAdmin.register Layer do
 
   permit_params :identifier, :top, :bottom, :designation, :bulk_density,
     :ca_co3, :coarse_fragments, :ecec, :conductivity, :organic_carbon,
-    :ph_h2o_1, :ph_h2o_2_5, :ph_kcl_1, :ph_kcl_2_5, :clay, :silt, :sand,
-    :water_retention
+    :ph, :clay, :silt, :sand, :water_retention
 
   # Don't load every association on index
   remove_filter :profile
@@ -58,10 +54,7 @@ ActiveAdmin.register Layer do
       f.input :ecec
       f.input :conductivity
       f.input :organic_carbon
-      f.input :ph_h2o_1
-      f.input :ph_h2o_2_5
-      f.input :ph_kcl_1
-      f.input :ph_kcl_2_5
+      f.input :ph
       f.input :clay
       f.input :silt
       f.input :sand

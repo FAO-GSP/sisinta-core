@@ -20,6 +20,7 @@ module ProfilesHelper
 
   # Generates a tooltip text with metadata for Layer attributes.
   def layer_tooltip(profile, field)
-    concat_metadata Layer.human_attribute_name(field), profile.metadata_for(field)
+    # Don't use Layer.human_attribute_name because it humanizes 'pH'.
+    concat_metadata t(field, scope: 'activerecord.attributes.layer'), profile.metadata_for(field)
   end
 end

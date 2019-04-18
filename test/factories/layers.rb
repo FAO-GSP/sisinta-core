@@ -14,10 +14,7 @@ FactoryBot.define do
       ecec { rand * 100 }
       conductivity { rand * 100 }
       organic_carbon { rand * 100 }
-      ph_h2o_1 { rand * 100 }
-      ph_kcl_1 { rand * 100 }
-      ph_h2o_2_5 { rand * 100 }
-      ph_kcl_2_5 { rand * 100 }
+      ph { rand * 100 }
       clay { rand * 100 }
       silt { rand * 100 }
       sand { rand * 100 }

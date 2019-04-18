@@ -31,10 +31,7 @@ class CsvLayerDecoratorTest < Draper::TestCase
         ecec
         conductivity
         organic_carbon
-        ph_h2o_1
-        ph_h2o_2_5
-        ph_kcl_1
-        ph_kcl_2_5
+        ph
         clay
         silt
         sand
@@ -44,7 +41,7 @@ class CsvLayerDecoratorTest < Draper::TestCase
       hash = subject.serializable_hash
 
       attributes.each do |key|
-        hash.keys.include?(key).must_equal true
+        hash.keys.include?(key).must_equal true, "Attribute #{key} isn't included"
         hash[key].must_equal layer.decorate.send(key), "Attribute #{key} doesn't match"
       end
     end

@@ -30,10 +30,7 @@ class CsvImport
       ecec
       conductivity
       organic_carbon
-      ph_h2o_1
-      ph_h2o_2_5
-      ph_kcl_1
-      ph_kcl_2_5
+      ph
       clay
       silt
       sand

@@ -13,10 +13,7 @@ en:
         ecec: ECEC
         identifier: Identifier
         organic_carbon: Organic carbon
-        ph_h2o_1: pH H2O (1:1)
-        ph_h2o_2_5: pH H2O (1:2.5)
-        ph_kcl_1: pH KCl (1:1)
-        ph_kcl_2_5: pH KCl (1:2.5)
+        ph: pH
         sand: Sand
         silt: Silt
         top: Top
@@ -159,10 +156,7 @@ en:
         longitude: Profile longitude coordinate
         order: Soil order
         organic_carbon: Organic carbon
-        ph_h2o_1: pH H2O (1:1)
-        ph_h2o_2_5: pH H2O (1:2.5)
-        ph_kcl_1: pH KCl (1:1)
-        ph_kcl_2_5: pH KCl (1:2.5)
+        ph: pH specified with metadata
         profile_identifier: Unique ID for the profile
         sand: Sand total
         silt: Silt total
@@ -270,10 +264,7 @@ en:
       ecec: ECEC
       identifier: ID
       organic_carbon: OC
-      ph_h2o_1: pH (H2O 1:1)
-      ph_h2o_2_5: pH (H2O 1:2.5)
-      ph_kcl_1: pH (KCl 1:1)
-      ph_kcl_2_5: pH (KCl 1:2.5)
+      ph: pH
       sand: Sand
       silt: Silt
       top: Top

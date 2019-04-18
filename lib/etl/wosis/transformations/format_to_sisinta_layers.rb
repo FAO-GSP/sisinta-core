@@ -11,8 +11,8 @@ module Etl
         row[:ecec] = row.delete(:ecec_value_avg).last
         row[:conductivity] = row.delete(:elco_value_avg).last
         row[:organic_carbon] = row.delete(:orgc_value_avg).last
-        row[:ph_h2o_2_5] = row.delete(:phaq_value_avg).last
-        row[:ph_kcl_2_5] = row.delete(:phkc_value_avg).last
+        # FIXME Preserve metadata (ph H2O 2.5)
+        row[:ph] = row.delete(:phaq_value_avg).last
         row[:clay] = row.delete(:clay_value_avg).last
         row[:silt] = row.delete(:silt_value_avg).last
         row[:sand] = row.delete(:sand_value_avg).last
