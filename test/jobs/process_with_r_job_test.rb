@@ -7,7 +7,7 @@ class ProcessWithRJobTest < ActiveJob::TestCase
     ProcessWithRJob.perform_now(operation)
 
     operation.must_be :failed?
-    operation.error_message.must_equal I18n.t('jobs.process_with_r.no_profiles_selected')
+    operation.error_message.must_equal t('jobs.process_with_r.no_profiles_selected')
   end
 
   describe 'Rapi interaction' do
@@ -20,7 +20,7 @@ class ProcessWithRJobTest < ActiveJob::TestCase
       end
 
       operation.must_be :failed?
-      operation.error_message.must_equal I18n.t('rapi.unavailable')
+      operation.error_message.must_equal t('rapi.unavailable')
     end
 
     it 'handles 500 errors' do
@@ -32,7 +32,7 @@ class ProcessWithRJobTest < ActiveJob::TestCase
       end
 
       operation.must_be :failed?
-      operation.error_message.must_equal I18n.t('rapi.response.code.500')
+      operation.error_message.must_equal t('rapi.response.code.500')
     end
 
     it 'handles 404 errors' do
@@ -43,7 +43,7 @@ class ProcessWithRJobTest < ActiveJob::TestCase
       end
 
       operation.must_be :failed?
-      operation.error_message.must_equal I18n.t('rapi.response.code.404')
+      operation.error_message.must_equal t('rapi.response.code.404')
     end
 
     it 'correctly saves the response' do

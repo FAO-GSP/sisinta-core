@@ -11,11 +11,11 @@ class LocaleTest < ApplicationSystemTestCase
     it 'defaults to spanish' do
       visit root_path
 
-      page.must_have_content I18n.t('layouts.menu.languages.title', locale: :es)
+      page.must_have_content t('layouts.menu.languages.title', locale: :es)
 
       visit root_path(locale: nil)
 
-      page.must_have_content I18n.t('layouts.menu.languages.title', locale: :es)
+      page.must_have_content t('layouts.menu.languages.title', locale: :es)
     end
   end
 
@@ -23,7 +23,7 @@ class LocaleTest < ApplicationSystemTestCase
     it 'can select locale by url' do
       visit any_path(locale: :en)
 
-      page.must_have_content I18n.t('layouts.menu.languages.title', locale: :en)
+      page.must_have_content t('layouts.menu.languages.title', locale: :en)
     end
 
     it 'can select locale by menu items' do
@@ -33,7 +33,7 @@ class LocaleTest < ApplicationSystemTestCase
         page.wont_have_content ApplicationHelper.localized_locale_name(locale)
       end
 
-      click_link I18n.t('layouts.menu.languages.title')
+      click_link t('layouts.menu.languages.title')
 
       I18n.available_locales.each do |locale|
         page.must_have_content ApplicationHelper.localized_locale_name(locale)
@@ -41,7 +41,7 @@ class LocaleTest < ApplicationSystemTestCase
 
       click_link ApplicationHelper.localized_locale_name(:en)
 
-      page.must_have_content I18n.t('layouts.menu.languages.title', locale: :en)
+      page.must_have_content t('layouts.menu.languages.title', locale: :en)
     end
   end
 end

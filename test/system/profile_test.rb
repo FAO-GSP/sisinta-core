@@ -32,14 +32,14 @@ class ProfileTest < ApplicationSystemTestCase
       end
 
       it 'can delete the profile' do
-        page.must_have_link I18n.t('delete'), href: profile_path(profile.to_param)
+        page.must_have_link t('delete'), href: profile_path(profile.to_param)
 
         accept_confirm do
-          click_link I18n.t('delete')
+          click_link t('delete')
         end
 
         current_path.must_equal profiles_path
-        page.must_have_content I18n.t('profiles.destroy.success')
+        page.must_have_content t('profiles.destroy.success')
       end
     end
 
@@ -47,7 +47,7 @@ class ProfileTest < ApplicationSystemTestCase
       it 'does not show a button to delete the profile' do
         visit profile_path(profile.to_param)
 
-        page.wont_have_link I18n.t('delete'), href: profile_path(profile.to_param)
+        page.wont_have_link t('delete'), href: profile_path(profile.to_param)
       end
     end
   end

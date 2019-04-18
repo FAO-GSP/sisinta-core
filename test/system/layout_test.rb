@@ -9,17 +9,17 @@ class LayoutTest < ApplicationSystemTestCase
   describe 'search' do
     it 'can be toggled' do
       # any_path goes to profiles#index
-      page.must_have_content I18n.t('profiles.index.title')
+      page.must_have_content t('profiles.index.title')
       page.must_have_selector 'form.global-search', visible: :hidden
 
-      click_link I18n.t('layouts.navbar.search')
+      click_link t('layouts.navbar.search')
 
-      page.wont_have_content I18n.t('profiles.index.title')
+      page.wont_have_content t('profiles.index.title')
       page.must_have_selector 'form.global-search', visible: :visible
 
-      click_link I18n.t('layouts.navbar.search')
+      click_link t('layouts.navbar.search')
 
-      page.must_have_content I18n.t('profiles.index.title')
+      page.must_have_content t('profiles.index.title')
       page.must_have_selector 'form.global-search', visible: :hidden
     end
   end
@@ -46,7 +46,7 @@ class LayoutTest < ApplicationSystemTestCase
 
       visit admin_root_path
 
-      page.must_have_content I18n.t('active_admin.access_denied.message')
+      page.must_have_content t('active_admin.access_denied.message')
       current_path.must_equal localized_root_path
     end
   end
@@ -54,27 +54,27 @@ class LayoutTest < ApplicationSystemTestCase
   describe 'profiles' do
     describe 'global listing' do
       it 'is visible to any user' do
-        click_link I18n.t('layouts.menu.profiles.title')
-        page.must_have_content I18n.t('layouts.menu.profiles.index')
+        click_link t('layouts.menu.profiles.title')
+        page.must_have_content t('layouts.menu.profiles.index')
 
         login user
 
-        click_link I18n.t('layouts.menu.profiles.title')
-        page.must_have_content I18n.t('layouts.menu.profiles.index')
+        click_link t('layouts.menu.profiles.title')
+        page.must_have_content t('layouts.menu.profiles.index')
       end
     end
 
     describe 'owned profiles listing' do
       it 'is not visible to unregistered users' do
-        click_link I18n.t('layouts.menu.profiles.title')
-        page.wont_have_content I18n.t('layouts.menu.profiles.owned')
+        click_link t('layouts.menu.profiles.title')
+        page.wont_have_content t('layouts.menu.profiles.owned')
       end
 
       it 'is not visible to users who do not own profiles' do
         login user
 
-        click_link I18n.t('layouts.menu.profiles.title')
-        page.wont_have_content I18n.t('layouts.menu.profiles.owned')
+        click_link t('layouts.menu.profiles.title')
+        page.wont_have_content t('layouts.menu.profiles.owned')
       end
 
       it 'is visible to user who own profiles' do
@@ -82,8 +82,8 @@ class LayoutTest < ApplicationSystemTestCase
 
         login profile.user
 
-        click_link I18n.t('layouts.menu.profiles.title')
-        page.must_have_content I18n.t('layouts.menu.profiles.owned')
+        click_link t('layouts.menu.profiles.title')
+        page.must_have_content t('layouts.menu.profiles.owned')
       end
     end
   end

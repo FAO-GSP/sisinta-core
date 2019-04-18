@@ -15,6 +15,8 @@ require 'vcr_setup'
 class ActiveSupport::TestCase
   # Model initialization helpers.
   include FactoryBot::Syntax::Methods
+  # Alias I18n.t to t.
+  include AbstractController::Translation
 
   before :each do
     # Start a transaction (default method for ActiveRecord).

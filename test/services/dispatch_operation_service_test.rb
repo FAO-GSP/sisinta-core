@@ -30,27 +30,27 @@ describe DispatchOperationService, :model do
 
   describe 'operation_name' do
     it 'defaults to no_operation' do
-      subject.operation_name.must_equal I18n.t('operations.create.no_operation', name: 'user defined')
+      subject.operation_name.must_equal t('operations.create.no_operation', name: 'user defined')
     end
 
     it 'recognizes export' do
       subject.name = 'export'
       subject.process = 'something'
 
-      subject.operation_name.must_equal I18n.t('operations.index.export.title', process: 'something')
+      subject.operation_name.must_equal t('operations.index.export.title', process: 'something')
     end
 
     it 'recognizes delete' do
       subject.name = 'delete'
 
-      subject.operation_name.must_equal I18n.t('operations.index.delete.title')
+      subject.operation_name.must_equal t('operations.index.delete.title')
     end
 
     it 'recognizes process_with_r' do
       subject.name = 'process_with_r'
       subject.process = 'something'
 
-      subject.operation_name.must_equal I18n.t('operations.index.process_with_r.title', process: 'something')
+      subject.operation_name.must_equal t('operations.index.process_with_r.title', process: 'something')
     end
   end
 

@@ -12,9 +12,9 @@ class SelectionsTest < ApplicationSystemTestCase
 
       # Preserves profile.id in the session hash.
       visit profiles_path
-      click_button I18n.t('profiles.index.select_all')
+      click_button t('profiles.index.select_all')
 
-      page.must_have_content I18n.t('selections.update.selected_profiles', count: 1)
+      page.must_have_content t('selections.update.selected_profiles', count: 1)
 
       subject.reload.current_selection.must_equal [profile.id]
     end
@@ -24,9 +24,9 @@ class SelectionsTest < ApplicationSystemTestCase
 
       # Preserves profile.id in the session hash.
       visit profiles_path
-      click_button I18n.t('profiles.index.select_none')
+      click_button t('profiles.index.select_none')
 
-      page.must_have_content I18n.t('selections.update.selected_profiles', count: 0)
+      page.must_have_content t('selections.update.selected_profiles', count: 0)
 
       subject.reload.current_selection.must_be :empty?
     end
