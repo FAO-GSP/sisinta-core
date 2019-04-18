@@ -128,9 +128,19 @@ es:
     create:
       success: Perfiles importados correctamente.
     error_html: "%{message} para los datos [%{row}] del CSV"
-    new:
+    form:
       country_code: Código de país
       csv_spreadsheet: Planilla de datos (formato CSV)
+      global_data:
+        description: Puedes agregar los siguientes datos en masa para todos los perfiles a importar. Si el mismo dato se lee desde el archivo, éste último toma prioridad.
+        title: Datos globales
+      import_submit: Importar perfiles
+      license: Licencia
+      metadata:
+        description: Los siguientes metadatos se asociarán con cada perfil importado.
+        title: Metadatos
+      type: Tipo de punto
+    format:
       desc:
         bottom: El límite inferior del horizonte
         bulk_density: Densidad aparente
@@ -160,24 +170,21 @@ es:
         top: El límite superior del horizonte
         type: Tipo de punto (%{types})
         water_retention: Agua útil
-      download: Descargar plantilla
-      global_data:
-        description: Puedes agregar los siguientes datos en masa para todos los perfiles a importar. Si el mismo dato se lee desde el archivo, éste último toma prioridad.
-        title: Datos globales
-      help_html: Es posible %{import} perfiles en el sitio cargándolos a través de una %{template} especialmente definida, respetando la siguiente nomenclatura y unidades de las columnas.
+      help_html: Los perfiles a %{import} deben respetar el formato definido en la %{template}, respetando la siguiente nomenclatura y unidades de las columnas.
       import: importar
-      import_submit: Importar perfiles
-      layer_attributes: Atributos del Horizonte y Metadatos
-      license: Licencia
-      profile_attributes: Atributos del Perfil y Metadatos
-      template: plantilla
-      title: Importar Perfiles y Horizontes
-      type: Tipo de punto
+      layer_attributes: Atributos del Horizonte
+      profile_attributes: Atributos del Perfil
       unit:
         alphanumeric: Alfanumérico
         date: Formato AAAA-MM-DD
         iso_3166_alpha_3: ISO 3166-1 de 3 letras
         signed_decimal: Grados decimales
+    new:
+      download: Descargar plantilla
+      form_tab: Formulario
+      format_tab: Formato
+      template: plantilla
+      title: Importar Perfiles y Horizontes
   jobs:
     process_with_r:
       no_profiles_selected: No se seleccionaron perfiles

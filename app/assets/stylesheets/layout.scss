@@ -99,3 +99,8 @@ nav.navbar {
     margin-right: ($grid-gutter-width / 2);
   }
 }
+
+// Leave a margin below tabs in pages with them.
+.tab-pane {
+  margin-top: 1em;
+}

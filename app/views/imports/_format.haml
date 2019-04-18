@@ -1,0 +1,126 @@
+#import-format.tab-pane.fade
+  %p= t '.help_html',
+      import: link_to(t('.import'), '#new_import'),
+      template: link_to(t('imports.new.template'), template_imports_path(format: :csv))
+
+  .row.nomenclature
+    %dl.col
+      %dt= t '.profile_attributes'
+      %hr
+      %dd
+        %dl.row
+          %dt.col-sm-3 profile_identifier
+          %dd.col-sm-3.unit= t '.unit.alphanumeric'
+          %dd.col-sm-6= t '.desc.profile_identifier'
+
+          %dt.col-sm-3 latitude
+          %dd.col-sm-3.unit= t '.unit.signed_decimal'
+          %dd.col-sm-6= t '.desc.latitude'
+
+          %dt.col-sm-3 longitude
+          %dd.col-sm-3.unit= t '.unit.signed_decimal'
+          %dd.col-sm-6= t '.desc.longitude'
+
+          %dt.col-sm-3 country_code
+          %dd.col-sm-3.unit= t '.unit.iso_3166_alpha_3'
+          %dd.col-sm-6= t '.desc.country_code'
+
+          %dt.col-sm-3 date
+          %dd.col-sm-3.unit= t '.unit.date'
+          %dd.col-sm-6= t '.desc.date'
+
+          %dt.col-sm-3 source
+          %dd.col-sm-3.unit= t '.unit.alphanumeric'
+          %dd.col-sm-6= t '.desc.source'
+
+          %dt.col-sm-3 contact
+          %dd.col-sm-3.unit= t '.unit.alphanumeric'
+          %dd.col-sm-6= t '.desc.contact'
+
+          %dt.col-sm-3 order
+          %dd.col-sm-3.unit= t '.unit.alphanumeric'
+          %dd.col-sm-6= t '.desc.order'
+
+          %dt.col-sm-3 type
+          %dd.col-sm-3.unit= t '.unit.alphanumeric'
+          %dd.col-sm-6= t '.desc.type', types: ProfileType.i18n.pluck(:value).join(', ')
+
+          %dt.col-sm-3 license
+          %dd.col-sm-3.unit= t '.unit.alphanumeric'
+          %dd.col-sm-6= t '.desc.license', licenses: License.pluck(:acronym).join(', ')
+
+      %dt= t '.layer_attributes'
+      %hr
+      %dd
+        %dl.row
+          %dt.col-sm-3 layer_identifier
+          %dd.col-sm-3.unit= t '.unit.alphanumeric'
+          %dd.col-sm-6= t '.desc.layer_identifier'
+
+          %dt.col-sm-3 designation
+          %dd.col-sm-3.unit= t '.unit.alphanumeric'
+          %dd.col-sm-6= t '.desc.designation'
+
+          %dt.col-sm-3 top
+          %dd.col-sm-3.unit cm
+          %dd.col-sm-6= t '.desc.top'
+
+          %dt.col-sm-3 bottom
+          %dd.col-sm-3.unit cm
+          %dd.col-sm-6= t '.desc.bottom'
+
+          %dt.col-sm-3 bulk_density
+          %dd.col-sm-3.unit
+          %dd.col-sm-6= t '.desc.bulk_density'
+
+          %dt.col-sm-3 ca_co3
+          %dd.col-sm-3.unit %
+          %dd.col-sm-6= t '.desc.ca_co3'
+
+          %dt.col-sm-3 coarse_fragments
+          %dd.col-sm-3.unit %
+          %dd.col-sm-6= t '.desc.coarse_fragments'
+
+          %dt.col-sm-3 ecec
+          %dd.col-sm-3.unit meq/100g
+          %dd.col-sm-6= t '.desc.ecec'
+
+          %dt.col-sm-3 conductivity
+          %dd.col-sm-3.unit mmhos/cm
+          %dd.col-sm-6= t '.desc.conductivity'
+
+          %dt.col-sm-3 organic_carbon
+          %dd.col-sm-3.unit %
+          %dd.col-sm-6= t '.desc.organic_carbon'
+
+          %dt.col-sm-3 ph_h2o_1
+          %dd.col-sm-3.unit
+          %dd.col-sm-6= t '.desc.ph_h2o_1'
+
+          %dt.col-sm-3 ph_h2o_2_5
+          %dd.col-sm-3.unit
+          %dd.col-sm-6= t '.desc.ph_h2o_2_5'
+
+          %dt.col-sm-3 ph_kcl_1
+          %dd.col-sm-3.unit
+          %dd.col-sm-6= t '.desc.ph_kcl_1'
+
+          %dt.col-sm-3 ph_kcl_2_5
+          %dd.col-sm-3.unit
+          %dd.col-sm-6= t '.desc.ph_kcl_2_5'
+
+          %dt.col-sm-3 clay
+          %dd.col-sm-3.unit %
+          %dd.col-sm-6= t '.desc.clay'
+
+          %dt.col-sm-3 silt
+          %dd.col-sm-3.unit %
+          %dd.col-sm-6= t '.desc.silt'
+
+          %dt.col-sm-3 sand
+          %dd.col-sm-3.unit %
+          %dd.col-sm-6= t '.desc.sand'
+
+          %dt.col-sm-3 water_retention
+          %dd.col-sm-3.unit %
+          %dd.col-sm-6= t '.desc.water_retention'
