@@ -285,6 +285,7 @@ en:
     show:
       layers: Layers
       map: Map
+      metadata: Metadata
       properties: Properties
   rapi:
     response:

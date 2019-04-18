@@ -23,6 +23,9 @@
           - if profile.layers.any?
             = link_to t('.layers'), '#profile-layers',
               class: 'nav-item nav-link', data: { toggle: 'tab' }
+          - if profile.metadata_entries.any?
+            = link_to t('.metadata'), '#profile-metadata',
+              class: 'nav-item nav-link', data: { toggle: 'tab' }
           - if profile.geolocated?
             = link_to t('.map'), '#profile-map',
               class: 'nav-item nav-link', id: 'map-tab', data: { toggle: 'tab' }
@@ -30,6 +33,7 @@
   .tab-content
     = render 'profile_properties'
     = render 'profile_layers'
+    = render 'profile_metadata'
     = render 'profile_map'
 
 = google_maps_js_tag

@@ -285,6 +285,7 @@ es:
     show:
       layers: Horizontes
       map: Mapa
+      metadata: Metadatos
       properties: Propiedades
   rapi:
     response:

@@ -1,0 +1,9 @@
+- if profile.metadata_entries.any?
+  #profile-metadata.tab-pane.fade
+    .row.attributes
+      %dl.col
+        %dd
+          %dl.row
+            - profile.metadata_entries.each do |metadata|
+              %dt.col-sm-4= metadata.field_name 
+              %dd.col-sm-8= metadata.value

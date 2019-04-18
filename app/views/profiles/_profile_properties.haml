@@ -22,7 +22,7 @@
             %dd.col-sm-8= profile.coordinates
 
           - if profile.order.present?
-            %dt.col-sm-4= Profile.human_attribute_name(:order)
+            %dt.col-sm-4= concat_metadata Profile.human_attribute_name(:order), profile.metadata_for(:order)
             %dd.col-sm-8= profile.order
 
   .row.attributes

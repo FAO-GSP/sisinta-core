@@ -47,6 +47,12 @@ class Profile < ApplicationRecord
     end
   end
 
+  # Return the unique associated metadata type for the provided field, for this
+  # profile.
+  def metadata_for(field)
+    metadata_types.for(field).first.try :value
+  end
+
   private
 
   # Initialize with default value objects
