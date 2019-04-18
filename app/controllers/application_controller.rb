@@ -34,7 +34,7 @@ class ApplicationController < ActionController::Base
 
   # Prepares everything needed to search Profiles from the navigation bar.
   def setup_global_search
-    @global_search = Profile.search
+    @global_search = Profile.ransack
   end
 
   # Used here for authentication and by ActiveAdmin when checking

@@ -56,7 +56,7 @@ class ProfilesController < ApplicationController
     # TODO Let the user request a specific ordering.
     @profiles =
       if params[:q].present?
-        @profiles.search(params[:q]).result(distinct: true)
+        @profiles.ransack(params[:q]).result(distinct: true)
       else
         @profiles.order(date: :desc)
       end
