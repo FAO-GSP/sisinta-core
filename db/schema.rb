@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_12_052349) do
+ActiveRecord::Schema.define(version: 2019_04_18_055414) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -88,6 +88,7 @@ ActiveRecord::Schema.define(version: 2019_04_12_052349) do
     t.datetime "updated_at", null: false
     t.decimal "ph_h2o_2_5"
     t.decimal "ph_kcl_2_5"
+    t.decimal "ph"
     t.index ["profile_id"], name: "index_layers_on_profile_id"
   end
 
