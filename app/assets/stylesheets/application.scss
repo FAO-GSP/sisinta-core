@@ -3,6 +3,9 @@
 
 // Bootstrap related.
 @import 'bootstrap/scss/bootstrap';
+// Growl-like alerts for bootstrap
+@import 'animate.css/animate';
+@import 'bootstrap-notify';
 
 // Map related
 @import 'leaflet/dist/leaflet';

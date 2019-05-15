@@ -18,8 +18,6 @@
 
     -# Only the full screen map defines a fixed height for this container.
     #main-container.container-fluid{ style: content_for(:main_container_style) }
-      #notifications
-        - flash.each do |name, message|
-          = render_notification(name, message)
-
+      %script#notifications{ type: 'application/json' }
+        = render_notifications flash
       = yield

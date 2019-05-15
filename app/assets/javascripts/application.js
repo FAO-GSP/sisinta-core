@@ -19,6 +19,8 @@
 //= require jquery/dist/jquery
 //= require popper.js/dist/umd/popper
 //= require bootstrap/dist/js/bootstrap
+// Growl-like alerts for bootstrap
+//= require bootstrap4-notify/bootstrap-notify
 //
 // Map related assets
 //= require leaflet/dist/leaflet-src
@@ -27,6 +29,7 @@
 //
 // App defined styles.
 //= require layout
+//= require notifications
 //= require cable
 //= require map/info_control
 //= require map/config

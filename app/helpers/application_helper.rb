@@ -49,36 +49,30 @@ module ApplicationHelper
   end
   module_function :localized_locale_name
 
-  # Render a notification from the flash with styling and dismiss functionality.
-  def render_notification(name, message)
-    # TODO Check if it is needed
-    return unless message.is_a?(String)
+  # Encode each notification as JSON, they will be rendered on load.
+  def render_notifications(notifications)
+    notifications.collect do |name, message|
+      notification_hash name, message
+    end.to_json.html_safe
+  end
 
-    content_tag :div, class: notification_class(name) do
-      concat(
-        content_tag(:button, class: 'close', data: { dismiss: 'alert' }) do
-          content_tag :span, '&times;'.html_safe
-        end
-      )
-
-      concat message.html_safe
-    end
+  # Constructs a single notification from `name` and `message`, keyed for
+  # rendering.
+  def notification_hash(name, message)
+    { message: message, type: notification_class(name) }
   end
 
   private
 
   # Sets up html classes for the different notifications.
   def notification_class(name)
-    notification_type =
-      case name.to_sym
-      when :notice, :success
-        :success
-      when :alert, :error
-        :danger
-      else
-        :info
-      end
-
-    "alert alert-#{notification_type} alert-dismissible fade show"
+    case name.to_sym
+    when :notice, :success
+      :success
+    when :alert, :error
+      :danger
+    else
+      :info
+    end
   end
 end
