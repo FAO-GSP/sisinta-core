@@ -1,5 +1,12 @@
 #import-form.tab-pane.fade.show.active
   = form_for @import, as: :import, url: imports_path, multipart: true do |f|
+    - if @import.errors.any?
+      .row.import_global_data
+        .col
+          %h4.text-danger= t '.errors.title'
+          - @import.errors.full_messages.each do |error|
+            %p.text-danger!= error
+
     .row.import_global_data
       .col
         %h4= t '.global_data.title'

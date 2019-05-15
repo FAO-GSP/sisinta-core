@@ -124,10 +124,14 @@ en:
   imports:
     create:
       success: Profiles imported successfully.
-    error_html: "%{message} for [%{row}] CSV data"
+    error_html: |-
+      %{message}. Error detected in the following CSV row:
+      %{row}
     form:
       country_code: Country code
       csv_spreadsheet: Data spreadsheet (in CSV format)
+      errors:
+        title: Errors were found during the import process
       global_data:
         description: It is possible to add the following attributes en masse to every imported profile. If any of these attributes are present in the file, the latter takes priority.
         title: Global attributes

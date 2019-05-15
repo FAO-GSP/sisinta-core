@@ -124,10 +124,14 @@ es:
   imports:
     create:
       success: Perfiles importados correctamente.
-    error_html: "%{message} para los datos [%{row}] del CSV"
+    error_html: |-
+      %{message}. Error detectado en la siguiente fila del CSV:
+      %{row}
     form:
       country_code: Código de país
       csv_spreadsheet: Planilla de datos (formato CSV)
+      errors:
+        title: Se encontraron errores durante el proceso de importación
       global_data:
         description: Puedes agregar los siguientes datos en masa para todos los perfiles a importar. Si el mismo dato se lee desde el archivo, éste último toma prioridad.
         title: Datos globales
