@@ -15,6 +15,10 @@ set :keep_releases, 5
 set :rbenv_type, :user
 set :rbenv_ruby, File.read('.ruby-version').strip
 
+# nvm
+set :nvm_node, 'v12.2.0'
+set :nvm_map_bins, %w{node npm yarn which rake bundle ruby}
+
 # puma
 set :puma_init_active_record, true
 

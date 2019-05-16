@@ -1,33 +1,36 @@
-# Load DSL and set up stages
+# Load DSL and set up stages.
 require 'capistrano/setup'
 
-# Include default deployment tasks
+# Include default deployment tasks.
 require 'capistrano/deploy'
 
-# Use git for versioning
+# Use git for versioning.
 require 'capistrano/scm/git'
 install_plugin Capistrano::SCM::Git
 
-# Assets and migration tasks
+# Assets and migration tasks.
 require 'capistrano/rails'
 require 'capistrano/rails/collection'
 
-# Verify rbenv is working
+# Verify rbenv is working.
 require 'capistrano/rbenv'
 
-# Configuration provision from a private repository
+# Verify and configure nvm.
+require 'capistrano/nvm'
+
+# Configuration provision from a private repository.
 require 'capistrano/config_provider'
 
-# Manage remote job workers
+# Manage remote job workers.
 require 'capistrano/delayed_job'
 
-# Puma web server
+# Puma web server.
 require 'capistrano/puma'
 install_plugin Capistrano::Puma
 install_plugin Capistrano::Puma::Nginx
 
-# Manage cron jobs
+# Manage cron jobs.
 require 'whenever/capistrano'
 
-# Load custom tasks from `lib/capistrano/tasks` if you have any defined
+# Load custom tasks from `lib/capistrano/tasks` if you have any defined.
 Dir.glob('lib/capistrano/tasks/*.rake').each { |r| import r }

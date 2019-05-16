@@ -111,6 +111,7 @@ group :development do
   gem 'capistrano', require: false
   gem 'capistrano-rails', require: false
   gem 'capistrano-rbenv', require: false
+  gem 'capistrano-nvm', require: false
   gem 'capistrano-config_provider',
     git: 'https://github.com/mauriciopasquier/capistrano-config_provider.git',
     require: false

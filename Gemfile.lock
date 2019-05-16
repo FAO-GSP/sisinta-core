@@ -104,6 +104,8 @@ GEM
     capistrano-bundler (1.4.0)
       capistrano (~> 3.1)
       sshkit (~> 1.2)
+    capistrano-nvm (0.0.7)
+      capistrano (~> 3.1)
     capistrano-rails (1.4.0)
       capistrano (~> 3.1)
       capistrano-bundler (~> 1.1)
@@ -434,6 +436,7 @@ DEPENDENCIES
   cancancan
   capistrano
   capistrano-config_provider!
+  capistrano-nvm
   capistrano-rails
   capistrano-rails-collection
   capistrano-rbenv
