@@ -132,8 +132,8 @@ ActiveRecord::Schema.define(version: 2019_04_18_055414) do
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "pure", default: true
     t.string "process"
+    t.boolean "pure", default: true
     t.string "error_message"
     t.string "state"
     t.index ["user_id"], name: "index_operations_on_user_id"
