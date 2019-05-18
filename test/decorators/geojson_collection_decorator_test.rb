@@ -1,8 +1,8 @@
 require 'test_helper'
 
 class GeojsonCollectionDecoratorTest < Draper::TestCase
-  subject { GeojsonCollectionDecorator.decorate [profile] }
-  let(:profile) { build_stubbed(:location, :geolocated).profile }
+  subject { GeojsonCollectionDecorator.decorate Profile.where(id: profile.id) }
+  let(:profile) { create :profile, location: build(:location, :geolocated) }
 
   it 'decorates items as GeoJSON' do
     subject.first.must_be_instance_of GeojsonProfileDecorator
@@ -20,9 +20,10 @@ class GeojsonCollectionDecoratorTest < Draper::TestCase
   end
 
   describe '#features' do
-    it 'returns a collection of GeoJSON Features' do
+    it 'returns a collection of pregenerated GeoJSON features' do
       subject.features.each do |feature|
-        feature.must_be_instance_of RGeo::GeoJSON::Feature
+        feature.must_be_instance_of Hash
+        feature['type'].must_equal 'Feature'
       end
     end
   end

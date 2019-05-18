@@ -14,12 +14,17 @@ class GeojsonProfileDecorator < ProfileDecorator
   # Wraps this Profile as a RGeo::GeoJSON feature. Called by `as_json` from
   # ProfilesController.
   def features
-    [as_feature]
+    [as_encoded_feature]
   end
 
   # Wraps the decorated Profile as an RGeo::GeoJSON feature.
   def as_feature
     factory.feature object.coordinates, object.id, properties
+  end
+
+  # Encodes a GeoJSON feature without the Collection wrappers.
+  def as_encoded_feature
+    RGeo::GeoJSON.encode as_feature
   end
 
   # Returns a hash of serializable properties.

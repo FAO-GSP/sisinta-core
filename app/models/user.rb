@@ -32,6 +32,7 @@ class User < ApplicationRecord
   end
 
   # Trims selected profiles to those still exising in the database.
+  # FIXME Rewrite somehow to avoid triggering on each Profile initialization.
   def check_selected_profiles_for_existance
     update_column :current_selection, current_selection & Profile.ids
   end

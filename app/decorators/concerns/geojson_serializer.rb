@@ -9,9 +9,11 @@ module GeojsonSerializer
   end
 
   # Primary generator method, called by ProfilesController each request.
+  # Iterates in batches over Profiles loading only its cached GeoJson
+  # representation for performance reasons.
   # TODO Pass options for properties inclusion (e.g. layers)
   def as_json(*_args)
-    RGeo::GeoJSON.encode factory.feature_collection(features)
+    { 'type' => 'FeatureCollection', 'features' => features }
   end
 
   # Accessor for the default RGeo::GeoJSON feature/s factory.

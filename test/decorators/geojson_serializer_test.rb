@@ -13,15 +13,7 @@ describe GeojsonSerializer do
   let(:features) { Minitest::Mock.new }
 
   describe '#as_json' do
-    it 'iterates over features' do
-      features.expect :each, []
-
-      subject.stub :features, features do
-        subject.as_json
-      end
-
-      features.verify
-    end
+    it 'delegates `features` call'
   end
 
   describe '#factory' do

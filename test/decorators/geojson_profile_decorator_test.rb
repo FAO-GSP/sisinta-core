@@ -61,23 +61,14 @@ class GeojsonProfileDecoratorTest < Draper::TestCase
     it 'includes an id' do
       feature.feature_id.must_equal profile.id
     end
-
-    it 'caches the feature' do
-      mocked_cache.expect :fetch, nil, [Array]
-
-      Rails.stub :cache, mocked_cache do
-        subject.as_feature
-      end
-
-      mocked_cache.verify
-    end
   end
 
   describe '#features' do
-    it 'returns itself wrapped as an Array of GeoJSON Features' do
+    it 'returns itself wrapped as an Array of an encoded GeoJSON features' do
       subject.features.must_be_instance_of Array
       subject.features.size.must_equal 1
-      subject.features.first.must_be_instance_of RGeo::GeoJSON::Feature
+      subject.features.first.must_be_instance_of Hash
+      subject.features.first['type'].must_equal 'Feature'
     end
   end
 end
