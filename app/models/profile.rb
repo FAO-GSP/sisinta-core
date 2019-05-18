@@ -57,7 +57,7 @@ class Profile < ApplicationRecord
 
   # Initialize with default value objects
   def set_default_value_objects
-    self.type ||= ProfileType.default
-    self.license ||= License.default
+    self.type = ProfileType.default if self.type_id.nil?
+    self.license = License.default if self.license_id.nil?
   end
 end
