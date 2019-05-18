@@ -3,7 +3,7 @@
 module SelectionsHelper
   # Safely access currently selected profiles.
   def selected_profiles
-    current_user.try(:current_selection) || []
+    current_user.try(:clean_current_selection) || []
   end
 
   # Safely access selected profiles accessible for a given action.

@@ -2,6 +2,7 @@ require 'test_helper'
 
 describe User do
   subject { build :user }
+  let(:profile) { create :profile }
 
   describe 'validations' do
     it 'requires an email' do
@@ -82,9 +83,16 @@ describe User do
     end
   end
 
-  describe '#current_selection' do
-    let(:profile) { create :profile }
+  describe '#clean_current_selection' do
+    it 'does not restore non existant ids' do
+      subject.update_attribute :current_selection, [profile.id]
+      profile.destroy
 
+      subject.reload.clean_current_selection.must_equal []
+    end
+  end
+
+  describe '#current_selection' do
     it 'defaults to an empty array' do
       User.new.current_selection.must_equal []
       subject.current_selection.must_equal []
@@ -94,13 +102,6 @@ describe User do
       subject.update_attribute :current_selection, [profile.id, profile.id + 1]
 
       subject.reload.current_selection.must_equal [profile.id]
-    end
-
-    it 'does not restore non existant ids' do
-      subject.update_attribute :current_selection, [profile.id]
-      profile.destroy
-
-      subject.reload.current_selection.must_equal []
     end
 
     it 'orders itself on save' do

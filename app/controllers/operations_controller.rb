@@ -19,7 +19,7 @@ class OperationsController < ApplicationController
   end
 
   def create
-    # TODO Test Profile.where(id: current_user.current_selection).
+    # TODO Test Profile.where(id: current_user.clean_current_selection).
     authorize! :read, Profile
 
     @operation = DispatchOperationService.call operation_params.merge(user: current_user, process: params[:process])
