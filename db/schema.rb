@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_18_055414) do
+ActiveRecord::Schema.define(version: 2019_05_18_183728) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -158,6 +158,7 @@ ActiveRecord::Schema.define(version: 2019_04_18_055414) do
     t.string "country_code", null: false
     t.string "contact"
     t.string "uuid"
+    t.jsonb "geojson", default: {}
     t.index ["license_id"], name: "index_profiles_on_license_id"
     t.index ["type_id"], name: "index_profiles_on_type_id"
     t.index ["user_id"], name: "index_profiles_on_user_id"

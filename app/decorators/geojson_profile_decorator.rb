@@ -19,10 +19,7 @@ class GeojsonProfileDecorator < ProfileDecorator
 
   # Wraps the decorated Profile as an RGeo::GeoJSON feature.
   def as_feature
-    # Caches generated GeoJSON until touched
-    Rails.cache.fetch ['geojson_decorator', object] do
-      factory.feature object.coordinates, object.id, properties
-    end
+    factory.feature object.coordinates, object.id, properties
   end
 
   # Returns a hash of serializable properties.

@@ -23,6 +23,8 @@ class Profile < ApplicationRecord
   accepts_nested_attributes_for :location, :layers
 
   after_initialize :set_default_value_objects
+  after_save :generate_geojson, if: :geolocated?
+  after_touch :generate_geojson, if: :geolocated?
 
   scope :public_ones, ->{ where(public: true) }
   scope :geolocated, ->{ joins(:location).where('locations.coordinates is not ?', nil) }
@@ -55,9 +57,14 @@ class Profile < ApplicationRecord
 
   private
 
-  # Initialize with default value objects
+  # Initialize with default value objects.
   def set_default_value_objects
     self.type = ProfileType.default if self.type_id.nil?
     self.license = License.default if self.license_id.nil?
+  end
+
+  # Pregenerate and cache a GeoJSON representation of this Profile.
+  def generate_geojson
+    update_column :geojson, GeojsonProfileDecorator.new(self).as_encoded_feature
   end
 end
