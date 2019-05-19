@@ -218,6 +218,8 @@ en:
     navbar:
       contact: Contact
       search: Search
+      help:
+        title: Help
     search:
       search_by: ID, Source or Country Code
   map:

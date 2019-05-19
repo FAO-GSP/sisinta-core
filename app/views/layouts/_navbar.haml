@@ -50,3 +50,8 @@
       = link_to '#', class: 'd-none d-md-inline nav-item nav-link', title: t('.search'),
         data: { target: '.show-search', toggle: 'collapse' }, aria: { expanded: 'false' } do
         %span.fa.fa-search.fa-fw
+
+      -# Link to static documentation.
+      - if I18n.exists?('layouts.navbar.help.url', I18n.locale)
+        = link_to t('.help.url'), class: 'nav-item nav-link', title: t('.help.title'), target: '_blank' do
+          %span.fa.fa-question.fa-fw

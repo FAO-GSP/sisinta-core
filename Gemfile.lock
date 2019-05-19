@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/fao-gsp/sislac-extensions.git
-  revision: c37c72ca41705c2f753ed784fca6bc328bc79a99
+  revision: 260004c08f199dc399a901a004dc54be7352743d
   specs:
     sislac (0.1.1)
       rails (~> 5.2.1)
@@ -287,7 +287,7 @@ GEM
       net-ssh (>= 2.6.5)
     net-ssh (5.0.2)
     nio4r (2.3.1)
-    nokogiri (1.10.2)
+    nokogiri (1.10.3)
       mini_portile2 (~> 2.4.0)
     orm_adapter (0.5.0)
     parser (2.5.1.2)
