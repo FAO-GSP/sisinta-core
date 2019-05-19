@@ -3,6 +3,6 @@
   -# Always width 100% of container for input-group
   .input-group.w-100
     = b.text_field global_search_query, class: 'form-control border-light', placeholder: t('.search_by')
-    %span.input-group-btn
+    %span.input-group-append
       = b.button class: 'btn btn-light' do
         %span.fa.fa-search.fa-fw
