@@ -27,8 +27,8 @@
         .form-group.row
           %label.col-sm-3{ for: :import_country_code }= t '.country_code'
           -# i18n-tasks-use t('helpers.placeholder.import.country_code')
-          .col-sm-9= f.select :country_code, country_codes, { include_blank: true },
-            class: 'form-control'
+          .col-sm-9= f.select :country_code, country_codes(@import.country_code),
+            { include_blank: true }, class: 'form-control'
 
         .form-group.row
           %label.col-sm-3{ for: :import_source }= t 'imports.format.desc.source'
