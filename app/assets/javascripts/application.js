@@ -21,6 +21,8 @@
 //= require bootstrap/dist/js/bootstrap
 // Growl-like alerts for bootstrap
 //= require bootstrap4-notify/bootstrap-notify
+// Bootstrap-like file inputs
+//= require bs-custom-file-input/dist/bs-custom-file-input
 //
 // Map related assets
 //= require leaflet/dist/leaflet-src

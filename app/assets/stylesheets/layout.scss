@@ -104,3 +104,12 @@ nav.navbar {
 .tab-pane {
   margin-top: 1em;
 }
+
+// Translates the custom file input button from the data-browse attribute.
+// FIXME This should be working with the current version of bootstrap but isn't
+// for some reason.
+.custom-file-input {
+  ~ .custom-file-label[data-browse]::after {
+    content: attr(data-browse);
+  }
+}

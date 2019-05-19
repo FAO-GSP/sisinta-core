@@ -115,6 +115,8 @@ es:
       session_link:
         sign_in: Entrar
         sign_out: Salir
+  file_input:
+    browse: Elegir
   helpers:
     placeholder:
       import:
@@ -217,9 +219,9 @@ es:
         title: Perfiles
     navbar:
       contact: Contacto
-      search: Búsqueda
       help:
         title: Ayuda
+      search: Búsqueda
     search:
       search_by: ID, Fuente o Código de País
   map:

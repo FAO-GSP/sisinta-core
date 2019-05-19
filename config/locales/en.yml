@@ -115,6 +115,8 @@ en:
       session_link:
         sign_in: Sign in
         sign_out: Sign out
+  file_input:
+    browse: Browse
   helpers:
     placeholder:
       import:
@@ -217,9 +219,9 @@ en:
         title: Profiles
     navbar:
       contact: Contact
-      search: Search
       help:
         title: Help
+      search: Search
     search:
       search_by: ID, Source or Country Code
   map:

@@ -15,9 +15,10 @@
         .form-group.row
           -# FIXME I18n uploader
           %label.col-sm-3{ for: :import_file }= t '.csv_spreadsheet'
-          .col-sm-9= f.file_field :file,
-            class: 'form-control-file',
-            required: true, accept: '.csv'
+          .col-sm-9
+            .custom-file
+              = f.file_field :file, class: 'custom-file-input', required: true, accept: '.csv', lang: I18n.locale
+              %label.custom-file-label{ for: :import_file, data: { browse: t('file_input.browse') } }
 
         .form-group.row
           %label.col-sm-3{ for: :import_type }= t '.type'
