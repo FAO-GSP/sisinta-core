@@ -107,6 +107,9 @@ group :development do
   # Find and manage missing/unused translations
   gem 'i18n-tasks'
 
+  # Find missing indexes
+  gem 'consistency_fail'
+
   # Deployment
   gem 'capistrano', require: false
   gem 'capistrano-rails', require: false

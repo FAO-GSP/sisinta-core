@@ -144,6 +144,7 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.5)
+    consistency_fail (0.3.7)
     countries (0.10.0)
       currencies (~> 0.4.2)
     crack (0.4.3)
@@ -446,6 +447,7 @@ DEPENDENCIES
   charlock_holmes
   chromedriver-helper
   coffee-rails (~> 4.2)
+  consistency_fail
   countries
   daemons
   dalli

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_18_183728) do
+ActiveRecord::Schema.define(version: 2019_05_19_015242) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -89,7 +89,7 @@ ActiveRecord::Schema.define(version: 2019_05_18_183728) do
     t.decimal "ph_h2o_2_5"
     t.decimal "ph_kcl_2_5"
     t.decimal "ph"
-    t.index ["profile_id"], name: "index_layers_on_profile_id"
+    t.index ["profile_id", "identifier"], name: "index_layers_on_profile_id_and_identifier", unique: true
   end
 
   create_table "licenses", force: :cascade do |t|
@@ -98,6 +98,10 @@ ActiveRecord::Schema.define(version: 2019_05_18_183728) do
     t.string "acronym", null: false
     t.string "statement", null: false
     t.boolean "default", default: false, null: false
+    t.index ["acronym"], name: "index_licenses_on_acronym", unique: true
+    t.index ["name"], name: "index_licenses_on_name", unique: true
+    t.index ["statement"], name: "index_licenses_on_statement", unique: true
+    t.index ["url"], name: "index_licenses_on_url", unique: true
   end
 
   create_table "locations", force: :cascade do |t|
@@ -106,7 +110,7 @@ ActiveRecord::Schema.define(version: 2019_05_18_183728) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["coordinates"], name: "index_locations_on_coordinates", using: :gist
-    t.index ["profile_id"], name: "index_locations_on_profile_id"
+    t.index ["profile_id"], name: "index_locations_on_profile_id", unique: true
   end
 
   create_table "metadata_entries", force: :cascade do |t|
@@ -161,7 +165,7 @@ ActiveRecord::Schema.define(version: 2019_05_18_183728) do
     t.jsonb "geojson", default: {}
     t.index ["license_id"], name: "index_profiles_on_license_id"
     t.index ["type_id"], name: "index_profiles_on_type_id"
-    t.index ["user_id"], name: "index_profiles_on_user_id"
+    t.index ["user_id", "identifier"], name: "index_profiles_on_user_id_and_identifier", unique: true
     t.index ["uuid"], name: "index_profiles_on_uuid", unique: true
   end
 
