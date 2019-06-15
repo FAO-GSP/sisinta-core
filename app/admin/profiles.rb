@@ -18,13 +18,14 @@ ActiveAdmin.register Profile do
     :contact, :type_id, :license_id, :country_code
 
   # Don't load every association on index
-  remove_filter :user, :location, :layers
+  remove_filter :user, :location, :layers, :metadata_entries
 
   decorate_with ProfileDecorator
 
   sidebar I18n.t('admin.sidebar.related'), only: [:show, :edit] do
     ul do
       li link_to "#{Layer.model_name.human(count: 2)} (#{resource.layers.count})", admin_profile_layers_path(resource)
+      li link_to "#{MetadataType.model_name.human(count: 2)} (#{resource.metadata_entries.count})", admin_profile_metadata_entries_path(resource)
     end
   end
 

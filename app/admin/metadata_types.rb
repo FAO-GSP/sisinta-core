@@ -13,6 +13,8 @@ ActiveAdmin.register MetadataType do
   # Filter by field_name only
   filter :field_name, as: :select, collection: MetadataType::FIELD_NAMES
 
+  decorate_with MetadataTypeDecorator
+
   index do
     id_column
 
