@@ -18,7 +18,7 @@ ActiveAdmin.register ProfileType do
 
     column :default
     column ProfileType.human_attribute_name(:translated_value, language: locale.upcase), "value_#{I18n.locale}"
-    column :translations do |profile_type|
+    column I18n.t('translations') do |profile_type|
       I18n.available_locales.collect do |locale|
         status_tag profile_type.translations.dig(locale, :value).present?, label: locale
       end and nil # Don't return anything from loop

@@ -297,3 +297,4 @@ es:
       selected_profiles:
         one: "%{count} Perfil seleccionado"
         other: "%{count} Perfiles seleccionados"
+  translations: Traducciones

@@ -297,3 +297,4 @@ en:
       selected_profiles:
         one: "%{count} selected Profile"
         other: "%{count} selected Profiles"
+  translations: Translations

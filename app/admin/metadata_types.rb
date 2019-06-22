@@ -20,7 +20,7 @@ ActiveAdmin.register MetadataType do
 
     column :field_name
     column MetadataType.human_attribute_name(:translated_value, language: locale.upcase), "value_#{I18n.locale}"
-    column :translations do |metadata_type|
+    column I18n.t('translations') do |metadata_type|
       I18n.available_locales.collect do |locale|
         status_tag metadata_type.translations.dig(locale, :value).present?, label: locale
       end and nil # Don't return anything from loop
