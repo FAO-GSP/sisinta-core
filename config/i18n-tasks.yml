@@ -96,6 +96,7 @@ search:
 ignore_missing:
   # Ignore engine provided keys
   - 'map.index.info_title'
+  - 'layouts.navbar.help.url'
 
 ## Consider these keys used:
 # ignore_unused:
