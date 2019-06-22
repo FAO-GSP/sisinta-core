@@ -9,8 +9,8 @@ ActiveAdmin.register MetadataEntry do
 
   permit_params :metadata_type_id
 
-  # Don't load every association on index
-  remove_filter :profile
+  # Filters not needed here
+  config.filters = false
 
   decorate_with MetadataEntryDecorator
 
@@ -27,8 +27,8 @@ ActiveAdmin.register MetadataEntry do
     f.semantic_errors
 
     f.inputs do
-      # FIXME Generate select grouped by field_name
-      f.input :metadata_type
+      f.input :metadata_type, as: :select,
+        collection: grouped_options_for_select(MetadataType.grouped_values, f.object.metadata_type_id)
     end
 
     f.actions

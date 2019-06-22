@@ -26,8 +26,11 @@ en:
         statement: Statement
         url: URL
       location:
-        latitude: Latitud
-        longitude: Longitud
+        latitude: Latitude
+        longitude: Longitude
+      metadata_entry:
+        field_name: Field name
+        value: Value
       metadata_type:
         field_name: Field Name
         translated_value: Value (%{language})
@@ -87,6 +90,9 @@ en:
       license:
         one: License
         other: Licenses
+      metadata_entry:
+        one: Metadata entry
+        other: Metadata entries
       metadata_type:
         one: Metadata Type
         other: Metadata Types

@@ -13,6 +13,14 @@ describe MetadataEntry do
       build(:metadata_entry, profile: profile, metadata_type: type).wont_be :valid?
     end
 
+    it 'allows editing the same entry with a differente type' do
+      entry = create(:metadata_entry, profile: profile, metadata_type: type)
+
+      entry.update_attribute :metadata_type_id, create(:metadata_type).id
+
+      entry.must_be :valid?
+    end
+
     it 'does not allow more than one Entry per field_name in MetadataType in a profile' do
       invalid_type = create(:metadata_type, field_name: type.field_name)
 

@@ -27,4 +27,12 @@ class MetadataType < ApplicationRecord
   validates :value, presence: true, uniqueness: { scope: :field_name }
 
   scope :for, ->(field_name) { where(field_name: field_name) }
+
+  # Groups metadata values by field name.
+  def self.grouped_values
+    MetadataType.all.group_by(&:field_name).reduce({}) do |collection, types|
+      collection[types.first] = types.last.collect { |type| [type.value, type.id] }
+      collection
+    end
+  end
 end

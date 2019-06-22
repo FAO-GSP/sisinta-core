@@ -28,6 +28,9 @@ es:
       location:
         latitude: Latitud
         longitude: Longitud
+      metadata_entry:
+        field_name: Nombre del Campo
+        value: Valor
       metadata_type:
         field_name: Nombre del Campo
         translated_value: Valor (%{language})
@@ -87,6 +90,9 @@ es:
       license:
         one: Licencia
         other: Licencias
+      metadata_entry:
+        one: Metadato
+        other: Metadatos
       metadata_type:
         one: Tipo de Metadato
         other: Tipos de Metadato
