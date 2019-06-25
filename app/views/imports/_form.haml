@@ -1,5 +1,5 @@
 #import-form.tab-pane.fade.show.active
-  = form_for @import, as: :import, url: imports_path, multipart: true do |f|
+  = form_with model: @import, scope: :import, url: imports_path, multipart: true, local: true do |f|
     - if @import.errors.any?
       .row.import_global_data
         .col

@@ -1,6 +1,7 @@
 %h2= t('.sign_in')
 
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+-# FIXME Change to remote, handle errors and responses
+= form_with model: resource, as: resource_name, url: session_path(resource_name), local: true, id: 'user' do |f|
   .field
     = f.label :email
     %br

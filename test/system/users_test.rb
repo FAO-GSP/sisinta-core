@@ -10,7 +10,7 @@ class UsersTest < ApplicationSystemTestCase
       page.must_have_selector 'input[type=email]', count: 1
       page.must_have_selector 'input[type=password]', count: 1
 
-      within 'form#new_user' do
+      within 'form#user' do
         fill_in 'user_email', with: subject.email
         fill_in 'user_password', with: subject.password
 
@@ -41,7 +41,7 @@ class UsersTest < ApplicationSystemTestCase
     it 'can sign up but must confirm mail' do
       visit new_user_registration_path
 
-      within 'form#new_user' do
+      within 'form#user' do
         fill_in 'user_email', with: subject.email
         fill_in 'user_name', with: subject.name
         fill_in 'user_password', with: subject.password

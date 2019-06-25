@@ -6,11 +6,12 @@
     .btn-toolbar
       - if user_signed_in?
         .btn-group.btn-group-sm.mr-2
-          = form_tag selection_path(selections: { session: true }), method: :put do
-            = submit_tag t('.select_all'), class: 'btn btn-sm btn-primary'
+          -# FIXME Change to remote, handle selections
+          = form_with url: selection_path(selections: { session: true }), method: :put, local: true do |f|
+            = f.submit t('.select_all'), class: 'btn btn-sm btn-primary'
         .btn-group.btn-group-sm.mr-2
-          = form_tag selection_path(selections: { session: true, remove: true }), method: :put do
-            = submit_tag t('.select_none'), class: 'btn btn-sm btn-primary'
+          = form_with url: selection_path(selections: { session: true, remove: true }), method: :put, local: true do |f|
+            = f.submit t('.select_none'), class: 'btn btn-sm btn-primary'
 
   .col
     = paginate profiles, theme: 'sisinta'

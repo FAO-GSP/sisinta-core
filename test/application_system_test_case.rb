@@ -23,7 +23,7 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
   def login(user)
     visit new_user_session_path
 
-    within 'form#new_user' do
+    within 'form#user' do
       fill_in 'user_email', with: user.email
       fill_in 'user_password', with: user.password
 
@@ -34,7 +34,7 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
   def sign_up(user)
     visit new_user_registration_path
 
-    within 'form#new_user' do
+    within 'form#user' do
       fill_in 'user_email', with: subject.email
       fill_in 'user_name', with: subject.name
       fill_in 'user_password', with: subject.password
