@@ -62,6 +62,15 @@ module ApplicationHelper
     { message: message, type: notification_class(name) }
   end
 
+  # Format the list of allowed country codes as options for select.
+  def country_codes(selected = nil)
+    options_for_select formatted_codes, selected
+  end
+
+  def country_from_code(code)
+    ISO3166::Country.find_country_by_alpha3(code)
+  end
+
   private
 
   # Sets up html classes for the different notifications.
@@ -73,6 +82,12 @@ module ApplicationHelper
       :danger
     else
       :info
+    end
+  end
+
+  def formatted_codes
+    Rails.configuration.engine.default_country_codes.map do |code|
+      ["#{code} (#{country_from_code(code).name})", code]
     end
   end
 end

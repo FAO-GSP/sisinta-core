@@ -13,11 +13,6 @@ module ImportsHelper
     (import.metadata.map(&:to_i) & MetadataType.for(field).ids).first
   end
 
-  # Format the list of allowed country codes as options for select.
-  def country_codes(selected = nil)
-    options_for_select Rails.configuration.engine.default_country_codes, selected
-  end
-
   private
 
   # Reuse instance variable from controller.

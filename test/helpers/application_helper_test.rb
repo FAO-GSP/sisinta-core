@@ -22,5 +22,11 @@ class ApplicationHelperTest < ActionView::TestCase
         end
       end
     end
+
+    describe '#country_from_code' do
+      it 'returns a country object' do
+        country_from_code('ARG').must_be_instance_of ISO3166::Country
+      end
+    end
   end
 end

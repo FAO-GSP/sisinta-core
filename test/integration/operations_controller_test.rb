@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ProfilesControllerTest < ActionDispatch::IntegrationTest
+class OperationsControllerTest < ActionDispatch::IntegrationTest
   let(:operation) { create :operation }
 
   describe 'as guest' do
