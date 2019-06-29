@@ -1,4 +1,4 @@
-# Layer presentation methods
+# Layer presentation methods.
 
 class LayerDecorator < ApplicationDecorator
   decorates_association :profile

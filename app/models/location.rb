@@ -1,6 +1,7 @@
-# Profile location data, notably [latitude, longitude] coordinates
+# Profile location data, notably [latitude, longitude] coordinates.
+
 class Location < ApplicationRecord
-  # Touch it's profile for cache busting
+  # Touch it's profile for cache busting.
   belongs_to :profile, touch: true
 
   attribute :latitude, :decimal
@@ -42,7 +43,7 @@ class Location < ApplicationRecord
   private
 
   # Updates the geolocation column with provided [longitude, latitude] values.
-  # FIXME This prevents setting coordinates to nil
+  # FIXME This prevents setting coordinates to nil.
   def update_coordinates
     if longitude.present? && latitude.present?
       self.coordinates = Location.generate_coordinates(
@@ -52,7 +53,7 @@ class Location < ApplicationRecord
     end
   end
 
-  # Loads virtual attributes from the DB values
+  # Loads virtual attributes from the DB values.
   def load_latitude_and_longitude
     self.latitude = coordinates.try :latitude
     self.longitude = coordinates.try :longitude

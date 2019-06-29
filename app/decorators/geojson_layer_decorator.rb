@@ -1,23 +1,23 @@
-# Creates a GeoJSON compatible representation of a Layer
+# Creates a GeoJSON compatible representation of a Layer.
 
 class GeojsonLayerDecorator < LayerDecorator
   decorates :layer
 
   # Filters layer attributes and/or adds extra, i.e. profile attributes, to
   # the layer.
-  # TODO Reduce duplication with CsvLayerDecorator
+  # TODO Reduce duplication with CsvLayerDecorator.
   def serializable_hash(options = nil)
     super GeojsonLayerDecorator.exportable_attributes
   end
 
   # Distinguish from profile identifier.
-  # TODO Reduce duplication with CsvLayerDecorator
+  # TODO Reduce duplication with CsvLayerDecorator.
   def layer_identifier
     identifier
   end
 
   # Default attributes to export as csv when no filter is provided.
-  # TODO Reduce duplication with CsvLayerDecorator
+  # TODO Reduce duplication with CsvLayerDecorator.
   def self.exportable_attributes
     {
       only: [

@@ -1,4 +1,4 @@
-# MetadataType presentation methods
+# MetadataType presentation methods.
 
 class MetadataTypeDecorator < ApplicationDecorator
   def display_name

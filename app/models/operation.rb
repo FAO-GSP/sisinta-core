@@ -3,7 +3,7 @@
 # the caches after it runs.
 
 class Operation < ApplicationRecord
-  # Acts as a State Machine
+  # Acts as a State Machine.
   include AASM
 
   belongs_to :user

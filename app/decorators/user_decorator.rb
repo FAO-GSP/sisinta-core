@@ -1,4 +1,5 @@
-# User presentation methods
+# User presentation methods.
+
 class UserDecorator < ApplicationDecorator
   def name
     object.name.titleize
@@ -8,7 +9,7 @@ class UserDecorator < ApplicationDecorator
     object.email.downcase
   end
 
-  # Generates a string like "Name (email)"
+  # Generates a string like "Name (email)".
   def name_and_email
     "#{name} (#{email})"
   end

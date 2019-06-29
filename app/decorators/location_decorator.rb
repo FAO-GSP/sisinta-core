@@ -1,4 +1,5 @@
-# Location presentation methods
+# Location presentation methods.
+
 class LocationDecorator < ApplicationDecorator
   def coordinates
     coordinates_array.join ', ' if coordinates_array.present?

@@ -1,3 +1,5 @@
+# Operation presentation methods.
+
 class OperationDecorator < ApplicationDecorator
   # i18n-tasks-use t('activerecord.attributes.operation.new')
   # i18n-tasks-use t('activerecord.attributes.operation.queued')
