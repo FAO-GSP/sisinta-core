@@ -10,6 +10,10 @@ class ProfileDecoratorTest < Draper::TestCase
     it 'has a default identifier' do
       subject.identifier.wont_be :nil?
     end
+
+    it 'is nil for new records' do
+      Profile.new.decorate.identifier.must_be :nil?
+    end
   end
 
   describe '#date' do

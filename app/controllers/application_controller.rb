@@ -39,13 +39,10 @@ class ApplicationController < ActionController::Base
 
   # Used here for authentication and by ActiveAdmin when checking
   # authorization. `rescue_from` passes the exception.
+  # i18n-tasks-use t('unauthorized.default')
   def access_denied(exception = nil)
     respond_to do |format|
-      format.js do
-        head :forbidden
-      end
-
-      format.json do
+      format.any(:js, :json, :geojson) do
         head :forbidden
       end
 

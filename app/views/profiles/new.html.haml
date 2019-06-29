@@ -1,0 +1,12 @@
+- content_for :page_title do
+  = 'nuevo perfil'
+
+-# Default site navigation
+.row.button-bar
+  .col
+    .btn-toolbar
+      .btn-group.btn-group-sm.mr-2
+        = link_to t('back'), profiles_path, class: 'btn btn-primary'
+
+-# TODO Load a configured default or per user form template
+= render 'form', profile: profile

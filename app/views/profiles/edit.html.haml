@@ -1,0 +1,19 @@
+- content_for :page_title do
+  = profile.identifier
+
+-# Default site navigation
+.row.button-bar
+  .col
+    .btn-toolbar
+      .btn-group.btn-group-sm.mr-2
+        = link_to t('back'), profile, class: 'btn btn-primary'
+      - if can? :destroy, @profile
+        .btn-group.btn-group-sm.mr-2
+          = link_to t('delete'), profile, class: 'btn btn-danger', data: { confirm: t('confirm_delete') }, method: :delete
+      - if can? :create, Profile
+        .btn-group.btn-group-sm.mr-2
+          = link_to t('new'), new_profile_path, class: 'btn btn-success'
+
+
+-# TODO Load a configured default or per user form template
+= render 'form', profile: profile
