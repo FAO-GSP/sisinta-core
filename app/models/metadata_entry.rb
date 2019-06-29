@@ -17,7 +17,7 @@ class MetadataEntry < ApplicationRecord
   def one_entry_per_profile_field
     metadata = profile.metadata_types.for(metadata_type.field_name)
 
-    # Allow replacing the metadata_type_id for this entry to work from ActiveAdmin
+    # Allow replacing the metadata_type_id for this entry to work from ActiveAdmin.
     if metadata.where.not(metadata_entries: metadata_type_id_was).any?
       errors.add :metadata_type, :fields_cant_have_more_than_one_entry
     end

@@ -1,4 +1,4 @@
-# MetadataEntry presentation methods
+# MetadataEntry presentation methods.
 
 class MetadataEntryDecorator < ApplicationDecorator
   decorates_association :profile

@@ -1,4 +1,5 @@
 # Helper methods for GeoJSON serialization, included by decorators.
+
 module GeojsonSerializer
   # Use profile_url directly without ViewContext.
   include Rails.application.routes.url_helpers
@@ -11,7 +12,7 @@ module GeojsonSerializer
   # Primary generator method, called by ProfilesController each request.
   # Iterates in batches over Profiles loading only its cached GeoJson
   # representation for performance reasons.
-  # TODO Pass options for properties inclusion (e.g. layers)
+  # TODO Pass options for properties inclusion (e.g. layers).
   def as_json(*_args)
     { 'type' => 'FeatureCollection', 'features' => features }
   end

@@ -1,11 +1,12 @@
-# ProfileType presentation methods
+# ProfileType presentation methods.
+
 class ProfileTypeDecorator < ApplicationDecorator
-  # Just return the value
+  # Just return the value.
   def to_s
     value
   end
 
-  # Return a formatted value
+  # Return a formatted value.
   def value
     object.value.titleize
   end
