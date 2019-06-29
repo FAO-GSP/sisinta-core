@@ -21,9 +21,11 @@ class ProfileDecorator < ApplicationDecorator
     h.link_to identifier, object
   end
 
-  # Identifier with fallback.
-  # i18n-tasks-use t('activerecord.models.profile').
+  # Identifier with fallback unless it's a new record.
+  # i18n-tasks-use t('activerecord.models.profile')
   def identifier
+    return nil if object.new_record?
+
     object.identifier.present? ? object.identifier : last_resort_identifier
   end
 

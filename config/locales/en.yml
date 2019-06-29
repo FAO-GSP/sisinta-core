@@ -124,6 +124,7 @@ en:
       session_link:
         sign_in: Sign in
         sign_out: Sign out
+  edit: Edit
   file_input:
     browse: Browse
   helpers:
@@ -237,6 +238,7 @@ en:
     index:
       info_text: "%{profiles} profiles (%{public_profiles} of which are public)."
       title: Welcome
+  new: New
   operations:
     create:
       no_operation: No operation called "%{name}"
@@ -263,6 +265,8 @@ en:
       download: Download
       info: Operation information
   profiles:
+    create:
+      success: The profile has been created.
     destroy:
       success: The profile has been deleted.
     index:
@@ -295,6 +299,8 @@ en:
       map: Map
       metadata: Metadata
       properties: Properties
+    update:
+      success: The profile has been updated.
   rapi:
     response:
       code:
@@ -307,3 +313,5 @@ en:
         one: "%{count} selected Profile"
         other: "%{count} selected Profiles"
   translations: Translations
+  unauthorized:
+    default: You are not authorized to access this page.

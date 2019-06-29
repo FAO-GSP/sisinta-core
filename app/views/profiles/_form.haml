@@ -1,0 +1,52 @@
+= form_with model: profile, local: true do |f|
+  .row
+    .col
+      %h4= 'propiedades'
+
+      .form-group.row
+        = f.label :identifier, Profile.human_attribute_name(:identifier), class: 'col-sm-4'
+        .col-sm-8= f.text_field :identifier, class: 'form-control'
+
+      .form-group.row
+        = f.label :type_id, Profile.human_attribute_name(:type), class: 'col-sm-4'
+        .col-sm-8= f.collection_select :type_id, ProfileType.all.decorate, :id, :value, {}, required: true, class: 'form-control'
+
+      .form-group.row
+        = f.label :date, Profile.human_attribute_name(:date), class: 'col-sm-4'
+        .col-sm-8= f.text_field :date, class: 'form-control'
+
+      .form-group.row
+        = f.label :country_code, Profile.human_attribute_name(:country_code), class: 'col-sm-4'
+        .col-sm-8= f.select :country_code, country_codes(profile.country_code),
+          { prompt: true }, required: true, class: 'form-control'
+
+      .form-group.row
+        = f.label :order, Profile.human_attribute_name(:order), class: 'col-sm-4'
+        .col-sm-8= f.text_field :order, class: 'form-control'
+
+      .form-group.row
+        = f.label :source, Profile.human_attribute_name(:source), class: 'col-sm-4'
+        .col-sm-8= f.text_field :source, required: true, class: 'form-control'
+
+      .form-group.row
+        = f.label :contact, Profile.human_attribute_name(:contact), class: 'col-sm-4'
+        .col-sm-8= f.text_field :contact, class: 'form-control'
+
+      .form-group.row
+        = f.label :license_id, Profile.human_attribute_name(:license), class: 'col-sm-4'
+        .col-sm-8= f.collection_select :license_id, License.all.decorate, :id, :full_name, {}, required: true, class: 'form-control'
+
+      .form-group
+        .form-check
+          = f.check_box :public, class: 'form-check-input'
+          = f.label :public, Profile.human_attribute_name(:public), class: 'form-check-label'
+
+  .row
+    .col
+      %h4= 'horizontes'
+
+  .row
+    .col
+      %h4= 'metadatos'
+
+  = f.submit

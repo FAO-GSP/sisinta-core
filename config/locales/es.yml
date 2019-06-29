@@ -124,6 +124,7 @@ es:
       session_link:
         sign_in: Entrar
         sign_out: Salir
+  edit: Editar
   file_input:
     browse: Elegir
   helpers:
@@ -237,6 +238,7 @@ es:
     index:
       info_text: "%{profiles} perfiles (%{public_profiles} públicos)."
       title: Inicio
+  new: Nuevo
   operations:
     create:
       no_operation: Ninguna operación llamada "%{name}"
@@ -263,6 +265,8 @@ es:
       download: Descargar
       info: Información de la operación
   profiles:
+    create:
+      success: El perfil ha sido creado.
     destroy:
       success: El perfil ha sido eliminado.
     index:
@@ -295,6 +299,8 @@ es:
       map: Mapa
       metadata: Metadatos
       properties: Propiedades
+    update:
+      success: El perfil ha sido actualizado.
   rapi:
     response:
       code:
@@ -307,3 +313,5 @@ es:
         one: "%{count} Perfil seleccionado"
         other: "%{count} Perfiles seleccionados"
   translations: Traducciones
+  unauthorized:
+    default: No tienes autorización para acceder a esta página.

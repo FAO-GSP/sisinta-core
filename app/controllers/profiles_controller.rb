@@ -2,7 +2,7 @@ class ProfilesController < ApplicationController
   include GeojsonCache
 
   before_action :setup_profiles, only: :index
-  load_and_authorize_resource only: [:show, :destroy]
+  load_and_authorize_resource
 
   decorates_assigned :profile, :profiles
 
@@ -43,7 +43,40 @@ class ProfilesController < ApplicationController
     end
   end
 
+  def update
+    respond_to do |format|
+      if @profile.update(profile_params)
+        format.html { redirect_to @profile, notice: I18n.t('profiles.update.success') }
+      else
+        format.html { render :edit }
+      end
+    end
+  end
+
+  def new
+    @profile = current_user.profiles.build
+  end
+
+  def create
+    @profile.assign_attributes user: current_user
+
+    respond_to do |format|
+      if @profile.save
+        format.html { redirect_to @profile, notice: I18n.t('profiles.create.success') }
+      else
+        format.html { render :new }
+      end
+    end
+  end
+
   protected
+
+  def profile_params
+    params.require(:profile).permit(
+      :identifier, :type_id, :date, :country_code, :order, :source, :contact,
+      :license_id, :public
+    )
+  end
 
   def setup_profiles
     @profiles =
