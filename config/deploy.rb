@@ -1,5 +1,5 @@
 # Config valid for this version and patch releases of Capistrano
-lock "~> 3.11.0"
+lock '~> 3.11.0'
 
 set :application, 'sislac'
 set :repo_url, 'git@github.com:fao-gsp/sisinta-core.git'
