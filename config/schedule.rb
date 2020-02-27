@@ -2,7 +2,7 @@
 # TODO Extract shared path from ENV
 
 # Use its own log.
-set :output, '/srv/http/sislac/shared/log/cron.log'
+set :output, 'log/cron.log'
 
 # Custom job type with ENV variables set.
 job_type :env_command, 'cd :path && RAILS_ENV=:environment bin/:task :output'

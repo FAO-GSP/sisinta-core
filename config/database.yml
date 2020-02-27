@@ -10,7 +10,7 @@ default: &default
 
 development:
   <<: *default
-  database: sisinta_development
+  database: sislac
 
 test:
   <<: *default
