@@ -30,6 +30,8 @@ data:
 
   # List external locale data (e.g. gems).
   external:
+    # Engine provided keys.
+    - "<%= %x[bundle show sislac].chomp %>/config/locales/%{locale}.yml"
     - "<%= %x[bundle show activeadmin].chomp %>/config/locales/%{locale}.yml"
     - "<%= %x[bundle show rails-i18n].chomp %>/rails/locale/%{locale}.yml"
     - "<%= %x[bundle show devise-i18n].chomp %>/rails/locales/%{locale}.yml"
@@ -93,10 +95,7 @@ search:
 #   deepl_api_key: "48E92789-57A3-466A-9959-1A1A1A1A1A1A"
 
 ## Do not consider these keys missing:
-ignore_missing:
-  # Ignore engine provided keys
-  - 'map.index.info_title'
-  - 'layouts.navbar.help.url'
+# ignore_missing:
 
 ## Consider these keys used:
 # ignore_unused:
