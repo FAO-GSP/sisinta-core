@@ -12,11 +12,6 @@ ActiveAdmin.register_page 'Dashboard' do
           end
         end
       end
-
-      column do
-        panel I18n.t 'admin.dashboard.how_to_translate' do
-        end
-      end
     end
   end
 end

@@ -105,7 +105,6 @@ en:
   admin:
     dashboard:
       admin_users: Admin Users
-      how_to_translate: How to translate
     menu:
       lookup_tables: Lookup Tables
     sidebar:
