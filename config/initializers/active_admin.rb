@@ -52,7 +52,7 @@ ActiveAdmin.setup do |config|
     end
 
     admin.build_menu do |menu|
-      menu.add id: 'lookup_tables', label: -> { I18n.t('admin.menu.lookup_tables') }
+      menu.add id: 'lookup_tables', label: proc { I18n.t('admin.menu.lookup_tables') }
     end
   end
 end
