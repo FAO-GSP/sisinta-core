@@ -50,5 +50,9 @@ ActiveAdmin.setup do |config|
       admin.add_current_user_to_menu menu
       admin.add_logout_button_to_menu menu
     end
+
+    admin.build_menu do |menu|
+      menu.add id: 'lookup_tables', label: -> { I18n.t('admin.menu.lookup_tables') }
+    end
   end
 end

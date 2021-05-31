@@ -5,8 +5,7 @@
 # i18n-tasks-use t('activerecord.attributes.metadata_type.value')
 # i18n-tasks-use t('activerecord.attributes.metadata_type.translated_value')
 ActiveAdmin.register MetadataType do
-  # FIXME It's only loaded on startup, with default locale
-  menu parent: I18n.t('admin.menu.lookup_tables')
+  menu parent: 'lookup_tables'
 
   permit_params :field_name, :value_es, :value_en
 

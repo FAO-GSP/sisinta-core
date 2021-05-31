@@ -8,7 +8,7 @@
 # i18n-tasks-use t('activerecord.attributes.license.statement')
 # i18n-tasks-use t('activerecord.attributes.license.default')
 ActiveAdmin.register License do
-  menu parent: I18n.t('admin.menu.lookup_tables')
+  menu parent: 'lookup_tables'
 
   permit_params :name, :url, :acronym, :statement, :default
 
