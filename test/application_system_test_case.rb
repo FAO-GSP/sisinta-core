@@ -10,9 +10,10 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
   # Model initialization helpers.
   include FactoryBot::Syntax::Methods
 
-  driven_by :selenium, using: :chrome, screen_size: [1400, 1400]
+  driven_by :selenium, using: :headless_chrome
 
   # Stub external urls for every test case.
+  # FIXME, It makes the browser wait during tests.
   def run
     MapHelper.stub :google_maps_api_url, 'http://stub' do
       super
