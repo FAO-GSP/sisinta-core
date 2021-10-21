@@ -32,7 +32,7 @@ ActiveAdmin.register MetadataType do
     attributes_table do
       row :field_name
 
-      metadata_type.translated_attribute_names.each do |attribute|
+      metadata_type.translated_attributes.keys.each do |attribute|
         I18n.available_locales.collect do |locale|
           row(MetadataType.human_attribute_name(:translated_value, language: locale.upcase)) { |type| type.send([attribute, locale].join('_').to_sym) }
         end
@@ -48,7 +48,7 @@ ActiveAdmin.register MetadataType do
     f.inputs do
       f.input :field_name, as: :select, collection: MetadataType::FIELD_NAMES
 
-      metadata_type.translated_attribute_names.each do |attribute|
+      metadata_type.translated_attributes.keys.each do |attribute|
         I18n.available_locales.each do |locale|
           f.input [attribute, locale].join('_'),
             label: MetadataType.human_attribute_name(:translated_value, language: locale.upcase)

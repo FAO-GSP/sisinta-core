@@ -37,6 +37,8 @@ class ProfilesController < ApplicationController
     end
 
     respond_to do |format|
+      # FIXME, Tests sometimes failing?
+      # FIXME, bin/rails test test/system/profile_test.rb:34
       format.html { redirect_to profiles_path, notice: I18n.t('profiles.destroy.success') }
     end
   end
