@@ -17,7 +17,7 @@ gem 'cancancan'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
-gem 'puma', '~> 3.11'
+gem 'puma'
 gem 'actionpack-page_caching'
 gem 'delayed_job_active_record'
 gem 'daemons'
