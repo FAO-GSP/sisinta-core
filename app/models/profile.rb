@@ -19,6 +19,7 @@ class Profile < ApplicationRecord
   validates :type, presence: true
   validates :license, presence: true
   validates :uuid, uniqueness: { allow_nil: true }
+  validate :one_metadata_entry_per_type
 
   accepts_nested_attributes_for :location, :layers
 
@@ -66,5 +67,15 @@ class Profile < ApplicationRecord
   # Pregenerate and cache a GeoJSON representation of this Profile.
   def generate_geojson
     update_column :geojson, GeojsonProfileDecorator.new(self).as_encoded_feature
+  end
+
+  # Do not allow more than one Entry per field_name in MetadataType for this Profile.
+  # i18n-tasks-use t('activerecord.errors.models.profile.attributes.metadata_entries.fields_cant_have_more_than_one_entry')
+  def one_metadata_entry_per_type
+    field_names = metadata_entries.collect { |entry| entry.metadata_type.field_name }
+
+    unless field_names == field_names.uniq
+      errors.add :metadata_entries, :fields_cant_have_more_than_one_entry
+    end
   end
 end

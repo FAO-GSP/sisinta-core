@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.4'
+ruby '2.6.7'
 
 gem 'rails', '~> 5.2.2'
 
@@ -59,7 +59,8 @@ gem 'devise-i18n'
 gem 'kaminari-i18n'
 gem 'i18n_data'
 gem 'countries'
-gem 'mobility'
+# TODO, Unfreeze after updating.
+gem 'mobility', '~> 0.8'
 
 # Administration
 gem 'activeadmin'

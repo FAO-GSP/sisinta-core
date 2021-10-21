@@ -79,6 +79,10 @@ es:
           attributes:
             metadata_type:
               fields_cant_have_more_than_one_entry: Los campos no pueden tener más de un metadato
+        profile:
+          attributes:
+            metadata_entries:
+              fields_cant_have_more_than_one_entry: Los campos no pueden tener más de un metadato
         profile_type:
           attributes:
             default:

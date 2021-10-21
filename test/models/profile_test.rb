@@ -186,7 +186,7 @@ describe Profile do
     it 'destroys them' do
       entry_id = create(:metadata_entry, profile: subject).id
 
-      subject.destroy
+      subject.reload.destroy
 
       MetadataEntry.where(id: entry_id).must_be :empty?
     end

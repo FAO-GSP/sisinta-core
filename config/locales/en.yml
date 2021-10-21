@@ -79,6 +79,10 @@ en:
           attributes:
             metadata_type:
               fields_cant_have_more_than_one_entry: Fields can't have more than one metadata entry
+        profile:
+          attributes:
+            metadata_entries:
+              fields_cant_have_more_than_one_entry: Fields can't have more than one metadata entry
         profile_type:
           attributes:
             default:
