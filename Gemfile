@@ -59,8 +59,7 @@ gem 'devise-i18n'
 gem 'kaminari-i18n'
 gem 'i18n_data'
 gem 'countries'
-# TODO, Unfreeze after updating.
-gem 'mobility', '~> 0.8'
+gem 'mobility'
 
 # Administration
 gem 'activeadmin'

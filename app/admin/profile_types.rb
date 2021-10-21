@@ -30,7 +30,7 @@ ActiveAdmin.register ProfileType do
     attributes_table do
       row :default
 
-      profile_type.translated_attribute_names.each do |attribute|
+      profile_type.translated_attributes.keys.each do |attribute|
         I18n.available_locales.collect do |locale|
           row(ProfileType.human_attribute_name(:translated_value, language: locale.upcase)) { |type| type.send([attribute, locale].join('_').to_sym) }
         end
@@ -44,7 +44,7 @@ ActiveAdmin.register ProfileType do
     f.semantic_errors
 
     f.inputs do
-      profile_type.translated_attribute_names.each do |attribute|
+      profile_type.translated_attributes.keys.each do |attribute|
         I18n.available_locales.each do |locale|
           f.input [attribute, locale].join('_'),
             label: ProfileType.human_attribute_name(:translated_value, language: locale.upcase)
