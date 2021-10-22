@@ -31,11 +31,11 @@ data:
   # List external locale data (e.g. gems).
   external:
     # Engine provided keys.
-    - "<%= %x[bundle show sislac].chomp %>/config/locales/%{locale}.yml"
-    - "<%= %x[bundle show activeadmin].chomp %>/config/locales/%{locale}.yml"
-    - "<%= %x[bundle show rails-i18n].chomp %>/rails/locale/%{locale}.yml"
-    - "<%= %x[bundle show devise-i18n].chomp %>/rails/locales/%{locale}.yml"
-    - "<%= %x[bundle show kaminari-i18n].chomp %>/config/locales/%{locale}.yml"
+    - "<%= %x[bundle info sislac --path].chomp %>/config/locales/%{locale}.yml"
+    - "<%= %x[bundle info activeadmin --path].chomp %>/config/locales/%{locale}.yml"
+    - "<%= %x[bundle info rails-i18n --path].chomp %>/rails/locale/%{locale}.yml"
+    - "<%= %x[bundle info devise-i18n --path].chomp %>/rails/locales/%{locale}.yml"
+    - "<%= %x[bundle info kaminari-i18n --path].chomp %>/config/locales/%{locale}.yml"
 
   ## Specify the router (see Readme for details). Valid values: conservative_router, pattern_router, or a custom class.
   # router: conservative_router
