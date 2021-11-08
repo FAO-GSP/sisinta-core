@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 require 'fileutils'
 
-# path to your application root.
+# Path to your application root.
 APP_ROOT = File.expand_path('..', __dir__)
 
 def system!(*args)
@@ -12,7 +12,9 @@ FileUtils.chdir APP_ROOT do
   # This script helps in setting up the application. It should be idempotent.
 
   puts '== Installing dependencies =='
-  system! 'gem install bundler mailcatcher --conservative'
+  # Install bundler version specified by Gemfile.lock.
+  system! 'tail -n 1 Gemfile.lock | xargs gem install bundler --version'
+  system! 'gem install mailcatcher --conservative'
   system('bundle check') || system!('bundle install')
 
   # Install JavaScript dependencies.
@@ -24,7 +26,7 @@ FileUtils.chdir APP_ROOT do
   puts "\n== Removing old logs and tempfiles =="
   system! 'bin/rails log:clear tmp:clear'
 
-  # Checkear que tengamos algo para correr el Procfile.
+  # For running services defined in `Procfile`.
   puts "\n== Checking for process managers =="
   if (managers = `sh -c "command -v overmind hivemind foreman"`.split("\n")).any?
     puts "\nStart development services with:"
