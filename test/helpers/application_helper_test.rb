@@ -27,6 +27,13 @@ class ApplicationHelperTest < ActionView::TestCase
       it 'returns a country object' do
         country_from_code('ARG').must_be_instance_of ISO3166::Country
       end
+
+      it 'returns a country object for every valid code' do
+        Rails.configuration.engine.default_country_codes.each do |code|
+          country_from_code(code).must_be_instance_of ISO3166::Country,
+            "Unable to find #{code} country information"
+        end
+      end
     end
   end
 end

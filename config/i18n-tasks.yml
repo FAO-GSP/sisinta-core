@@ -95,8 +95,9 @@ search:
 #   # Get an API key and subscription at https://www.deepl.com/pro to use DeepL Pro
 #   deepl_api_key: "48E92789-57A3-466A-9959-1A1A1A1A1A1A"
 
-## Do not consider these keys missing:
-# ignore_missing:
+# Not all customizations have these keys.
+ignore_missing:
+  - 'layouts.navbar.help.url'
 
 ## Consider these keys used:
 # ignore_unused:

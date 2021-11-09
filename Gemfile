@@ -6,7 +6,7 @@ ruby '2.7.4'
 gem 'rails', '~> 5.2.2'
 
 # App customization engine
-gem 'sislac', '0.1.1', github: 'fao-gsp/sislac-extensions'
+gem 'sislac', '0.2.0', github: 'fao-gsp/sislac-extensions'
 
 # Authentication
 gem 'devise'

@@ -116,20 +116,11 @@ module Etl
 
     # Returns ISO 3166-1 alpha-3 from ISO 3166-1 alpha-2.
     def self.iso_alpha3(iso_alpha2:)
-      case iso_alpha2
-      # AN/ANT is deprecated, so it's not recognizable by 'countries' gem. We have
-      # to treat it as an exception until we develop something for obsolete data.
-      #
-      # See https://github.com/FAO-GSP/SISLAC/issues/3
-      when 'AN'
-        'ANT'
-      else
-        # Search country by alpha2 code.
-        country = ISO3166::Country.new iso_alpha2
+      # Search country by alpha2 code.
+      country = ISO3166::Country.new iso_alpha2
 
-        # Returns nil if none found.
-        country && country.alpha3
-      end
+      # Returns nil if none found.
+      country && country.alpha3
     end
   end
 end

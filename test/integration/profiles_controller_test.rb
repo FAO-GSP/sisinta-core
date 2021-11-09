@@ -123,12 +123,15 @@ class ProfilesControllerTest < ActionDispatch::IntegrationTest
       let(:new_license) { create :license }
 
       it 'updates a profile' do
+        # Some customizations have only 1 valid country code.
+        sample_country_code = Rails.configuration.engine.default_country_codes.sample
+
         patch profile_path(profile.to_param), params: {
           profile: {
             identifier: 'new identifier',
             type_id: new_profile_type.to_param.to_s,
             date: '15/10/1979',
-            country_code: 'URY',
+            country_code: sample_country_code,
             order: 'new order',
             source: 'new source',
             contact: 'new contact',
@@ -141,7 +144,7 @@ class ProfilesControllerTest < ActionDispatch::IntegrationTest
         profile.identifier.must_equal 'new identifier'
         profile.type.must_equal new_profile_type
         profile.date.must_equal Date.new(1979, 10, 15)
-        profile.country_code.must_equal 'URY'
+        profile.country_code.must_equal sample_country_code
         profile.order.must_equal 'new order'
         profile.source.must_equal 'new source'
         profile.contact.must_equal 'new contact'

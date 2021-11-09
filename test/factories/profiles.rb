@@ -6,7 +6,7 @@ FactoryBot.define do
     # Only create one License by default.
     license { License.default || create(:license) }
     source { generate :unique_string }
-    country_code { (Rails.configuration.engine.default_country_codes - ['ANT']).sample }
+    country_code { Rails.configuration.engine.default_country_codes.sample }
 
     transient do
       layers_count { 0 }
